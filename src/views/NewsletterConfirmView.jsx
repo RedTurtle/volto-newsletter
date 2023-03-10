@@ -22,9 +22,9 @@ const NewsletterConfirmView = ({ location }) => {
   );
 
   return (
-    <div id="page-document" className="ui container newsletter-confirm">
-      <div className="row mb-2 mb-lg-0">
-        <div className="px-lg-4 py-lg-2 col-lg-8">
+    <div id="page-document" className="ui container newsletter-confirm px-4">
+      <div className="mb-4">
+        <div className="px-0 py-lg-2 col-lg-8">
           <h1>
             {intl.formatMessage(
               messages[`${action}NewsletterConfirmViewTitle`],

@@ -6,6 +6,7 @@ export {
   confirmNewsletterSubscription,
   resetConfirmNewsletterSubscription,
 } from './actions';
+
 import Channel from './views/Channel';
 import NewsletterConfirmSubscribe from './views/NewsletterConfirmSubscribe';
 import NewsletterConfirmUnsubscribe from './views/NewsletterConfirmUnsubscribe';
@@ -25,6 +26,14 @@ const applyConfig = (config) => {
     confirmNewsletterSubscription: confirmNewsletterSubscriptionReducer,
   };
 
+  config.addonRoutes = [
+    ...config.addonRoutes,
+    {
+      path: '/**/confirm-subscription',
+      component: NewsletterConfirmView,
+    },
+  ];
+
   config.views.contentTypesViews = {
     ...config.views.contentTypesViews,
     Channel,
@@ -34,3 +43,10 @@ const applyConfig = (config) => {
 };
 
 export default applyConfig;
+
+export {
+  Channel,
+  NewsletterConfirmSubscribe,
+  NewsletterConfirmUnsubscribe,
+  NewsletterConfirmView,
+};
