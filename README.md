@@ -5,7 +5,7 @@ Volto addon for newsletter integration. For now, it only works with [rer.newslet
 Install with mrs-developer (see [Volto docs](https://6.docs.plone.org/volto/addons/index.html)) or with:
 
 ```bash
-yarn add volto-newsletter
+yarn add @redturtle/volto-newsletter
 ```
 
 ## Usage
