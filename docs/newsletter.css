@@ -1,0 +1,294 @@
+/*
+:root {
+   color-scheme: light dark;
+   supported-color-schemes: light dark;
+}
+*/
+
+html {
+  width: 100%;
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 16px;
+}
+
+body {
+  max-width: 600px;
+  margin: auto;
+}
+
+table {
+  max-width: 600px;
+  margin: auto;
+  border-collapse: collapse;
+}
+
+td {
+  padding: 0;
+}
+
+/*
+@media only screen and (max-width: 600px) {
+*/
+/* just targets gmail, Parser will remove these otherwise */
+/*
+  u ~ .body .gmail-blend-screen {
+    background: #ffffff !important;
+    mix-blend-mode: screen !important;
+    color: #ffffff !important;
+  }
+  u ~ .body .gmail-blend-difference {
+    background: #ffffff !important;
+    mix-blend-mode: difference !important;
+    color: #ffffff !important;
+  }
+
+  u ~ .body a {
+    color: inherit !important;
+    text-decoration: none !important;
+    font-size: inherit !important;
+    font-family: inherit !important;
+    font-weight: inherit !important;
+    line-height: inherit !important;
+  }
+  u ~ .body .header {
+    background: #ffffff !important;
+    background-image: linear-gradient(#ffffff, #ffffff) !important;
+  }
+  u ~ .body .header .brand h1,
+  u ~ .body .header .brand h3 {
+    color: #003766 !important;
+    mix-blend-mode: difference !important;
+  }
+
+  u ~ .body .footer {
+    background: #003766 !important;
+    background-image: linear-gradient(#003766, #003766) !important;
+    color: #fffffe !important;
+  }
+
+  u ~ .body .footer td.footer-main .brand,
+  u ~ .body .footer td.contacts,
+  u ~ .body .footer td.footer-disclaimer,
+  u ~ .body .footer td.footer-smallprints.trademark,
+  u ~ .body .footer td.footer-smallprints a {
+    color: #fffffe !important;
+    mix-blend-mode: difference !important;
+  }
+}
+*/
+
+.header {
+  width: 100%;
+}
+
+.header img {
+  width: 100%;
+  height: auto;
+}
+
+.divider {
+  width: 100%;
+  padding-top: 32px;
+  background-color: #003766;
+  background-image: linear-gradient(#003766, #003766);
+}
+
+.newsletterTitle {
+  padding: 24px 24px 32px 24px;
+}
+
+.newsletterTitle h1 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.newsletterTitle h4 {
+  margin-top: 12px;
+  margin-bottom: 12px;
+  font-weight: 400;
+}
+
+article.tileItem {
+  margin-bottom: 40px;
+}
+
+article.tileItem .tileImage,
+article.tileItem .tileImageNoFloat {
+  overflow: hidden;
+  height: 230px;
+}
+
+article.tileItem .tileImage img,
+article.tileItem .tileImageNoFloat img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+}
+
+article.tileItem .content {
+  padding: 16px 24px;
+}
+
+article.tileItem .content h2 a {
+  color: #003766;
+  text-decoration: none;
+}
+
+article.tileItem .content .tileBody {
+  padding-bottom: 20px;
+}
+
+article.tileItem .content a.readMore {
+  color: #003766;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/*
+.footer {
+  background: #003766;
+  background-image: linear-gradient(#003766, #003766);
+  color: #fff;
+}
+*/
+
+.footer td.footer-main {
+  padding: 48px 0 32px 0;
+}
+
+.footer td.footer-main img {
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+.footer td.contacts {
+  /*line-height: 31px;*/
+  padding: 8px 112px 0;
+  font-size: 16px;
+  text-align: center;
+}
+
+.footer td.footer-disclaimer {
+  padding: 48px 24px 16px;
+  font-size: 10px;
+}
+
+.footer td.footer-smallprints {
+  padding: 12px 24px 44px;
+}
+
+.footer td.footer-smallprints .trademark {
+  display: inline-block;
+  float: left;
+}
+
+.footer td.footer-smallprints .unsubscribe {
+  display: inline-block;
+  float: right;
+}
+
+/*
+.footer a {
+  color: #fff;
+}
+*/
+
+@media only screen and (max-width: 480px) {
+  .header td {
+    padding: 16px 0 16px 0 !important;
+  }
+
+  h1 {
+    font-size: 28px !important;
+  }
+
+  .newsletterTitle h4 {
+    font-size: 14px !important;
+  }
+
+  article.tileItem .content .tileBody .description {
+    font-size: 14px !important;
+  }
+
+  .footer {
+    padding: 16px 16px !important;
+  }
+
+  .footer td.footer-main {
+    padding: 48px 0 16px 0 !important;
+  }
+
+  .footer td.contacts {
+    padding: 16px 40px 0 40px !important;
+    margin-top: 0 !important;
+    font-size: 16px !important;
+    font-weight: 300 !important;
+    line-height: 24px !important;
+  }
+
+  .footer td.footer-disclaimer,
+  .footer td.footer-smallprints {
+    padding: 12px 16px !important;
+  }
+
+  .footer td.footer-disclaimer {
+    padding-top: 52px !important;
+  }
+
+  .footer td.footer-smallprints {
+    font-size: 14px !important;
+  }
+}
+
+@media only screen and (max-width: 339px) {
+  .footer td.contacts {
+    padding: 16px 16px 0 16px !important;
+    font-size: 16px !important;
+    font-weight: 300 !important;
+    line-height: 24px !important;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  /*
+  .footer {
+    background: #003766 !important;
+    background-image: linear-gradient(#003766, #003766) !important;
+  }
+  .header {
+    background: #fffffe !important;
+    background-image: linear-gradient(#fffffe, #fffffe) !important;
+  }
+  .header td {
+    background: #fffffe !important;
+    background-image: linear-gradient(#fffffe, #fffffe) !important;
+  }
+  .header .brand h1 {
+    color: #003766 !important;
+  }
+  .header .brand h3 {
+    color: #003766 !important;
+  }
+*/
+  .newsletterTitle h1,
+  .newsletterTitle h4.newsletterDate,
+  .content h2 a,
+  .content .tileBody .description,
+  .content a.readMore,
+  .footer td.contacts,
+  .footer td.contacts a,
+  .footer td.footer-disclaimer,
+  .footer td.footer-disclaimer a,
+  .footer td.footer-smallprints,
+  .footer td.footer-smallprints a {
+    color: white !important;
+  }
+  /*
+  .divider {
+    background-color: #003766 !important;
+    background-image: linear-gradient(#003766, #003766) !important;
+  }
+*/
+}
