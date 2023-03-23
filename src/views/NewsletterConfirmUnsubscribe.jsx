@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { defineMessages, useIntl } from 'react-intl';
-import { Form, Icon, Button } from 'design-react-kit/dist/design-react-kit';
+import { Form, Icon, Button } from 'design-react-kit';
 import { confirmNewsletterSubscription } from '../actions';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';

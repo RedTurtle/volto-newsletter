@@ -1,12 +1,7 @@
 import React, { useState, createRef, useCallback, useEffect } from 'react';
 import { defineMessages, useIntl } from 'react-intl';
 import { Grid } from 'semantic-ui-react';
-import {
-  Form,
-  Label,
-  Input,
-  Button,
-} from 'design-react-kit/dist/design-react-kit';
+import { Form, Label, Input, Button } from 'design-react-kit';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { Icon } from 'design-comuni-plone-theme/components/ItaliaTheme';
@@ -293,7 +288,7 @@ const Channel = ({ content, location }) => {
                   {!(subscribeLoaded && subscribeStatus !== 'error') && (
                     <>
                       <Label
-                        className="text-white font-weight-semibold active"
+                        className="text-white fw-semibold active"
                         htmlFor="input-newsletter"
                         style={{
                           transition: 'none 0 ease 0',
@@ -376,7 +371,7 @@ const Channel = ({ content, location }) => {
                 {!(unsubscribeLoaded && unsubscribeStatus !== 'error') && (
                   <>
                     <Label
-                      className="text-white font-weight-semibold active"
+                      className="text-white fw-semibold active"
                       htmlFor="input-newsletter"
                       style={{
                         transition: 'none 0 ease 0',
