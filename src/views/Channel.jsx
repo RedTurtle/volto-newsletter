@@ -340,7 +340,7 @@ const Channel = ({ content, location }) => {
               tag_id={'text-body'}
               title={intl.formatMessage(messages.newsletterPrivacyStatement)}
               show_title={false}
-              content={content.privacy}
+              data={content.privacy}
             ></RichTextArticle>
             <article
               id="unsubscribe-form"
