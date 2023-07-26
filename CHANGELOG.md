@@ -1,3 +1,10 @@
+### [0.3.1](https://github.com/RedTurtle/volto-newsletter/compare/v0.3.0...v0.3.1) (2023-07-26)
+
+
+### Bug Fixes
+
+* privacy text render ([b76e5c9](https://github.com/RedTurtle/volto-newsletter/commit/b76e5c99bf1776db93e3a5bad175842982e94527))
+
 ## [0.3.0](https://github.com/RedTurtle/volto-newsletter/compare/v0.2.0...v0.3.0) (2023-03-23)
 
 
