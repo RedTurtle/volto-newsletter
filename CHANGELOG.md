@@ -1,3 +1,14 @@
+## [1.0.0](https://github.com/RedTurtle/volto-newsletter/compare/v0.3.1...v1.0.0) (2023-11-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* now compatible with design-comuni-plone-theme >=10.0.0
+
+### Changes
+
+* now compatible with design-comuni-plone-theme >=10.0.0 ([dce2c2e](https://github.com/RedTurtle/volto-newsletter/commit/dce2c2e800908ae111ea7c2d6758671d000637b2))
+
 ### [0.3.1](https://github.com/RedTurtle/volto-newsletter/compare/v0.3.0...v0.3.1) (2023-07-26)
 
 
