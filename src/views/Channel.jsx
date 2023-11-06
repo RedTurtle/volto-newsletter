@@ -8,7 +8,7 @@ import { Icon } from 'design-comuni-plone-theme/components/ItaliaTheme';
 import {
   SideMenu,
   PageHeader,
-  RichTextArticle,
+  RichTextSection,
   SkipToMainContent,
 } from 'design-comuni-plone-theme/components/ItaliaTheme/View';
 import {
@@ -258,13 +258,10 @@ const Channel = ({ content, location }) => {
             className="col-lg-8 it-page-sections-container"
           >
             {content.is_subscribable && (
-              <article
-                id="subscribe-form"
-                className="it-page-section anchor-offset"
-              >
-                <h4 id="header-subscribe-form">
+              <section id="subscribe-form" className="it-page-section mb-5">
+                <h2 id="header-subscribe-form" className="mb-3 h4">
                   {intl.formatMessage(messages.subscribeNewsletterLabel)}
-                </h4>
+                </h2>
                 {subscribeLoaded && subscribeStatus !== 'error' && (
                   <p>
                     {intl.formatMessage(
@@ -334,21 +331,18 @@ const Channel = ({ content, location }) => {
                     </>
                   )}
                 </Form>
-              </article>
+              </section>
             )}
-            <RichTextArticle
+            <RichTextSection
               tag_id={'text-body'}
               title={intl.formatMessage(messages.newsletterPrivacyStatement)}
               show_title={false}
               data={content.privacy}
-            ></RichTextArticle>
-            <article
-              id="unsubscribe-form"
-              className="it-page-section anchor-offset mt-5"
-            >
-              <h4 id="header-unsubscribe-form">
+            ></RichTextSection>
+            <section id="unsubscribe-form" className="it-page-section mb-5">
+              <h2 id="header-unsubscribe-form" className="mb-3 h4">
                 {intl.formatMessage(messages.unsubscribeNewsletterLabel)}
-              </h4>
+              </h2>
               {unsubscribeLoaded && unsubscribeStatus !== 'error' && (
                 <p>
                   {intl.formatMessage(
@@ -417,7 +411,7 @@ const Channel = ({ content, location }) => {
                   </>
                 )}
               </Form>
-            </article>
+            </section>
           </section>
         </div>
       </div>
