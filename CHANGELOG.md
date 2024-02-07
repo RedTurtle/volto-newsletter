@@ -1,3 +1,17 @@
+## [1.1.0](https://github.com/RedTurtle/volto-newsletter/compare/v1.0.0...v1.1.0) (2024-02-07)
+
+
+### Features
+
+* added view for Message ([ef7fdc3](https://github.com/RedTurtle/volto-newsletter/commit/ef7fdc317c89207ed621abd93a4fc2c3eb7ebf44))
+
+
+### Bug Fixes
+
+* release ([aa2427e](https://github.com/RedTurtle/volto-newsletter/commit/aa2427e86648c7a4cd800ffd66563df79131fa56))
+* release config ([6fbd84d](https://github.com/RedTurtle/volto-newsletter/commit/6fbd84d690528c2a96eb44f689e8773962feec40))
+* release config ([98e67d0](https://github.com/RedTurtle/volto-newsletter/commit/98e67d070078e42d304aa20070658bd849c91616))
+
 ## [1.0.0](https://github.com/RedTurtle/volto-newsletter/compare/v0.3.1...v1.0.0) (2023-11-06)
 
 
