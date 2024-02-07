@@ -8,6 +8,7 @@ export {
 } from './actions';
 
 import Channel from './views/Channel';
+import Message from './views/Message';
 import NewsletterConfirmSubscribe from './views/NewsletterConfirmSubscribe';
 import NewsletterConfirmUnsubscribe from './views/NewsletterConfirmUnsubscribe';
 import NewsletterConfirmView from './views/NewsletterConfirmView';
@@ -37,6 +38,7 @@ const applyConfig = (config) => {
   config.views.contentTypesViews = {
     ...config.views.contentTypesViews,
     Channel,
+    Message,
   };
 
   return config;
