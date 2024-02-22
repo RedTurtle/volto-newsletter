@@ -25,6 +25,63 @@
       "pre-commit": "lint-staged"
     }
   },
+  "stylelint": {
+    "extends": [
+      "stylelint-config-idiomatic-order"
+    ],
+    "plugins": [
+      "stylelint-prettier"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "**/*.scss"
+        ],
+        "customSyntax": "postcss-scss"
+      },
+      {
+        "files": [
+          "**/*.less"
+        ],
+        "customSyntax": "postcss-less"
+      },
+      {
+        "files": [
+          "**/*.overrides"
+        ],
+        "customSyntax": "postcss-less"
+      }
+    ],
+    "rules": {
+      "prettier/prettier": true,
+      "rule-empty-line-before": [
+        "always-multi-line",
+        {
+          "except": [
+            "first-nested"
+          ],
+          "ignore": [
+            "after-comment"
+          ]
+        }
+      ]
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json}": [
+      "npx eslint --max-warnings=0 --fix",
+      "npx prettier --single-quote --write"
+    ],
+    "src/**/*.{css,less}": [
+      "npx stylelint --fix"
+    ],
+    "src/**/*.scss": [
+      "npx stylelint --fix --customSyntax postcss-scss"
+    ],
+    "src/**/*.overrides": [
+      "npx stylelint --fix --syntax less"
+    ]
+  },
   "prettier": {
     "singleQuote": true,
     "trailingComma": "all"
@@ -34,7 +91,18 @@
     "@commitlint/config-conventional": "^12.1.4",
     "@plone/scripts": "*",
     "@release-it/conventional-changelog": "^2.0.1",
+    "stylelint": "15.11.0",
+    "stylelint-config-idiomatic-order": "9.0.0",
+    "stylelint-prettier": "4.0.2",
     "husky": "^6.0.0",
-    "release-it": "^14.10.1"
+    "release-it": "^14.10.1",
+    "jest-css-modules": "^2.1.0",
+    "@babel/eslint-parser": "7.23.3",
+    "@babel/plugin-proposal-export-default-from": "7.18.10"
+  },
+  "peerDependencies": {
+    "@plone/volto": ">=16.0.0-alpha.38",
+    "design-comuni-plone-theme": "*",
+    "design-reack-kit": "*"
   }
 }
