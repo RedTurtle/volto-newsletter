@@ -5,10 +5,19 @@ import { Form, Label, Input, Button } from 'design-react-kit';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { Icon } from 'design-comuni-plone-theme/components/ItaliaTheme';
-import { SideMenu, PageHeader, RichTextSection, SkipToMainContent } from 'design-comuni-plone-theme/components/ItaliaTheme/View';
-import { subscribeNewsletter, resetSubscribeNewsletter, unsubscribeNewsletter, resetUnsubscribeNewsletter } from '../actions';
+import {
+  SideMenu,
+  PageHeader,
+  RichTextSection,
+  SkipToMainContent,
+} from 'design-comuni-plone-theme/components/ItaliaTheme/View';
+import {
+  subscribeNewsletter,
+  resetSubscribeNewsletter,
+  unsubscribeNewsletter,
+  resetUnsubscribeNewsletter,
+} from '../actions';
 import HoneypotWidget from './HoneypotWidget/HoneypotWidget';
-import './_channel.scss';
 
 const messages = defineMessages({
   subscribe: {
@@ -33,15 +42,18 @@ const messages = defineMessages({
   },
   newsletterSubscriptionThankyou: {
     id: 'newsletterSubscriptionThankyou',
-    defaultMessage: 'Grazie per esserti iscritto alla newsletter. Controlla la tua casella di posta elettronica per verificare la tua iscrizione.',
+    defaultMessage:
+      'Grazie per esserti iscritto alla newsletter. Controlla la tua casella di posta elettronica per verificare la tua iscrizione.',
   },
   newsletterUnsubscriptionConfirmation: {
     id: 'newsletterUnsubscriptionConfirmation',
-    defaultMessage: "La tua richiesta di cancellazione dell'iscrizione alla newsletter è stata inviata. Controlla la tua casella di posta elettronica per verificare l'operazione.",
+    defaultMessage:
+      "La tua richiesta di cancellazione dell'iscrizione alla newsletter è stata inviata. Controlla la tua casella di posta elettronica per verificare l'operazione.",
   },
   newsletterSubscriptionError: {
     id: 'newsletterSubscriptionError',
-    defaultMessage: "Si è verificato un errore durante l'invio della richiesta. Si prega di riprovare più tardi.",
+    defaultMessage:
+      "Si è verificato un errore durante l'invio della richiesta. Si prega di riprovare più tardi.",
   },
   user_subscribe_success: {
     id: 'user_subscribe_success',
@@ -65,7 +77,8 @@ const messages = defineMessages({
   },
   unsubscribe_generic: {
     id: 'unsubscribe_generic',
-    defaultMessage: 'Errore durante la richiesta. Si prega di riprovare più tardi.',
+    defaultMessage:
+      'Errore durante la richiesta. Si prega di riprovare più tardi.',
   },
 });
 
@@ -73,11 +86,23 @@ const Channel = ({ content, location }) => {
   const intl = useIntl();
   const dispatch = useDispatch();
 
-  const { loading: subscribeLoading, loaded: subscribeLoaded, error: subscribeError, result: subscribeResult } = useSelector((state) => state.subscribeNewsletter);
-  const { status: subscribeStatus, errors: subscribeErrors = [] } = subscribeResult ?? {};
+  const {
+    loading: subscribeLoading,
+    loaded: subscribeLoaded,
+    error: subscribeError,
+    result: subscribeResult,
+  } = useSelector((state) => state.subscribeNewsletter);
+  const { status: subscribeStatus, errors: subscribeErrors = [] } =
+    subscribeResult ?? {};
 
-  const { loading: unsubscribeLoading, loaded: unsubscribeLoaded, error: unsubscribeError, result: unsubscribeResult } = useSelector((state) => state.unsubscribeNewsletter);
-  const { status: unsubscribeStatus, errors: unsubscribeErrors = [] } = unsubscribeResult ?? {};
+  const {
+    loading: unsubscribeLoading,
+    loaded: unsubscribeLoaded,
+    error: unsubscribeError,
+    result: unsubscribeResult,
+  } = useSelector((state) => state.unsubscribeNewsletter);
+  const { status: unsubscribeStatus, errors: unsubscribeErrors = [] } =
+    unsubscribeResult ?? {};
 
   const [email, setEmail] = useState('');
   const [unsubEmail, setUnsubEmail] = useState('');
@@ -213,17 +238,37 @@ const Channel = ({ content, location }) => {
     <>
       <div className="container px-4 my-4 channel-view">
         <SkipToMainContent />
-        <PageHeader content={content} readingtime={null} showreadingtime={false} showdates={false} showtassonomiaargomenti={false} />
+        <PageHeader
+          content={content}
+          readingtime={null}
+          showreadingtime={false}
+          showdates={false}
+          showtassonomiaargomenti={false}
+        />
 
         <div className="row border-top row-column-border row-column-menu-left">
-          <aside className="col-lg-4">{__CLIENT__ && <SideMenu data={sideMenuElements} content_uid={content?.UID} />}</aside>
-          <section ref={documentBody} id="main-content-section" className="col-lg-8 it-page-sections-container">
+          <aside className="col-lg-4">
+            {__CLIENT__ && (
+              <SideMenu data={sideMenuElements} content_uid={content?.UID} />
+            )}
+          </aside>
+          <section
+            ref={documentBody}
+            id="main-content-section"
+            className="col-lg-8 it-page-sections-container"
+          >
             {content.is_subscribable && (
               <section id="subscribe-form" className="it-page-section mb-5">
                 <h2 id="header-subscribe-form" className="mb-3 h4">
                   {intl.formatMessage(messages.subscribeNewsletterLabel)}
                 </h2>
-                {subscribeLoaded && subscribeStatus !== 'error' && <p>{intl.formatMessage(messages.newsletterSubscriptionThankyou)}</p>}
+                {subscribeLoaded && subscribeStatus !== 'error' && (
+                  <p>
+                    {intl.formatMessage(
+                      messages.newsletterSubscriptionThankyou,
+                    )}
+                  </p>
+                )}
 
                 <Form
                   action={`${path}/@subscribe-newsletter`}
@@ -257,8 +302,20 @@ const Channel = ({ content, location }) => {
                         }}
                         field={fieldHoney}
                       />
-                      <Button color="primary" className="btn-icon" type="submit" tag="button" icon={false} disabled={subscribeLoading}>
-                        <Icon icon="it-mail" color="white" padding={false} size="" />
+                      <Button
+                        color="primary"
+                        className="btn-icon"
+                        type="submit"
+                        tag="button"
+                        icon={false}
+                        disabled={subscribeLoading}
+                      >
+                        <Icon
+                          icon="it-mail"
+                          color="white"
+                          padding={false}
+                          size=""
+                        />
                         <span>{intl.formatMessage(messages.subscribe)}</span>
                       </Button>
                     </>
@@ -266,12 +323,23 @@ const Channel = ({ content, location }) => {
                 </Form>
               </section>
             )}
-            <RichTextSection tag_id={'text-body'} title={intl.formatMessage(messages.newsletterPrivacyStatement)} show_title={false} data={content.privacy}></RichTextSection>
+            <RichTextSection
+              tag_id={'text-body'}
+              title={intl.formatMessage(messages.newsletterPrivacyStatement)}
+              show_title={false}
+              data={content.privacy}
+            ></RichTextSection>
             <section id="unsubscribe-form" className="it-page-section mb-5">
               <h2 id="header-unsubscribe-form" className="mb-3 h4">
                 {intl.formatMessage(messages.unsubscribeNewsletterLabel)}
               </h2>
-              {unsubscribeLoaded && unsubscribeStatus !== 'error' && <p>{intl.formatMessage(messages.newsletterUnsubscriptionConfirmation)}</p>}
+              {unsubscribeLoaded && unsubscribeStatus !== 'error' && (
+                <p>
+                  {intl.formatMessage(
+                    messages.newsletterUnsubscriptionConfirmation,
+                  )}
+                </p>
+              )}
               <Form
                 action={`${path}/@unsubscribe-newsletter`}
                 className="form-newsletter"
@@ -304,8 +372,20 @@ const Channel = ({ content, location }) => {
                       }}
                       field={fieldHoney}
                     />
-                    <Button color="primary" className="btn-icon" type="submit" tag="button" icon={false} disabled={unsubscribeLoading}>
-                      <Icon icon="it-mail" color="white" padding={false} size="" />
+                    <Button
+                      color="primary"
+                      className="btn-icon"
+                      type="submit"
+                      tag="button"
+                      icon={false}
+                      disabled={unsubscribeLoading}
+                    >
+                      <Icon
+                        icon="it-mail"
+                        color="white"
+                        padding={false}
+                        size=""
+                      />
                       <span>{intl.formatMessage(messages.unsubscribe)}</span>
                     </Button>
                   </>
