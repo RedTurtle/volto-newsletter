@@ -1,3 +1,15 @@
+### [1.1.1](https://github.com/RedTurtle/volto-newsletter/compare/v1.1.0...v1.1.1) (2024-02-23)
+
+
+### Bug Fixes
+
+* removed duplicate label and added styles to hide label ([833f327](https://github.com/RedTurtle/volto-newsletter/commit/833f32702f78f54763fb1173e8de32eaa765d0e3))
+
+
+### Maintenance
+
+* reformatted code without linter ([770775a](https://github.com/RedTurtle/volto-newsletter/commit/770775a8c06a2b9e3c4d3d816ec7f4ae37bc6abc))
+
 ## [1.1.0](https://github.com/RedTurtle/volto-newsletter/compare/v1.0.0...v1.1.0) (2024-02-07)
 
 
