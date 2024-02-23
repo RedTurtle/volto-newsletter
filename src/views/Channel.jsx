@@ -284,27 +284,17 @@ const Channel = ({ content, location }) => {
                 >
                   {!(subscribeLoaded && subscribeStatus !== 'error') && (
                     <>
-                      <Label
-                        className="text-white fw-semibold active"
-                        htmlFor="input-newsletter"
-                        style={{
-                          transition: 'none 0 ease 0',
-                        }}
-                        tag="label"
-                        widths={['xs', 'sm', 'md', 'lg', 'xl']}
-                      >
-                        {intl.formatMessage(messages.subscribeNewsletterLabel)}
-                      </Label>
                       <Input
                         type="email"
-                        id="input-newsletter"
-                        name="input-newsletter"
+                        id="subscribe-input-newsletter"
+                        name="subscribe-input-newsletter"
                         placeholder="mail@example.com"
                         className="mb-3"
                         value={email}
                         onChange={(e) => {
                           setEmail(e.target.value);
                         }}
+                        label={intl.formatMessage(messages.subscribeNewsletterLabel)}
                       />
                       <HoneypotWidget
                         updateFormData={(_, value) => {
@@ -364,27 +354,17 @@ const Channel = ({ content, location }) => {
               >
                 {!(unsubscribeLoaded && unsubscribeStatus !== 'error') && (
                   <>
-                    <Label
-                      className="text-white fw-semibold active"
-                      htmlFor="input-newsletter"
-                      style={{
-                        transition: 'none 0 ease 0',
-                      }}
-                      tag="label"
-                      widths={['xs', 'sm', 'md', 'lg', 'xl']}
-                    >
-                      {intl.formatMessage(messages.unsubscribeNewsletterLabel)}
-                    </Label>
                     <Input
                       type="email"
-                      id="input-newsletter"
-                      name="input-newsletter"
+                      id="unsubscribe-input-newsletter"
+                      name="unsubscribe-input-newsletter"
                       placeholder="mail@example.com"
                       className="mb-3"
                       value={unsubEmail}
                       onChange={(e) => {
                         setUnsubEmail(e.target.value);
                       }}
+                      label={intl.formatMessage(messages.unsubscribeNewsletterLabel)}
                     />
                     <HoneypotWidget
                       updateFormData={(_, value) => {
