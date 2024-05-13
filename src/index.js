@@ -1,23 +1,13 @@
-export {
-  subscribeNewsletter,
-  resetSubscribeNewsletter,
-  unsubscribeNewsletter,
-  resetUnsubscribeNewsletter,
-  confirmNewsletterSubscription,
-  resetConfirmNewsletterSubscription,
-} from './actions';
+export { subscribeNewsletter, resetSubscribeNewsletter, unsubscribeNewsletter, resetUnsubscribeNewsletter, confirmNewsletterSubscription, resetConfirmNewsletterSubscription } from './actions';
 
 import Channel from './views/Channel';
-import Message from './views/Message';
+import { Message } from './views';
 import NewsletterConfirmSubscribe from './views/NewsletterConfirmSubscribe';
 import NewsletterConfirmUnsubscribe from './views/NewsletterConfirmUnsubscribe';
 import NewsletterConfirmView from './views/NewsletterConfirmView';
-
-import {
-  subscribeNewsletterReducer,
-  unsubscribeNewsletterReducer,
-  confirmNewsletterSubscriptionReducer,
-} from './reducers';
+import MessageFilterBlocks from './config/MessageFilterBlocks';
+import { NewsletterMessageToolbar, MessageActionsMenu } from './components/manage';
+import { subscribeNewsletterReducer, unsubscribeNewsletterReducer, confirmNewsletterSubscriptionReducer, messageSendReducer, messageTestSendReducer } from './reducers';
 
 const applyConfig = (config) => {
   config.addonReducers = {
@@ -25,6 +15,8 @@ const applyConfig = (config) => {
     subscribeNewsletter: subscribeNewsletterReducer,
     unsubscribeNewsletter: unsubscribeNewsletterReducer,
     confirmNewsletterSubscription: confirmNewsletterSubscriptionReducer,
+    messageSend: messageSendReducer,
+    messageTestSend: messageTestSendReducer,
   };
 
   config.addonRoutes = [
@@ -41,14 +33,24 @@ const applyConfig = (config) => {
     Message,
   };
 
+  config.settings.appExtras = [
+    ...config.settings.appExtras,
+    { match: '/**/add', component: MessageFilterBlocks, props: {} },
+    { match: '/**/edit', component: MessageFilterBlocks, props: {} },
+    {
+      match: '',
+      component: NewsletterMessageToolbar,
+    },
+  ];
+
+  config.settings.additionalToolbarComponents = {
+    ...(config.settings.additionalToolbarComponents || {}),
+    messageActions: { component: MessageActionsMenu, wrapper: null },
+  };
+
   return config;
 };
 
 export default applyConfig;
 
-export {
-  Channel,
-  NewsletterConfirmSubscribe,
-  NewsletterConfirmUnsubscribe,
-  NewsletterConfirmView,
-};
+export { Channel, NewsletterConfirmSubscribe, NewsletterConfirmUnsubscribe, NewsletterConfirmView };
