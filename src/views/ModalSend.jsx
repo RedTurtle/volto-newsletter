@@ -3,7 +3,7 @@ import { defineMessages, useIntl } from 'react-intl';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Input, notify } from 'design-react-kit';
 import { useLocation } from 'react-router-dom';
-import { messageSend, messageSendToggleModal } from '../actions';
+import { messageSend, messageSendToggleModal, messageSendGetToken } from '../actions';
 import { Icon } from 'design-comuni-plone-theme/components/ItaliaTheme';
 
 const messages = defineMessages({
@@ -43,8 +43,9 @@ const ModalSend = ({ content }) => {
   const dispatch = useDispatch();
 
   const path = location.pathname;
-  const messageSendStatus = useSelector((state) => state.messageSend);
-  const { modalIsOpen } = messageSendStatus;
+  const messageSendStatus = useSelector((state) => state.messageSend?.send || {});
+  const messageTokenStatus = useSelector((state) => state.messageSend?.token || {});
+  const modalIsOpen = useSelector((state) => state.messageSend?.modalIsOpen || false);
 
   const { active_subscriptions } = content?.['@components']?.['message-actions'] || {};
 
@@ -59,6 +60,18 @@ const ModalSend = ({ content }) => {
     }
   }, [messageSendStatus]);
 
+  useEffect(() => {
+    if (modalIsOpen) {
+      console.log(messageTokenStatus);
+      if (!messageTokenStatus.loading && !messageTokenStatus.loaded) {
+        dispatch(messageSendGetToken(path));
+      }
+      if (messageSendGetToken.error) {
+        /* SEND FAIL */
+        toastNotification(messageSendGetToken.error);
+      }
+    }
+  }, [messageTokenStatus, modalIsOpen]);
   /* notify toast */
   const toastNotification = (message, color) => {
     notify(message, {
@@ -69,7 +82,7 @@ const ModalSend = ({ content }) => {
 
   /* function to change booking state */
   const sendMessage = () => {
-    dispatch(messageSend(path));
+    dispatch(messageSend(path, { ...messageTokenStatus.value }));
   };
 
   return (

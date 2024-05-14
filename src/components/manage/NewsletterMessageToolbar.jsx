@@ -25,7 +25,7 @@ export const NewsletterMessageToolbar = () => {
   }
 
   const { can_manage, can_send } = content?.['@components']?.['message-actions'] || {};
-  if (!can_manage || !can_send) {
+  if (!can_manage && !can_send) {
     return null;
   }
   return (

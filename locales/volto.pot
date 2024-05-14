@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Plone\n"
-"POT-Creation-Date: 2021-01-29T12:34:47.097Z\n"
+"POT-Creation-Date: 2024-05-14T08:49:31.414Z\n"
 "Last-Translator: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -12,3 +12,254 @@ msgstr ""
 "Language-Name: English\n"
 "Preferred-Encodings: utf-8\n"
 "Domain: volto\n"
+
+#: views/Channel
+# defaultMessage: Iscriviti per riceverla
+msgid "Iscriviti per ricevere la newsletter"
+msgstr ""
+
+#: views/Channel
+# defaultMessage: Iscriviti
+msgid "Subscribe"
+msgstr ""
+
+#: views/Channel
+# defaultMessage: Cancella iscrizione
+msgid "Unsubscribe"
+msgstr ""
+
+#: views/NewsletterConfirmSubscribe
+# defaultMessage: Iscrizione effettuata con successo
+msgid "generic_activate_message_success"
+msgstr ""
+
+#: views/NewsletterConfirmUnsubscribe
+# defaultMessage: Iscrizione cancellata con successo
+msgid "generic_delete_message_success"
+msgstr ""
+
+#: views/Channel
+#: views/NewsletterConfirmSubscribe
+#: views/NewsletterConfirmUnsubscribe
+# defaultMessage: Captcha non valido
+msgid "invalid_captcha"
+msgstr ""
+
+#: components/manage/MessageActionsMenu
+#: components/manage/NewsletterMessageToolbar
+# defaultMessage: Message actions
+msgid "message_actions_label"
+msgstr ""
+
+#: components/manage/MessageActionsMenu
+#: views/Message
+# defaultMessage: See message preview
+msgid "message_preview_label"
+msgstr ""
+
+#: components/manage/MessageActionsMenu
+# defaultMessage: Re-send the message
+msgid "message_resend_label"
+msgstr ""
+
+#: components/manage/MessageActionsMenu
+# defaultMessage: Send the message
+msgid "message_send_label"
+msgstr ""
+
+#: components/manage/MessageActionsMenu
+#: views/Message
+# defaultMessage: Test send
+msgid "message_test_send_label"
+msgstr ""
+
+#: views/Channel
+#: views/NewsletterConfirmSubscribe
+#: views/NewsletterConfirmUnsubscribe
+# defaultMessage: Captcha non valido
+msgid "message_wrong_captcha"
+msgstr ""
+
+#: views/ModalSend
+# defaultMessage: Send this message to all subscribers.
+msgid "modal_send_description"
+msgstr ""
+
+#: views/ModalSend
+# defaultMessage: Send message
+msgid "modal_send_title"
+msgstr ""
+
+#: views/ModalTestSend
+# defaultMessage: Try to send this message to an email address before actual send.
+msgid "modal_test_send_description"
+msgstr ""
+
+#: views/ModalTestSend
+# defaultMessage: Test sending
+msgid "modal_test_send_title"
+msgstr ""
+
+#: views/NewsletterConfirmSubscribe
+# defaultMessage: Conferma
+msgid "newsletterConfirmSubscribe"
+msgstr ""
+
+#: views/NewsletterConfirmSubscribe
+# defaultMessage: Errore durante la conferma della tua iscrizione. Si prega di riprovare più tardi.
+msgid "newsletterConfirmSubscribeError"
+msgstr ""
+
+#: views/NewsletterConfirmSubscribe
+# defaultMessage: La tua iscrizione è stata confermata
+msgid "newsletterConfirmSubscribeSuccess"
+msgstr ""
+
+#: views/NewsletterConfirmSubscribe
+# defaultMessage: Conferma l'iscrizione alla newsletter
+msgid "newsletterConfirmSubscribeText"
+msgstr ""
+
+#: views/NewsletterConfirmUnsubscribe
+# defaultMessage: Conferma
+msgid "newsletterConfirmUnsubscribe"
+msgstr ""
+
+#: views/NewsletterConfirmUnsubscribe
+# defaultMessage: Errore durante la cancellazione della tua iscrizione. Si prega di riprovare più tardi.
+msgid "newsletterConfirmUnsubscribeError"
+msgstr ""
+
+#: views/NewsletterConfirmUnsubscribe
+# defaultMessage: La cancellazione è stata confermata
+msgid "newsletterConfirmUnsubscribeSuccess"
+msgstr ""
+
+#: views/NewsletterConfirmUnsubscribe
+# defaultMessage: Conferma la cancellazione dell'iscrizione alla newsletter
+msgid "newsletterConfirmUnsubscribeText"
+msgstr ""
+
+#: views/Channel
+# defaultMessage: Informativa sulla privacy
+msgid "newsletterPrivacyStatement"
+msgstr ""
+
+#: views/Channel
+# defaultMessage: Si è verificato un errore durante l'invio della richiesta. Si prega di riprovare più tardi.
+msgid "newsletterSubscriptionError"
+msgstr ""
+
+#: views/Channel
+# defaultMessage: Grazie per esserti iscritto alla newsletter. Controlla la tua casella di posta elettronica per verificare la tua iscrizione.
+msgid "newsletterSubscriptionThankyou"
+msgstr ""
+
+#: views/Channel
+# defaultMessage: La tua richiesta di cancellazione dell'iscrizione alla newsletter è stata inviata. Controlla la tua casella di posta elettronica per verificare l'operazione.
+msgid "newsletterUnsubscriptionConfirmation"
+msgstr ""
+
+#: views/ModalSend
+# defaultMessage: Cancel
+msgid "newsletter_modal_send_button_cancel"
+msgstr ""
+
+#: views/ModalSend
+# defaultMessage: Confirm
+msgid "newsletter_modal_send_button_confirm"
+msgstr ""
+
+#: views/ModalSend
+# defaultMessage: Error sending the message
+msgid "newsletter_modal_send_error"
+msgstr ""
+
+#: views/ModalSend
+# defaultMessage: Message succesfully sent. Check channel's history to see his status.
+msgid "newsletter_modal_send_success"
+msgstr ""
+
+#: views/ModalSend
+# defaultMessage: You are about to send this message to {subscribers} subscribers.
+msgid "newsletter_modal_send_text"
+msgstr ""
+
+#: views/ModalTestSend
+# defaultMessage: Cancel
+msgid "newsletter_modal_test_send_button_cancel"
+msgstr ""
+
+#: views/ModalTestSend
+# defaultMessage: Confirm
+msgid "newsletter_modal_test_send_button_confirm"
+msgstr ""
+
+#: views/ModalTestSend
+# defaultMessage: Email
+msgid "newsletter_modal_test_send_email_label"
+msgstr ""
+
+#: views/ModalTestSend
+# defaultMessage: Error sending test message.
+msgid "newsletter_modal_test_send_error"
+msgstr ""
+
+#: views/ModalTestSend
+# defaultMessage: Test message sent
+msgid "newsletter_modal_test_send_success"
+msgstr ""
+
+#: views/NewsletterConfirmView
+# defaultMessage: Conferma richiesta
+msgid "subscribeNewsletterConfirmViewTitle"
+msgstr ""
+
+#: views/NewsletterConfirmSubscribe
+#: views/NewsletterConfirmUnsubscribe
+# defaultMessage: Impossibile confermare l'iscrizione in questo momento. Si prega di riprovare più tardi.
+msgid "unable_to_unsubscribe"
+msgstr ""
+
+#: views/NewsletterConfirmView
+# defaultMessage: Conferma richiesta
+msgid "unsubscribeNewsletterConfirmViewTitle"
+msgstr ""
+
+#: views/Channel
+# defaultMessage: Rimuovi la tua iscrizione alla newsletter
+msgid "unsubscribeNewsletterLabel"
+msgstr ""
+
+#: views/Channel
+# defaultMessage: Errore durante la richiesta. Si prega di riprovare più tardi.
+msgid "unsubscribe_generic"
+msgstr ""
+
+#: views/Channel
+#: views/NewsletterConfirmSubscribe
+# defaultMessage: L'indirizzo email è già iscritto alla newsletter
+msgid "user_already_subscribed"
+msgstr ""
+
+#: views/NewsletterConfirmSubscribe
+#: views/NewsletterConfirmUnsubscribe
+# defaultMessage: Impossibile confermare l'iscrizione. L'email non è valida.
+msgid "user_not_found"
+msgstr ""
+
+#: views/NewsletterConfirmSubscribe
+#: views/NewsletterConfirmUnsubscribe
+# defaultMessage: Impossibile confermare l'iscrizione. Il link usato non è valido.
+msgid "user_secret_not_found"
+msgstr ""
+
+#: views/Channel
+# defaultMessage: Richiesta di iscrizione inviata
+msgid "user_subscribe_success"
+msgstr ""
+
+#: views/Channel
+# defaultMessage: Richiesta di cancellazione inviata
+msgid "user_unsubscribe_success"
+msgstr ""

@@ -44,7 +44,6 @@ export const MessageActionsMenu = ({ theToolbar }) => {
   const { can_send, already_sent } = content?.['@components']?.['message-actions'] || {};
 
   const sendLabel = already_sent ? messages.message_resend : messages.message_send;
-  const messageSendStatus = useSelector((state) => state.messageTestSend);
   const dispatch = useDispatch();
 
   return (
@@ -65,33 +64,31 @@ export const MessageActionsMenu = ({ theToolbar }) => {
             <li>
               <UniversalLink href={`${content['@id']}/messagepreview_view`}>{intl.formatMessage(messages.message_preview)}</UniversalLink>
             </li>
+            <li>
+              <Button
+                color="primary"
+                className="ms-3 send-message"
+                onClick={() => {
+                  dispatch(messageTestSendToggleModal(true));
+                }}
+                title={intl.formatMessage(messages.message_test_send)}
+              >
+                {intl.formatMessage(messages.message_test_send)}
+              </Button>
+            </li>
             {can_send && (
-              <>
-                <li>
-                  <Button
-                    color="primary"
-                    className="ms-3 send-message"
-                    onClick={() => {
-                      dispatch(messageTestSendToggleModal(true));
-                    }}
-                    title={intl.formatMessage(messages.message_test_send)}
-                  >
-                    {intl.formatMessage(messages.message_test_send)}
-                  </Button>
-                </li>
-                <li>
-                  <Button
-                    color="primary"
-                    className="ms-3 send-message"
-                    onClick={() => {
-                      dispatch(messageSendToggleModal(true));
-                    }}
-                    title={intl.formatMessage(sendLabel)}
-                  >
-                    {intl.formatMessage(sendLabel)}
-                  </Button>
-                </li>
-              </>
+              <li>
+                <Button
+                  color="primary"
+                  className="ms-3 send-message"
+                  onClick={() => {
+                    dispatch(messageSendToggleModal(true));
+                  }}
+                  title={intl.formatMessage(sendLabel)}
+                >
+                  {intl.formatMessage(sendLabel)}
+                </Button>
+              </li>
             )}
           </ul>
         </div>
