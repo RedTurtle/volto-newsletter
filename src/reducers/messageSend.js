@@ -50,7 +50,6 @@ export function messageSendReducer(state = initialState, action = {}) {
         ...initialState,
       };
     case 'NEWSLETTER_MESSAGE_SEND_TOGGLE_MODAL':
-      console.log('ACTION: ', action);
       if (action.isOpen === false) {
         return { ...initialState };
       }

@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { defineMessages, useIntl } from 'react-intl';
 import { useDispatch, useSelector } from 'react-redux';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Input, notify } from 'design-react-kit';
+import { notify } from 'design-react-kit';
 import { useLocation } from 'react-router-dom';
-import { messageSend, messageSendToggleModal, messageSendGetToken } from '../actions';
-import { Icon } from 'design-comuni-plone-theme/components/ItaliaTheme';
+import { messageSend, messageSendToggleModal, messageSendGetToken } from '../../actions';
+import { Button, Dialog, Heading, Input, Modal } from 'react-aria-components';
+
+import '@plone/components/src/styles/basic/Button.css';
+import '@plone/components/src/styles/basic/Modal.css';
+import '@plone/components/src/styles/basic/Dialog.css';
+import './modals.css';
 
 const messages = defineMessages({
   modal_title: {
@@ -19,12 +24,12 @@ const messages = defineMessages({
     id: 'newsletter_modal_send_text',
     defaultMessage: 'You are about to send this message to {subscribers} subscribers.',
   },
-  modal_button_cancel: {
-    id: 'newsletter_modal_send_button_cancel',
+  cancel: {
+    id: 'button_cancel',
     defaultMessage: 'Cancel',
   },
-  modal_button_confirm: {
-    id: 'newsletter_modal_send_button_confirm',
+  confirm: {
+    id: 'button_confirm',
     defaultMessage: 'Confirm',
   },
   message_send_error: {
@@ -62,7 +67,6 @@ const ModalSend = ({ content }) => {
 
   useEffect(() => {
     if (modalIsOpen) {
-      console.log(messageTokenStatus);
       if (!messageTokenStatus.loading && !messageTokenStatus.loaded) {
         dispatch(messageSendGetToken(path));
       }
@@ -81,32 +85,33 @@ const ModalSend = ({ content }) => {
   };
 
   /* function to change booking state */
-  const sendMessage = () => {
+  const onFormSubmit = (e) => {
+    e.preventDefault();
     dispatch(messageSend(path, { ...messageTokenStatus.value }));
   };
 
   return (
-    <Modal id="modal-send" isOpen={modalIsOpen} centered toggle={() => dispatch(messageSendToggleModal(!modalIsOpen))}>
-      <ModalHeader toggle={() => dispatch(messageSendToggleModal(!modalIsOpen))} tag="div">
-        <h3 className="mt-2">{intl.formatMessage(messages.modal_title)}</h3>
-      </ModalHeader>
-      <ModalBody className="mb-4 mb-lg-4">
-        <p className="fs-5 fw-semibold mb-3">{intl.formatMessage(messages.modal_description)}</p>
-        <p className="fs-6">{intl.formatMessage(messages.modal_text, { subscribers: active_subscriptions })}</p>
-      </ModalBody>
-      <ModalFooter>
-        <Button outline color="primary" onClick={() => dispatch(messageSendToggleModal(!modalIsOpen))}>
-          {intl.formatMessage(messages.modal_button_cancel)}
-        </Button>
-        <Button
-          color="primary"
-          onClick={() => {
-            sendMessage();
-          }}
-        >
-          {messageSendStatus?.loading ? <Icon icon="it-refresh" className="icon-sm load-status-icon" color="white" /> : intl.formatMessage(messages.modal_button_confirm)}
-        </Button>
-      </ModalFooter>
+    <Modal id="modal-send" isDismissable isOpen={modalIsOpen} onOpenChange={() => dispatch(messageSendToggleModal(!modalIsOpen))}>
+      <Dialog>
+        <div className="modal-header">
+          <Heading>{intl.formatMessage(messages.modal_title)}</Heading>
+          <div className="close">
+            <Button onPress={() => dispatch(messageSendToggleModal(!modalIsOpen))}>X</Button>
+          </div>
+        </div>
+        <p className="modal-description">{intl.formatMessage(messages.modal_description)}</p>
+        <p>{intl.formatMessage(messages.modal_text, { subscribers: active_subscriptions })}</p>
+        <form onSubmit={onFormSubmit}>
+          <div className="form-action">
+            <Button type="submit" className="react-aria-Button primary">
+              {intl.formatMessage(messages.confirm)}
+            </Button>
+            <Button className="react-aria-Button cancel" onClick={() => toggleModal(!modalIsOpen)}>
+              {intl.formatMessage(messages.cancel)}
+            </Button>
+          </div>
+        </form>
+      </Dialog>
     </Modal>
   );
 };

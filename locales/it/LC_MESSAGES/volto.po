@@ -1,13 +1,16 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Plone\n"
-"POT-Creation-Date: 2024-05-16T09:48:36.092Z\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-05-14T08:49:31.414Z\n"
+"PO-Revision-Date: \n"
 "Last-Translator: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
+"Language: \n"
 "Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
-"MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
 "Language-Code: en\n"
 "Language-Name: English\n"
 "Preferred-Encodings: utf-8\n"
@@ -17,27 +20,27 @@ msgstr ""
 #: components/manage/SubscriptionsPanel/SubscriptionsPanel
 # defaultMessage: Back
 msgid "Back"
-msgstr ""
+msgstr "Torna indietro"
 
 #: views/Channel
 # defaultMessage: Iscriviti per riceverla
 msgid "Iscriviti per ricevere la newsletter"
-msgstr ""
+msgstr "Iscriviti per ricevere la newsletter"
 
 #: components/manage/SendHistoryPanel/SendHistoryPanel
 # defaultMessage: Send history
 msgid "Send history"
-msgstr ""
+msgstr "Storico degli invii"
 
 #: views/Channel
 # defaultMessage: Iscriviti
 msgid "Subscribe"
-msgstr ""
+msgstr "Iscriviti"
 
 #: views/Channel
 # defaultMessage: Cancella iscrizione
 msgid "Unsubscribe"
-msgstr ""
+msgstr "Disiscriviti"
 
 #: components/manage/ModalSend
 #: components/manage/ModalTestSend
@@ -49,7 +52,7 @@ msgstr ""
 #: components/manage/SubscriptionsPanel/SubscriptionsPanelMenu
 # defaultMessage: Cancel
 msgid "button_cancel"
-msgstr ""
+msgstr "Annulla"
 
 #: components/manage/ModalSend
 #: components/manage/ModalTestSend
@@ -61,438 +64,438 @@ msgstr ""
 #: components/manage/SubscriptionsPanel/SubscriptionsPanelMenu
 # defaultMessage: Confirm
 msgid "button_confirm"
-msgstr ""
+msgstr "Conferma"
 
 #: components/manage/ChannelActionsMenu
 #: components/manage/NewsletterChannelToolbar
 # defaultMessage: Channel actions
 msgid "channel_actions_label"
-msgstr ""
+msgstr "Azioni Canale"
 
 #: views/NewsletterConfirmSubscribe
 # defaultMessage: Iscrizione effettuata con successo
 msgid "generic_activate_message_success"
-msgstr ""
+msgstr "Iscrizione effettuata con successo"
 
 #: views/NewsletterConfirmUnsubscribe
 # defaultMessage: Iscrizione cancellata con successo
 msgid "generic_delete_message_success"
-msgstr ""
+msgstr "Iscrizione cancellata con successo"
 
 #: components/manage/SubscriptionsPanel/ModalImportSubscriptions
 # defaultMessage: Possible values are "," or ";".
 msgid "import_csv_separator_help"
-msgstr ""
+msgstr "Valori possibili sono "," e ";""."
 
 #: components/manage/SubscriptionsPanel/ModalImportSubscriptions
 # defaultMessage: CSV separator
 msgid "import_csv_separator_label"
-msgstr ""
+msgstr "Separatore CSV"
 
 #: components/manage/SubscriptionsPanel/ModalImportSubscriptions
 # defaultMessage: Source file
 msgid "import_file_label"
-msgstr ""
+msgstr "File con gli iscritti"
 
 #: components/manage/SubscriptionsPanel/ModalImportSubscriptions
 # defaultMessage: Check this field if the uploaded file has an header row.
 msgid "import_has_header_help"
-msgstr ""
+msgstr "Seleziona questo campo se il file caricato ha una riga di intestazione."
 
 #: components/manage/SubscriptionsPanel/ModalImportSubscriptions
 # defaultMessage: File has header
 msgid "import_has_header_label"
-msgstr ""
+msgstr "Il file ha un'intestazione"
 
 #: components/manage/SubscriptionsPanel/ModalImportSubscriptions
 # defaultMessage: Upload a file with a list of subscriptions that need to be removed.
 msgid "import_remove_from_list_help"
-msgstr ""
+msgstr "Il file caricato contiene una lista di indirizzi che vanno rimossi dagli iscritti."
 
 #: components/manage/SubscriptionsPanel/ModalImportSubscriptions
 # defaultMessage: Remove subscriptions from file
 msgid "import_remove_from_list_label"
-msgstr ""
+msgstr "Rimuovi gli iscritti"
 
 #: components/manage/SubscriptionsPanel/ModalImportSubscriptions
 # defaultMessage: Reset subscriptions before import.
 msgid "import_reset_list_help"
-msgstr ""
+msgstr "Azzera le iscrizioni prima di eseguire l'import."
 
 #: components/manage/SubscriptionsPanel/ModalImportSubscriptions
 # defaultMessage: Reset list
 msgid "import_reset_list_label"
-msgstr ""
+msgstr "Azzera gli iscritti"
 
 #: views/Channel
 #: views/NewsletterConfirmSubscribe
 #: views/NewsletterConfirmUnsubscribe
 # defaultMessage: Captcha non valido
 msgid "invalid_captcha"
-msgstr ""
+msgstr "Captcha non valido"
 
 #: components/manage/ChannelActionsMenu
 # defaultMessage: Manage subscriptions
 msgid "manage_subscriptions_label"
-msgstr ""
+msgstr "Gestione iscrizioni"
 
 #: components/manage/MessageActionsMenu
 #: components/manage/NewsletterMessageToolbar
 # defaultMessage: Message actions
 msgid "message_actions_label"
-msgstr ""
+msgstr "Azioni Messaggio"
 
 #: components/manage/MessageActionsMenu
 #: views/Message
 # defaultMessage: See message preview
 msgid "message_preview_label"
-msgstr ""
+msgstr "Visualizza anteprima"
 
 #: components/manage/MessageActionsMenu
 # defaultMessage: Re-send the message
 msgid "message_resend_label"
-msgstr ""
+msgstr "Invia di nuovo il messaggio"
 
 #: components/manage/MessageActionsMenu
 # defaultMessage: Send the message
 msgid "message_send_label"
-msgstr ""
+msgstr "Invia il messaggio"
 
 #: components/manage/MessageActionsMenu
 #: views/Message
 # defaultMessage: Test send
 msgid "message_test_send_label"
-msgstr ""
+msgstr "Prova di invio"
 
 #: views/Channel
 #: views/NewsletterConfirmSubscribe
 #: views/NewsletterConfirmUnsubscribe
 # defaultMessage: Captcha non valido
 msgid "message_wrong_captcha"
-msgstr ""
+msgstr "Captcha non valido"
 
 #: components/manage/SubscriptionsPanel/ModalAddSubscription
 # defaultMessage: Add subscription
 msgid "modal_add_subscription"
-msgstr ""
+msgstr "Aggiungi iscrizione"
 
 #: components/manage/SubscriptionsPanel/ModalAddSubscription
 # defaultMessage: Manually add a subscription to this newsletter.
 msgid "modal_add_subscription_description"
-msgstr ""
+msgstr "Aggiungi un iscritto manualmente."
 
 #: components/manage/SubscriptionsPanel/ModalAddSubscription
 # defaultMessage: Email
 msgid "modal_add_subscription_email_label"
-msgstr ""
+msgstr "Email"
 
 #: components/manage/SubscriptionsPanel/ModalAddSubscription
 # defaultMessage: Error adding subscription.
 msgid "modal_add_subscription_error"
-msgstr ""
+msgstr "Si è verificato un errore aggiungendo l'email."
 
 #: components/manage/SubscriptionsPanel/ModalAddSubscription
 # defaultMessage: Subscriber added.
 msgid "modal_add_subscription_success"
-msgstr ""
+msgstr "Iscrizione avvenuta con successo."
 
 #: components/manage/SubscriptionsPanel/ModalImportSubscriptions
 # defaultMessage: Import subscriptions
 msgid "modal_import_subscriptions"
-msgstr ""
+msgstr "Importa iscrizioni"
 
 #: components/manage/SubscriptionsPanel/ModalImportSubscriptions
 # defaultMessage: Import subscriptions from a csv file.
 msgid "modal_import_subscriptions_description"
-msgstr ""
+msgstr "Importa gli iscritti da un file CSV."
 
 #: components/manage/SubscriptionsPanel/ModalImportSubscriptions
 # defaultMessage: Error importing subscriptions.
 msgid "modal_import_subscriptions_error"
-msgstr ""
+msgstr "Si è verificato un errore caricando le iscrizioni."
 
 #: components/manage/SubscriptionsPanel/ModalImportSubscriptions
 # defaultMessage: Subscriptions imported.
 msgid "modal_import_subscriptions_success"
-msgstr ""
+msgstr "Iscrizioni importate correttamente."
 
 #: components/manage/ModalSend
 # defaultMessage: Send this message to all subscribers.
 msgid "modal_send_description"
-msgstr ""
+msgstr "Invia questo messaggio a tutti gli iscritti."
 
 #: components/manage/ModalSend
 # defaultMessage: Send message
 msgid "modal_send_title"
-msgstr ""
+msgstr "Invia il messaggio"
 
 #: components/manage/ModalTestSend
 # defaultMessage: Try to send this message to an email address before actual send.
 msgid "modal_test_send_description"
-msgstr ""
+msgstr "Effettua un invio di prova di questo messaggio ad un indirizzo email (o una lista di indirizzi separati da virgola) prima della spedizione effettiva."
 
 #: components/manage/ModalTestSend
 # defaultMessage: Test sending
 msgid "modal_test_send_title"
-msgstr ""
+msgstr "Invio di prova"
 
 #: views/NewsletterConfirmSubscribe
 # defaultMessage: Conferma
 msgid "newsletterConfirmSubscribe"
-msgstr ""
+msgstr "Conferma"
 
 #: views/NewsletterConfirmSubscribe
 # defaultMessage: Errore durante la conferma della tua iscrizione. Si prega di riprovare più tardi.
 msgid "newsletterConfirmSubscribeError"
-msgstr ""
+msgstr "Errore durante la conferma della tua iscrizione. Si prega di riprovare più tardi."
 
 #: views/NewsletterConfirmSubscribe
 # defaultMessage: La tua iscrizione è stata confermata
 msgid "newsletterConfirmSubscribeSuccess"
-msgstr ""
+msgstr "La tua iscrizione è stata confermata"
 
 #: views/NewsletterConfirmSubscribe
 # defaultMessage: Conferma l'iscrizione alla newsletter
 msgid "newsletterConfirmSubscribeText"
-msgstr ""
+msgstr "Conferma l'iscrizione alla newsletter"
 
 #: views/NewsletterConfirmUnsubscribe
 # defaultMessage: Conferma
 msgid "newsletterConfirmUnsubscribe"
-msgstr ""
+msgstr "Conferma"
 
 #: views/NewsletterConfirmUnsubscribe
 # defaultMessage: Errore durante la cancellazione della tua iscrizione. Si prega di riprovare più tardi.
 msgid "newsletterConfirmUnsubscribeError"
-msgstr ""
+msgstr "Errore durante la cancellazione della tua iscrizione. Si prega di riprovare più tardi."
 
 #: views/NewsletterConfirmUnsubscribe
 # defaultMessage: La cancellazione è stata confermata
 msgid "newsletterConfirmUnsubscribeSuccess"
-msgstr ""
+msgstr "La cancellazione è stata confermata"
 
 #: views/NewsletterConfirmUnsubscribe
 # defaultMessage: Conferma la cancellazione dell'iscrizione alla newsletter
 msgid "newsletterConfirmUnsubscribeText"
-msgstr ""
+msgstr "Conferma la cancellazione dell'iscrizione alla newsletter"
 
 #: views/Channel
 # defaultMessage: Informativa sulla privacy
 msgid "newsletterPrivacyStatement"
-msgstr ""
+msgstr "Informativa sulla privacy"
 
 #: views/Channel
 # defaultMessage: Si è verificato un errore durante l'invio della richiesta. Si prega di riprovare più tardi.
 msgid "newsletterSubscriptionError"
-msgstr ""
+msgstr "Si è verificato un errore durante l'invio della richiesta. Si prega di riprovare più tardi."
 
 #: views/Channel
 # defaultMessage: Grazie per esserti iscritto alla newsletter. Controlla la tua casella di posta elettronica per verificare la tua iscrizione.
 msgid "newsletterSubscriptionThankyou"
-msgstr ""
+msgstr "Grazie per esserti iscritto alla newsletter. Controlla la tua casella di posta elettronica per verificare la tua iscrizione."
 
 #: views/Channel
 # defaultMessage: La tua richiesta di cancellazione dell'iscrizione alla newsletter è stata inviata. Controlla la tua casella di posta elettronica per verificare l'operazione.
 msgid "newsletterUnsubscriptionConfirmation"
-msgstr ""
+msgstr "La tua richiesta di cancellazione dell'iscrizione alla newsletter è stata inviata. Controlla la tua casella di posta elettronica per verificare l'operazione."
 
 #: components/manage/ModalSend
 # defaultMessage: Error sending the message
 msgid "newsletter_modal_send_error"
-msgstr ""
+msgstr "Si è verificato un errore nell'invio del messaggio."
 
 #: components/manage/ModalSend
 # defaultMessage: Message succesfully sent. Check channel's history to see his status.
 msgid "newsletter_modal_send_success"
-msgstr ""
+msgstr "Messaggio correttamente inviato. Controlla lo storico per verificare lo stato di invio."
 
 #: components/manage/ModalSend
 # defaultMessage: You are about to send this message to {subscribers} subscribers.
 msgid "newsletter_modal_send_text"
-msgstr ""
+msgstr "Stai per inviare questo messaggio a {subscribers} iscritti."
 
 #: components/manage/ModalTestSend
 # defaultMessage: Email
 msgid "newsletter_modal_test_send_email_label"
-msgstr ""
+msgstr "Email"
 
 #: components/manage/ModalTestSend
 # defaultMessage: Error sending test message.
 msgid "newsletter_modal_test_send_error"
-msgstr ""
+msgstr "Si è verificato un errore nell'invio del messaggio."
 
 #: components/manage/ModalTestSend
 # defaultMessage: Test message sent
 msgid "newsletter_modal_test_send_success"
-msgstr ""
+msgstr "Invio di prova avvenuto con successo."
 
 #: components/manage/SendHistoryPanel/SendHistoryPanel
 #: components/manage/SubscriptionsPanel/SubscriptionsPanel
 # defaultMessage: All
 msgid "newsletter_panel_all"
-msgstr ""
+msgstr "Tutti"
 
 #: components/manage/SendHistoryPanel/SendHistoryPanel
 # defaultMessage: Are you sure you want to reset the following history?
 msgid "newsletter_panel_confirm_delete_selected"
-msgstr ""
+msgstr "Sei sicuro che vuoi cancellare gli invii selezionati?"
 
 #: components/manage/SubscriptionsPanel/SubscriptionsPanel
 # defaultMessage: Are you sure you want to delete the following subscriptions?
 msgid "newsletter_panel_confirm_delete_selected_subscriptions"
-msgstr ""
+msgstr "Sei sicuro che vuoi cancellare le iscizioni selezionate?"
 
 #: components/manage/SendHistoryPanel/SendHistoryPanel
 # defaultMessage: An error has occurred while trying to delete history for {element}
 msgid "newsletter_panel_delete_error"
-msgstr ""
+msgstr "Si è verificato un errore nella cancellazione degli invii."
 
 #: components/manage/SubscriptionsPanel/SubscriptionsPanel
 # defaultMessage: Delete subscriptions
 msgid "newsletter_panel_delete_send_subscriptions"
-msgstr ""
+msgstr "Cancella le iscrizioni"
 
 #: components/manage/SubscriptionsPanel/SubscriptionsPanel
 # defaultMessage: An error has occurred while trying to delete subscriptions
 msgid "newsletter_panel_delete_subscriptions_error"
-msgstr ""
+msgstr "Si è verificato un errore nella cancellazione delle iscrizioni"
 
 #: components/manage/SubscriptionsPanel/SubscriptionsPanel
 # defaultMessage: Subscriptions deleted successfully!
 msgid "newsletter_panel_delete_subscriptions_success"
-msgstr ""
+msgstr "Iscrizioni cancellate correttamente!"
 
 #: components/manage/SendHistoryPanel/SendHistoryPanel
 # defaultMessage: Selected history deleted successfully!
 msgid "newsletter_panel_delete_success"
-msgstr ""
+msgstr "Invii cancellati correttamente!"
 
 #: components/manage/SendHistoryPanel/SendHistoryPanel
 # defaultMessage: End send
 msgid "newsletter_panel_end_send"
-msgstr ""
+msgstr "Conclusione invio"
 
 #: components/manage/SendHistoryPanel/SendHistoryPanel
 #: components/manage/SubscriptionsPanel/SubscriptionsPanel
 # defaultMessage: An error has occurred
 msgid "newsletter_panel_error"
-msgstr ""
+msgstr "Si è verificato un errore"
 
 #: components/manage/SendHistoryPanel/SendHistoryPanel
 #: components/manage/SubscriptionsPanel/SubscriptionsPanel
 # defaultMessage: Filter title
 msgid "newsletter_panel_filter_title"
-msgstr ""
+msgstr "Filtra"
 
 #: components/manage/SendHistoryPanel/SendHistoryPanel
 #: components/manage/SubscriptionsPanel/SubscriptionsPanel
 # defaultMessage: items selected.
 msgid "newsletter_panel_items_selected"
-msgstr ""
+msgstr "elementi selezionati."
 
 #: components/manage/SendHistoryPanel/SendHistoryPanel
 #: components/manage/SubscriptionsPanel/SubscriptionsPanel
 # defaultMessage: Loading...
 msgid "newsletter_panel_loading"
-msgstr ""
+msgstr "Caricamento..."
 
 #: components/manage/SendHistoryPanel/SendHistoryPanel
 # defaultMessage: Message
 msgid "newsletter_panel_message"
-msgstr ""
+msgstr "Messaggio"
 
 #: components/manage/SendHistoryPanel/SendHistoryPanel
 #: components/manage/SubscriptionsPanel/SubscriptionsPanel
 # defaultMessage: No results found
 msgid "newsletter_panel_no_results"
-msgstr ""
+msgstr "Nessun risultato trovato"
 
 #: components/manage/SendHistoryPanel/SendHistoryPanel
 # defaultMessage: Reset history
 msgid "newsletter_panel_reset_send_history"
-msgstr ""
+msgstr "Cancella"
 
 #: components/manage/SendHistoryPanel/SendHistoryPanel
 #: components/manage/SubscriptionsPanel/SubscriptionsPanel
 # defaultMessage: Select/Deselect all
 msgid "newsletter_panel_select_all"
-msgstr ""
+msgstr "Seleziona/Deseleziona tutti"
 
 #: components/manage/SendHistoryPanel/SendHistoryPanel
 #: components/manage/SubscriptionsPanel/SubscriptionsPanel
 # defaultMessage: Select item
 msgid "newsletter_panel_select_item"
-msgstr ""
+msgstr "Seleziona un elemento"
 
 #: components/manage/SendHistoryPanel/SendHistoryPanel
 # defaultMessage: Start send
 msgid "newsletter_panel_start_send"
-msgstr ""
+msgstr "Inizio invio"
 
 #: components/manage/SendHistoryPanel/SendHistoryPanel
 # defaultMessage: Status
 msgid "newsletter_panel_status"
-msgstr ""
+msgstr "Stato"
 
 #: components/manage/SendHistoryPanel/SendHistoryPanel
 # defaultMessage: Error
 msgid "newsletter_panel_status_error"
-msgstr ""
+msgstr "Errore"
 
 #: components/manage/SendHistoryPanel/SendHistoryPanel
 # defaultMessage: In progress
 msgid "newsletter_panel_status_in_progress"
-msgstr ""
+msgstr "In corso"
 
 #: components/manage/SendHistoryPanel/SendHistoryPanel
 # defaultMessage: Sent
 msgid "newsletter_panel_status_sent"
-msgstr ""
+msgstr "Inviato"
 
 #: components/manage/SendHistoryPanel/SendHistoryPanel
 # defaultMessage: Active subscribers
 msgid "newsletter_panel_subscribers"
-msgstr ""
+msgstr "Iscritti attivi"
 
 #: components/manage/SubscriptionsPanel/SubscriptionsPanelMenu
 # defaultMessage: Error
 msgid "panel_error"
-msgstr ""
+msgstr "Errore"
 
 #: components/manage/SendHistoryPanel/SendHistoryPanelMenu
 # defaultMessage: Are you sure you want to delete all history?
 msgid "send_history_confirm_delete_all"
-msgstr ""
+msgstr "Sei sicuro di voler cancellare compleamente lo storico?"
 
 #: components/manage/SendHistoryPanel/SendHistoryPanelMenu
 # defaultMessage: Delete all history
 msgid "send_history_delete_all"
-msgstr ""
+msgstr "Cancella tutto lo storico"
 
 #: components/manage/SendHistoryPanel/SendHistoryPanelMenu
 # defaultMessage: An error has occurred while trying to delete all history
 msgid "send_history_delete_all_error"
-msgstr ""
+msgstr "Si è verificato un errore provando a cancellare l'intero storico."
 
 #: components/manage/SendHistoryPanel/SendHistoryPanelMenu
 # defaultMessage: All history deleted successfully!
 msgid "send_history_delete_all_success"
-msgstr ""
+msgstr "Storico cancellato con successo."
 
 #: components/manage/SendHistoryPanel/SendHistoryPanelMenu
 # defaultMessage: An error has occurred
 msgid "send_history_error_delete_all"
-msgstr ""
+msgstr "Si è verificato un errore"
 
 #: components/manage/ChannelActionsMenu
 # defaultMessage: Send history
 msgid "send_history_label"
-msgstr ""
+msgstr "Storico degli invii"
 
 #: components/manage/SendHistoryPanel/SendHistoryPanelMenu
 # defaultMessage: Loading...
 msgid "send_history_loading"
-msgstr ""
+msgstr "Caricamento..."
 
 #: views/NewsletterConfirmView
 # defaultMessage: Conferma richiesta
@@ -502,97 +505,97 @@ msgstr ""
 #: components/manage/SubscriptionsPanel/SubscriptionsPanelMenu
 # defaultMessage: An error has occurred trying to add subscription.
 msgid "subscribe_add_error"
-msgstr ""
+msgstr "Si è verificato un errore creando l'iscrizione."
 
 #: components/manage/SubscriptionsPanel/SubscriptionsPanelMenu
 # defaultMessage: Subscription added.
 msgid "subscribe_add_success"
-msgstr ""
+msgstr "Iscrizione creata."
 
 #: components/manage/SubscriptionsPanel/SubscriptionsPanelMenu
 # defaultMessage: An error has occurred trying to import subscriptions.
 msgid "subscribe_import_error"
-msgstr ""
+msgstr "Si è verificato un'errore importando le iscrizioni."
 
 #: components/manage/SubscriptionsPanel/SubscriptionsPanelMenu
 # defaultMessage: Subscriptions imported.
 msgid "subscribe_import_success"
-msgstr ""
+msgstr "Iscrizioni importate."
 
 #: components/manage/SubscriptionsPanel/SubscriptionsPanel
 # defaultMessage: Active
 msgid "subscription_state_active"
-msgstr ""
+msgstr "Attivo"
 
 #: components/manage/SubscriptionsPanel/SubscriptionsPanel
 # defaultMessage: Inactive
 msgid "subscription_state_inactive"
-msgstr ""
+msgstr "Inattivo"
 
 #: components/manage/SubscriptionsPanel/SubscriptionsPanelMenu
 # defaultMessage: Add subscriber
 msgid "subscriptions_add_subscriber"
-msgstr ""
+msgstr "Aggiungi iscrizione"
 
 #: components/manage/SubscriptionsPanel/SubscriptionsPanelMenu
 # defaultMessage: Are you sure you want to delete all subscriptions?
 msgid "subscriptions_confirm_delete_all"
-msgstr ""
+msgstr "Sei sicuro di voler cancellare tutte le iscrizioni?"
 
 #: components/manage/SubscriptionsPanel/SubscriptionsPanel
 # defaultMessage: Creation date
 msgid "subscriptions_creation_date"
-msgstr ""
+msgstr "Data di creazione"
 
 #: components/manage/SubscriptionsPanel/SubscriptionsPanelMenu
 # defaultMessage: Delete all subscriptions
 msgid "subscriptions_delete_all"
-msgstr ""
+msgstr "Cancella tutte le iscrizioni"
 
 #: components/manage/SubscriptionsPanel/SubscriptionsPanelMenu
 # defaultMessage: An error has occurred while trying to delete all history
 msgid "subscriptions_delete_all_error"
-msgstr ""
+msgstr "Si è verificato un'errore cancellando tutte le iscrizioni."
 
 #: components/manage/SubscriptionsPanel/SubscriptionsPanelMenu
 # defaultMessage: All subscriptions deleted successfully!
 msgid "subscriptions_delete_all_success"
-msgstr ""
+msgstr "Tutte le iscrizioni sono state cancellate!"
 
 #: components/manage/SubscriptionsPanel/SubscriptionsPanelMenu
 # defaultMessage: Download
 msgid "subscriptions_download_list"
-msgstr ""
+msgstr "Export"
 
 #: components/manage/SubscriptionsPanel/SubscriptionsPanel
 # defaultMessage: Email
 msgid "subscriptions_email"
-msgstr ""
+msgstr "Email"
 
 #: components/manage/SubscriptionsPanel/SubscriptionsPanelMenu
 # defaultMessage: An error has occurred
 msgid "subscriptions_error_delete_all"
-msgstr ""
+msgstr "Si è verificato un errore"
 
 #: components/manage/SubscriptionsPanel/SubscriptionsPanelMenu
 # defaultMessage: Loading...
 msgid "subscriptions_loading"
-msgstr ""
+msgstr "Caricamento..."
 
 #: components/manage/SubscriptionsPanel/SubscriptionsPanel
 # defaultMessage: State
 msgid "subscriptions_state"
-msgstr ""
+msgstr "Stato"
 
 #: components/manage/SubscriptionsPanel/SubscriptionsPanel
 # defaultMessage: Manage subscriptions
 msgid "subscriptions_title"
-msgstr ""
+msgstr "Gestione iscrizioni"
 
 #: components/manage/SubscriptionsPanel/SubscriptionsPanelMenu
 # defaultMessage: Upload
 msgid "subscriptions_upload_list"
-msgstr ""
+msgstr "Import"
 
 #: components/manage/SendHistoryPanel/SendHistoryPanel
 #: components/manage/SendHistoryPanel/SendHistoryPanelMenu
@@ -600,19 +603,19 @@ msgstr ""
 #: components/manage/SubscriptionsPanel/SubscriptionsPanelMenu
 # defaultMessage: Success
 msgid "success_label"
-msgstr ""
+msgstr "Successo"
 
 #: components/manage/SendHistoryPanel/SendHistoryPanel
 #: components/manage/SubscriptionsPanel/SubscriptionsPanel
 # defaultMessage: {totResults} results (filtered).
 msgid "tot_results_filtered"
-msgstr ""
+msgstr "{totResults} risultati (filtrati)"
 
 #: components/manage/SendHistoryPanel/SendHistoryPanel
 #: components/manage/SubscriptionsPanel/SubscriptionsPanel
 # defaultMessage: {totResults} results.
 msgid "tot_results_unfiltered"
-msgstr ""
+msgstr "{totResults} risultati"
 
 #: views/NewsletterConfirmSubscribe
 #: views/NewsletterConfirmUnsubscribe

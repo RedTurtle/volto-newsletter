@@ -1,10 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { defineMessages, useIntl } from 'react-intl';
 import { useDispatch, useSelector } from 'react-redux';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Input, notify } from 'design-react-kit';
+import { notify } from 'design-react-kit';
 import { useLocation } from 'react-router-dom';
-import { messageTestSend, messageTestSendToggleModal } from '../actions';
-import { Icon } from 'design-comuni-plone-theme/components/ItaliaTheme';
+import { messageTestSend, messageTestSendToggleModal } from '../../actions';
+import { Button, Dialog, Heading, Input, Label, Modal, TextField } from 'react-aria-components';
+
+import '@plone/components/src/styles/basic/Form.css';
+import '@plone/components/src/styles/basic/Button.css';
+import '@plone/components/src/styles/basic/Modal.css';
+import '@plone/components/src/styles/basic/Dialog.css';
+import './modals.css';
 
 const messages = defineMessages({
   modal_title: {
@@ -19,12 +25,12 @@ const messages = defineMessages({
     id: 'newsletter_modal_test_send_email_label',
     defaultMessage: 'Email',
   },
-  modal_button_cancel: {
-    id: 'newsletter_modal_test_send_button_cancel',
+  cancel: {
+    id: 'button_cancel',
     defaultMessage: 'Cancel',
   },
-  modal_button_confirm: {
-    id: 'newsletter_modal_test_send_button_confirm',
+  confirm: {
+    id: 'button_confirm',
     defaultMessage: 'Confirm',
   },
   message_send_error: {
@@ -70,45 +76,39 @@ const ModalTestSend = () => {
     });
   };
 
-  /* function to change booking state */
-  const sendMessage = () => {
+  const onFormSubmit = (e) => {
+    e.preventDefault();
     dispatch(messageTestSend(path, { email: emailAddress }));
+    setEmailAddress('');
   };
 
   return (
-    <Modal id="modal-test-send" isOpen={modalIsOpen} centered toggle={() => dispatch(messageTestSendToggleModal(!modalIsOpen))}>
-      <ModalHeader toggle={() => dispatch(messageTestSendToggleModal(!modalIsOpen))} tag="div">
-        <h3 className="mt-2">{intl.formatMessage(messages.modal_title)}</h3>
-      </ModalHeader>
-      <ModalBody className="mb-4 mb-lg-4">
-        <p className="fs-5 fw-semibold mb-3">{intl.formatMessage(messages.modal_description)}</p>
-        <div className="mt-5">
-          <Input
-            type="text"
-            id="email"
-            className="mb-1"
-            required
-            label={intl.formatMessage(messages.email_label)}
-            value={emailAddress}
-            onChange={(e) => {
-              setEmailAddress(e.target.value);
-            }}
-          />
+    <Modal id="modal-test-send" isDismissable isOpen={modalIsOpen} onOpenChange={() => dispatch(messageTestSendToggleModal(!modalIsOpen))}>
+      <Dialog>
+        <div className="modal-header">
+          <Heading>{intl.formatMessage(messages.modal_title)}</Heading>
+          <div className="close">
+            <Button onPress={() => dispatch(messageTestSendToggleModal(!modalIsOpen))}>X</Button>
+          </div>
         </div>
-      </ModalBody>
-      <ModalFooter>
-        <Button outline color="primary" onClick={() => dispatch(messageTestSendToggleModal(!modalIsOpen))}>
-          {intl.formatMessage(messages.modal_button_cancel)}
-        </Button>
-        <Button
-          color="primary"
-          onClick={() => {
-            sendMessage();
-          }}
-        >
-          {messageSendStatus?.loading ? <Icon icon="it-refresh" className="icon-sm load-status-icon" color="white" /> : intl.formatMessage(messages.modal_button_confirm)}
-        </Button>
-      </ModalFooter>
+        <p className="modal-description">{intl.formatMessage(messages.modal_description)}</p>
+        <form onSubmit={onFormSubmit}>
+          <div className="field">
+            <TextField required id="email" autoFocus value={emailAddress} onChange={setEmailAddress}>
+              <Label>{intl.formatMessage(messages.email_label)}</Label>
+              <Input />
+            </TextField>
+          </div>
+          <div className="form-action">
+            <Button type="submit" className="react-aria-Button primary">
+              {intl.formatMessage(messages.confirm)}
+            </Button>
+            <Button className="react-aria-Button cancel" onClick={() => toggleModal(!modalIsOpen)}>
+              {intl.formatMessage(messages.cancel)}
+            </Button>
+          </div>
+        </form>
+      </Dialog>
     </Modal>
   );
 };

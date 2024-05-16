@@ -2,8 +2,7 @@ import React, { createRef, useState } from 'react';
 import { PageHeader, TextOrBlocks, SkipToMainContent } from 'design-comuni-plone-theme/components/ItaliaTheme/View';
 import { defineMessages, useIntl } from 'react-intl';
 import { NotificationManager } from 'design-react-kit';
-import ModalTestSend from './ModalTestSend';
-import ModalSend from './ModalSend';
+import { ModalTestSend, ModalSend } from '../components/manage';
 
 const messages = defineMessages({
   message_preview: {
