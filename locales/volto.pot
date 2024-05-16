@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Plone\n"
-"POT-Creation-Date: 2024-05-16T09:48:36.092Z\n"
+"POT-Creation-Date: 2024-05-16T13:01:20.799Z\n"
 "Last-Translator: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -67,6 +67,16 @@ msgstr ""
 #: components/manage/NewsletterChannelToolbar
 # defaultMessage: Channel actions
 msgid "channel_actions_label"
+msgstr ""
+
+#: components/manage/SubscriptionsPanel/ModalImportSubscriptions
+# defaultMessage: Replace file
+msgid "dropzone_replace_file"
+msgstr ""
+
+#: components/manage/SubscriptionsPanel/ModalImportSubscriptions
+# defaultMessage: Select a file
+msgid "dropzone_select_file"
 msgstr ""
 
 #: views/NewsletterConfirmSubscribe

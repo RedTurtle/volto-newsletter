@@ -38,13 +38,13 @@ const messages = defineMessages({
 
 export const MessageActionsMenu = ({ theToolbar }) => {
   const intl = useIntl();
+  const dispatch = useDispatch();
+
   const content = useSelector((state) => {
     return state?.content?.data;
   });
   const { can_send, already_sent } = content?.['@components']?.['message-actions'] || {};
-
   const sendLabel = already_sent ? messages.message_resend : messages.message_send;
-  const dispatch = useDispatch();
 
   return (
     <>

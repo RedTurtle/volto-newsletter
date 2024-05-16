@@ -32,7 +32,8 @@
     border: 0;
 }
 
-.react-aria-ModalOverlay .react-aria-Button {
+.react-aria-ModalOverlay .react-aria-Button,
+.cms-ui .react-aria-Button i.icon {
     margin-left: 5px;
 }
 

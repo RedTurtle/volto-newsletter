@@ -219,7 +219,7 @@ const SubscriptionsPanelMenu = ({ toastify, doSearch }) => {
             <div className="modal-header">
               <Heading>{intl.formatMessage(messages.delete_all)}</Heading>
               <div className="close">
-                <Button onPress={() => toggleModal(!modalIsOpen)}>X</Button>
+                <Button onPress={() => setOpenConfirm(!openConfirm)}>X</Button>
               </div>
             </div>
 

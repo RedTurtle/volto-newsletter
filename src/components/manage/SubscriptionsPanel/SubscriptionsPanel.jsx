@@ -247,7 +247,7 @@ const SubscriptionsPanel = ({ toastify }) => {
                       checked={subscriptions?.result?.items?.length !== 0 && itemsSelected?.length === subscriptions?.result?.items?.length}
                       onChange={(e, o) => {
                         if (o.checked) {
-                          setItemsSelected(subscriptions?.result?.items);
+                          setItemsSelected(subscriptions?.result?.items.map((x) => x.email));
                         } else {
                           setItemsSelected([]);
                         }

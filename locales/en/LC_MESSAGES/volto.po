@@ -72,6 +72,16 @@ msgstr ""
 msgid "channel_actions_label"
 msgstr ""
 
+#: components/manage/SubscriptionsPanel/ModalImportSubscriptions
+# defaultMessage: Replace file
+msgid "dropzone_replace_file"
+msgstr ""
+
+#: components/manage/SubscriptionsPanel/ModalImportSubscriptions
+# defaultMessage: Select a file
+msgid "dropzone_select_file"
+msgstr ""
+
 #: views/NewsletterConfirmSubscribe
 # defaultMessage: Iscrizione effettuata con successo
 msgid "generic_activate_message_success"

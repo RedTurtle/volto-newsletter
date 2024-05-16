@@ -72,6 +72,14 @@ const messages = defineMessages({
     id: 'modal_import_subscriptions_success',
     defaultMessage: 'Subscriptions imported.',
   },
+  select_file: {
+    id: 'dropzone_select_file',
+    defaultMessage: 'Select a file',
+  },
+  replace_file: {
+    id: 'dropzone_replace_file',
+    defaultMessage: 'Replace file',
+  },
 });
 
 const ModalImportSubscriptions = ({ modalIsOpen, toggleModal, onSubmit }) => {
@@ -114,7 +122,7 @@ const ModalImportSubscriptions = ({ modalIsOpen, toggleModal, onSubmit }) => {
                   };
                 }}
               >
-                <Button>{formFilename ? 'Replace file' : 'Select a file'}</Button>
+                <Button>{formFilename ? intl.formatMessage(messages.replace_file) : intl.formatMessage(messages.select_file)}</Button>
               </FileTrigger>
             </DropZone>
             <Text>{formFilename}</Text>

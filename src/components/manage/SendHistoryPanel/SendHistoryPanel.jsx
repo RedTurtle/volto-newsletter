@@ -272,7 +272,7 @@ const SendHistoryPanel = ({ toastify, content }) => {
                       checked={history?.result?.items?.length !== 0 && itemsSelected?.length === history?.result?.items?.length}
                       onChange={(e, o) => {
                         if (o.checked) {
-                          setItemsSelected(history?.result?.items);
+                          setItemsSelected(history?.result?.items.map((x) => x.uid));
                         } else {
                           setItemsSelected([]);
                         }
