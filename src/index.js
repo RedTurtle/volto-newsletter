@@ -43,7 +43,7 @@ const applyConfig = (config) => {
     },
   ];
 
-  config.settings.nonContentRoutes = [...config.settings.nonContentRoutes, /\/send-history$/, /\/subscriptions$/];
+  config.settings.nonContentRoutes = [...config.settings.nonContentRoutes, /\/send-history$/, /\/subscriptions$/, /\/messagepreview_view$/];
 
   config.views.contentTypesViews = {
     ...config.views.contentTypesViews,
