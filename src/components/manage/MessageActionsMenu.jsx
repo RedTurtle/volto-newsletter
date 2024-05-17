@@ -62,7 +62,9 @@ export const MessageActionsMenu = ({ theToolbar }) => {
         <div className="pastanaga-menu-list">
           <ul>
             <li>
-              <UniversalLink href={`${content['@id']}/messagepreview_view`}>{intl.formatMessage(messages.message_preview)}</UniversalLink>
+              <UniversalLink openLinkInNewTab={true} href={`${content['@id']}/messagepreview_view`}>
+                {intl.formatMessage(messages.message_preview)}
+              </UniversalLink>
             </li>
             <li>
               <Button
