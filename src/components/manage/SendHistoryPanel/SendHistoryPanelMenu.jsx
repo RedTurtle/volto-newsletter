@@ -9,9 +9,9 @@ import { injectLazyLibs } from '@plone/volto/helpers/Loadable/Loadable';
 import { deleteAllSendHistory } from '../../../actions';
 import { useLocation } from 'react-router-dom';
 
-import '@plone/components/styles/basic/Button.css';
-import '@plone/components/styles/basic/Modal.css';
-import '@plone/components/styles/basic/Dialog.css';
+import '@plone/components/src/styles/basic/Button.css';
+import '@plone/components/src/styles/basic/Modal.css';
+import '@plone/components/src/styles/basic/Dialog.css';
 import '../modals.css';
 
 const messages = defineMessages({
