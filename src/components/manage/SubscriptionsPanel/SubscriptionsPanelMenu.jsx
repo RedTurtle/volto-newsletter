@@ -13,9 +13,9 @@ import uploadSVG from '@plone/volto/icons/upload.svg';
 import ModalAddSubscription from './ModalAddSubscription';
 import ModalImportSubscriptions from './ModalImportSubscriptions';
 
-import '@plone/components/src/styles/basic/Button.css';
-import '@plone/components/src/styles/basic/Modal.css';
-import '@plone/components/src/styles/basic/Dialog.css';
+import '@plone/components/styles/basic/Button.css';
+import '@plone/components/styles/basic/Modal.css';
+import '@plone/components/styles/basic/Dialog.css';
 import '../modals.css';
 
 const messages = defineMessages({

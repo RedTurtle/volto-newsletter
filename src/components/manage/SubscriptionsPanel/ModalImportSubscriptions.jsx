@@ -5,11 +5,11 @@ import { DropZone, FileTrigger, Button, Dialog, Heading, Checkbox, Label, Modal,
 import trashSVG from '@plone/volto/icons/delete.svg';
 import { Icon } from '@plone/volto/components';
 
-import '@plone/components/src/styles/basic/Form.css';
-import '@plone/components/src/styles/basic/Button.css';
-import '@plone/components/src/styles/basic/Modal.css';
-import '@plone/components/src/styles/basic/Dialog.css';
-import '@plone/components/src/styles/basic/Checkbox.css';
+import '@plone/components/styles/basic/Form.css';
+import '@plone/components/styles/basic/Button.css';
+import '@plone/components/styles/basic/Modal.css';
+import '@plone/components/styles/basic/Dialog.css';
+import '@plone/components/styles/basic/Checkbox.css';
 
 const messages = defineMessages({
   modal_title: {
