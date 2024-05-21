@@ -1,4 +1,8 @@
-import { NEWSLETTER_MESSAGE_SEND_GET_TOKEN, NEWSLETTER_MESSAGE_SEND, NEWSLETTER_MESSAGE_SEND_TOGGLE_MODAL } from '../constants/ActionTypes';
+import {
+  NEWSLETTER_MESSAGE_SEND_GET_TOKEN,
+  NEWSLETTER_MESSAGE_SEND,
+  NEWSLETTER_MESSAGE_SEND_TOGGLE_MODAL,
+} from '../constants/ActionTypes';
 
 export function messageSend(path, data) {
   return {

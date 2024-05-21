@@ -1,4 +1,9 @@
-import { DELETE_SEND_HISTORY, GET_SEND_HISTORY, RESET_DELETE_SEND_HISTORY, DELETE_ALL_SEND_HISTORY_DATA } from '../constants/ActionTypes';
+import {
+  DELETE_SEND_HISTORY,
+  GET_SEND_HISTORY,
+  RESET_DELETE_SEND_HISTORY,
+  DELETE_ALL_SEND_HISTORY_DATA,
+} from '../constants/ActionTypes';
 
 const initialState = {
   error: null,
@@ -7,7 +12,10 @@ const initialState = {
   subrequests: {},
 };
 
-export const deleteAllSendHistoryReducer = (state = initialState, action = {}) => {
+export const deleteAllSendHistoryReducer = (
+  state = initialState,
+  action = {},
+) => {
   switch (action.type) {
     case `${DELETE_ALL_SEND_HISTORY_DATA}_PENDING`:
       return {

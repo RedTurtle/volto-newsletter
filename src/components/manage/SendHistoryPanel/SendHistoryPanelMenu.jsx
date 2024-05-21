@@ -59,12 +59,20 @@ const SendHistoryPanelMenu = ({ toastify, doSearch }) => {
 
   const pathname = location.pathname.replace('/send-history', '');
   const [openConfirm, setOpenConfirm] = useState(false);
-  const deleteAllSendHistoryState = useSelector((state) => state.deleteAllSendHistory);
+  const deleteAllSendHistoryState = useSelector(
+    (state) => state.deleteAllSendHistory,
+  );
   const deleteAll = async () => {
     try {
       await dispatch(deleteAllSendHistory(pathname));
       setOpenConfirm(false);
-      toastify.toast.success(<Toast success title={intl.formatMessage(messages.success_delete_all)} content={intl.formatMessage(messages.delete_all_success)} />);
+      toastify.toast.success(
+        <Toast
+          success
+          title={intl.formatMessage(messages.success_delete_all)}
+          content={intl.formatMessage(messages.delete_all_success)}
+        />,
+      );
       doSearch();
     } catch (e) {
       console.error(e);
@@ -83,7 +91,12 @@ const SendHistoryPanelMenu = ({ toastify, doSearch }) => {
     <Menu secondary>
       <Menu.Menu position="right">
         <Menu.Item>
-          <Button className="react-aria-Button cancel" icon labelPosition="right" onClick={() => setOpenConfirm(true)}>
+          <Button
+            className="react-aria-Button cancel"
+            icon
+            labelPosition="right"
+            onClick={() => setOpenConfirm(true)}
+          >
             {intl.formatMessage(messages.delete_all)}
             <i className="icon">
               <Icon name={trashSVG} size="20px" />
@@ -91,7 +104,11 @@ const SendHistoryPanelMenu = ({ toastify, doSearch }) => {
           </Button>
         </Menu.Item>
       </Menu.Menu>
-      <Modal isDismissable isOpen={openConfirm} onOpenChange={() => setOpenConfirm(!openConfirm)}>
+      <Modal
+        isDismissable
+        isOpen={openConfirm}
+        onOpenChange={() => setOpenConfirm(!openConfirm)}
+      >
         <Dialog>
           <div className="modal-header">
             <Heading>{intl.formatMessage(messages.delete_all)}</Heading>
@@ -100,12 +117,17 @@ const SendHistoryPanelMenu = ({ toastify, doSearch }) => {
             </div>
           </div>
 
-          <div className="content ui ">{intl.formatMessage(messages.confirm_delete_all)}</div>
+          <div className="content ui ">
+            {intl.formatMessage(messages.confirm_delete_all)}
+          </div>
           <div className="form-action">
             <Button onClick={deleteAll} className="react-aria-Button primary">
               {intl.formatMessage(messages.confirm)}
             </Button>
-            <Button className="react-aria-Button cancel" onClick={() => setOpenConfirm(false)}>
+            <Button
+              className="react-aria-Button cancel"
+              onClick={() => setOpenConfirm(false)}
+            >
               {intl.formatMessage(messages.cancel)}
             </Button>
           </div>

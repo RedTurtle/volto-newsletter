@@ -1,7 +1,19 @@
 import React, { useState } from 'react';
 import { defineMessages, useIntl } from 'react-intl';
 import { useSelector } from 'react-redux';
-import { DropZone, FileTrigger, Button, Dialog, Heading, Checkbox, Label, Modal, TextField, Text, Input } from 'react-aria-components';
+import {
+  DropZone,
+  FileTrigger,
+  Button,
+  Dialog,
+  Heading,
+  Checkbox,
+  Label,
+  Modal,
+  TextField,
+  Text,
+  Input,
+} from 'react-aria-components';
 import trashSVG from '@plone/volto/icons/delete.svg';
 import { Icon } from '@plone/volto/components';
 
@@ -46,7 +58,8 @@ const messages = defineMessages({
   },
   remove_from_list_help: {
     id: 'import_remove_from_list_help',
-    defaultMessage: 'Upload a file with a list of subscriptions that need to be removed.',
+    defaultMessage:
+      'Upload a file with a list of subscriptions that need to be removed.',
   },
   has_header_label: {
     id: 'import_has_header_label',
@@ -96,7 +109,12 @@ const ModalImportSubscriptions = ({ modalIsOpen, toggleModal, onSubmit }) => {
     setFormFilename('');
   };
   return (
-    <Modal id="modal-import-subscriptions" isDismissable isOpen={modalIsOpen} onOpenChange={() => toggleModal(!modalIsOpen)}>
+    <Modal
+      id="modal-import-subscriptions"
+      isDismissable
+      isOpen={modalIsOpen}
+      onOpenChange={() => toggleModal(!modalIsOpen)}
+    >
       <Dialog>
         <div className="modal-header">
           <Heading>{intl.formatMessage(messages.modal_title)}</Heading>
@@ -104,7 +122,9 @@ const ModalImportSubscriptions = ({ modalIsOpen, toggleModal, onSubmit }) => {
             <Button onPress={() => toggleModal(!modalIsOpen)}>X</Button>
           </div>
         </div>
-        <p className="modal-description">{intl.formatMessage(messages.modal_description)}</p>
+        <p className="modal-description">
+          {intl.formatMessage(messages.modal_description)}
+        </p>
 
         <form onSubmit={onFormSubmit}>
           <div className="field">
@@ -122,7 +142,11 @@ const ModalImportSubscriptions = ({ modalIsOpen, toggleModal, onSubmit }) => {
                   };
                 }}
               >
-                <Button>{formFilename ? intl.formatMessage(messages.replace_file) : intl.formatMessage(messages.select_file)}</Button>
+                <Button>
+                  {formFilename
+                    ? intl.formatMessage(messages.replace_file)
+                    : intl.formatMessage(messages.select_file)}
+                </Button>
               </FileTrigger>
             </DropZone>
             <Text>{formFilename}</Text>
@@ -156,7 +180,9 @@ const ModalImportSubscriptions = ({ modalIsOpen, toggleModal, onSubmit }) => {
                 </svg>
               </div>
               {intl.formatMessage(messages.reset_list_label)}
-              <Text slot="description">{intl.formatMessage(messages.reset_list_help)}</Text>
+              <Text slot="description">
+                {intl.formatMessage(messages.reset_list_help)}
+              </Text>
             </Checkbox>
           </div>
           <div className="field">
@@ -172,7 +198,9 @@ const ModalImportSubscriptions = ({ modalIsOpen, toggleModal, onSubmit }) => {
                 </svg>
               </div>
               {intl.formatMessage(messages.remove_from_list_label)}
-              <Text slot="description">{intl.formatMessage(messages.remove_from_list_help)}</Text>
+              <Text slot="description">
+                {intl.formatMessage(messages.remove_from_list_help)}
+              </Text>
             </Checkbox>
           </div>
           <div className="field">
@@ -188,7 +216,9 @@ const ModalImportSubscriptions = ({ modalIsOpen, toggleModal, onSubmit }) => {
                 </svg>
               </div>
               {intl.formatMessage(messages.has_header_label)}
-              <Text slot="description">{intl.formatMessage(messages.has_header_help)}</Text>
+              <Text slot="description">
+                {intl.formatMessage(messages.has_header_help)}
+              </Text>
             </Checkbox>
           </div>
           <div className="field">
@@ -201,15 +231,27 @@ const ModalImportSubscriptions = ({ modalIsOpen, toggleModal, onSubmit }) => {
               }}
             >
               <Label>{intl.formatMessage(messages.csv_separator_label)}</Label>
-              <Text slot="description">{intl.formatMessage(messages.csv_separator_help)}</Text>
+              <Text slot="description">
+                {intl.formatMessage(messages.csv_separator_help)}
+              </Text>
               <Input />
             </TextField>
           </div>
           <div className="form-action">
             <Button type="submit" className="react-aria-Button primary">
-              {addSubscriptionStatus?.loading && <Icon icon="it-refresh" className="icon-sm load-status-icon" color="white" />} {intl.formatMessage(messages.modal_button_confirm)}
+              {addSubscriptionStatus?.loading && (
+                <Icon
+                  icon="it-refresh"
+                  className="icon-sm load-status-icon"
+                  color="white"
+                />
+              )}{' '}
+              {intl.formatMessage(messages.modal_button_confirm)}
             </Button>
-            <Button className="react-aria-Button cancel" onClick={() => toggleModal(!modalIsOpen)}>
+            <Button
+              className="react-aria-Button cancel"
+              onClick={() => toggleModal(!modalIsOpen)}
+            >
               {intl.formatMessage(messages.modal_button_cancel)}
             </Button>
           </div>

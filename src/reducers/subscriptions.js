@@ -1,4 +1,9 @@
-import { DELETE_SUBSCRIPTIONS, GET_SUBSCRIPTIONS, RESET_DELETE_SUBSCRIPTIONS, DELETE_ALL_SUBSCRIPTIONS_DATA } from '../constants/ActionTypes';
+import {
+  DELETE_SUBSCRIPTIONS,
+  GET_SUBSCRIPTIONS,
+  RESET_DELETE_SUBSCRIPTIONS,
+  DELETE_ALL_SUBSCRIPTIONS_DATA,
+} from '../constants/ActionTypes';
 
 const initialState = {
   error: null,
@@ -7,7 +12,10 @@ const initialState = {
   subrequests: {},
 };
 
-export const deleteAllSubscriptionsReducer = (state = initialState, action = {}) => {
+export const deleteAllSubscriptionsReducer = (
+  state = initialState,
+  action = {},
+) => {
   switch (action.type) {
     case `${DELETE_ALL_SUBSCRIPTIONS_DATA}_PENDING`:
       return {
@@ -70,7 +78,10 @@ export const getSubscriptionsReducer = (state = initialState, action = {}) => {
   }
 };
 
-export const deleteSubscriptionsReducer = (state = initialState, action = {}) => {
+export const deleteSubscriptionsReducer = (
+  state = initialState,
+  action = {},
+) => {
   switch (action.type) {
     case `${DELETE_SUBSCRIPTIONS}_PENDING`:
       return {

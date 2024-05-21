@@ -1,4 +1,7 @@
-import { NEWSLETTER_MESSAGE_TEST_SEND, NEWSLETTER_MESSAGE_TEST_SEND_TOGGLE_MODAL } from '../constants/ActionTypes';
+import {
+  NEWSLETTER_MESSAGE_TEST_SEND,
+  NEWSLETTER_MESSAGE_TEST_SEND_TOGGLE_MODAL,
+} from '../constants/ActionTypes';
 
 export function messageTestSend(path, data) {
   return {

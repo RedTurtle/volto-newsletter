@@ -4,13 +4,35 @@ import { defineMessages, useIntl } from 'react-intl';
 import { useSelector, useDispatch, connect } from 'react-redux';
 import { compose } from 'redux';
 import { useLocation, Link } from 'react-router-dom';
-import { Container, Confirm, Segment, Checkbox, Table, Loader, Form, Input, Message, Dimmer, Icon as SIcon } from 'semantic-ui-react';
+import {
+  Container,
+  Confirm,
+  Segment,
+  Checkbox,
+  Table,
+  Loader,
+  Form,
+  Input,
+  Message,
+  Dimmer,
+  Icon as SIcon,
+} from 'semantic-ui-react';
 import { Button, Dialog, Heading, Modal } from 'react-aria-components';
 import { injectLazyLibs } from '@plone/volto/helpers/Loadable/Loadable';
-import { Pagination, Unauthorized, Toast, Toolbar, Icon as IconNext } from '@plone/volto/components';
+import {
+  Pagination,
+  Unauthorized,
+  Toast,
+  Toolbar,
+  Icon as IconNext,
+} from '@plone/volto/components';
 import { getContent } from '@plone/volto/actions';
 import { asyncConnect, Helmet, getBaseUrl } from '@plone/volto/helpers';
-import { getSendHistory, deleteSendHistory, resetDeleteSendHistory } from '../../../actions';
+import {
+  getSendHistory,
+  deleteSendHistory,
+  resetDeleteSendHistory,
+} from '../../../actions';
 import SendHistoryPanelMenu from './SendHistoryPanelMenu';
 import backSVG from '@plone/volto/icons/back.svg';
 
@@ -83,7 +105,8 @@ const messages = defineMessages({
   },
   delete_error: {
     id: 'newsletter_panel_delete_error',
-    defaultMessage: 'An error has occurred while trying to delete history for {element}',
+    defaultMessage:
+      'An error has occurred while trying to delete history for {element}',
   },
   cancel: {
     id: 'button_cancel',
@@ -132,7 +155,9 @@ const SendHistoryPanel = ({ toastify, content }) => {
   const location = useLocation();
   const pathname = location.pathname.replace('/send-history', '');
   const history = useSelector((state) => state.getSendHistory);
-  const deleteSendHistoryState = useSelector((state) => state?.deleteSendHistory);
+  const deleteSendHistoryState = useSelector(
+    (state) => state?.deleteSendHistory,
+  );
 
   const [b_size, setB_size] = useState(50);
 
@@ -195,7 +220,13 @@ const SendHistoryPanel = ({ toastify, content }) => {
     try {
       await dispatch(deleteSendHistory(pathname, { uids: itemsSelected }));
       setShowConfirmDelete(false);
-      toastify.toast.success(<Toast success title={intl.formatMessage(messages.success)} content={intl.formatMessage(messages.delete_success)} />);
+      toastify.toast.success(
+        <Toast
+          success
+          title={intl.formatMessage(messages.success)}
+          content={intl.formatMessage(messages.delete_success)}
+        />,
+      );
     } catch (e) {
       console.error(e);
       toastify.toast.error(
@@ -224,29 +255,50 @@ const SendHistoryPanel = ({ toastify, content }) => {
     if (item.running) {
       return intl.formatMessage(messages.statusInProgress);
     }
-    return item.completed ? intl.formatMessage(messages.statusSent) : intl.formatMessage(messages.statusError);
+    return item.completed
+      ? intl.formatMessage(messages.statusSent)
+      : intl.formatMessage(messages.statusError);
   };
 
-  const totResults = history.result?.items_total ? history.result?.items_total : 0;
+  const totResults = history.result?.items_total
+    ? history.result?.items_total
+    : 0;
 
   return (
     <>
       <Container id="page-send-history" className="controlpanel-send-history">
-        <Helmet title={intl.formatMessage(messages.send_history_controlpanel)} />
+        <Helmet
+          title={intl.formatMessage(messages.send_history_controlpanel)}
+        />
         <Segment.Group raised>
-          <Segment className="primary">{intl.formatMessage(messages.send_history_controlpanel)}</Segment>
+          <Segment className="primary">
+            {intl.formatMessage(messages.send_history_controlpanel)}
+          </Segment>
 
           <SendHistoryPanelMenu doSearch={doSearch} />
 
           <Segment>
-            {history.result?.items ? <p>{searchableText.length ? intl.formatMessage(messages.tot_filtered, { totResults }) : intl.formatMessage(messages.tot_unfiltered, { totResults })}</p> : ''}
+            {history.result?.items ? (
+              <p>
+                {searchableText.length
+                  ? intl.formatMessage(messages.tot_filtered, { totResults })
+                  : intl.formatMessage(messages.tot_unfiltered, { totResults })}
+              </p>
+            ) : (
+              ''
+            )}
             {itemsSelected.length > 0 && (
               <Message className="selected-items" color="teal">
                 <div className="text">
-                  {itemsSelected?.length} {intl.formatMessage(messages.items_selected)}
+                  {itemsSelected?.length}{' '}
+                  {intl.formatMessage(messages.items_selected)}
                 </div>
                 <div className="actions">
-                  <Button type="button" className="react-aria-Button cancel" onClick={() => setShowConfirmDelete(true)}>
+                  <Button
+                    type="button"
+                    className="react-aria-Button cancel"
+                    onClick={() => setShowConfirmDelete(true)}
+                  >
                     {intl.formatMessage(messages.reset_send_history)}
                   </Button>
                 </div>
@@ -266,21 +318,34 @@ const SendHistoryPanel = ({ toastify, content }) => {
             <Table selectable compact singleLine attached fixed striped>
               <Table.Header>
                 <Table.Row>
-                  <Table.HeaderCell width={1} textAlign="center" verticalAlign="middle">
+                  <Table.HeaderCell
+                    width={1}
+                    textAlign="center"
+                    verticalAlign="middle"
+                  >
                     <Checkbox
                       title={intl.formatMessage(messages.select_all)}
-                      checked={history?.result?.items?.length !== 0 && itemsSelected?.length === history?.result?.items?.length}
+                      checked={
+                        history?.result?.items?.length !== 0 &&
+                        itemsSelected?.length === history?.result?.items?.length
+                      }
                       onChange={(e, o) => {
                         if (o.checked) {
-                          setItemsSelected(history?.result?.items.map((x) => x.uid));
+                          setItemsSelected(
+                            history?.result?.items.map((x) => x.uid),
+                          );
                         } else {
                           setItemsSelected([]);
                         }
                       }}
                     />
                   </Table.HeaderCell>
-                  <Table.HeaderCell width={4}>{intl.formatMessage(messages.message)}</Table.HeaderCell>
-                  <Table.HeaderCell textAlign="center">{intl.formatMessage(messages.subscribers)}</Table.HeaderCell>
+                  <Table.HeaderCell width={4}>
+                    {intl.formatMessage(messages.message)}
+                  </Table.HeaderCell>
+                  <Table.HeaderCell textAlign="center">
+                    {intl.formatMessage(messages.subscribers)}
+                  </Table.HeaderCell>
                   <Table.HeaderCell textAlign="center" width={3}>
                     {intl.formatMessage(messages.start_send)}
                   </Table.HeaderCell>
@@ -306,22 +371,32 @@ const SendHistoryPanel = ({ toastify, content }) => {
                               s.push(item.uid);
                               setItemsSelected(s);
                             } else {
-                              setItemsSelected(itemsSelected.filter((i) => i !== item.uid));
+                              setItemsSelected(
+                                itemsSelected.filter((i) => i !== item.uid),
+                              );
                             }
                           }}
                         />
                       </Table.Cell>
                       <Table.Cell>{item.message}</Table.Cell>
                       <Table.Cell>{item.subscribers}</Table.Cell>
-                      <Table.Cell textAlign="center">{item.send_date_start}</Table.Cell>
-                      <Table.Cell textAlign="center">{item.send_date_end}</Table.Cell>
+                      <Table.Cell textAlign="center">
+                        {item.send_date_start}
+                      </Table.Cell>
+                      <Table.Cell textAlign="center">
+                        {item.send_date_end}
+                      </Table.Cell>
                       <Table.Cell>{getItemStatus(item)}</Table.Cell>
                     </tr>
                   ))}
               </Table.Body>
             </Table>
             {history?.loading && <Loader active inline="centered" />}
-            {history?.result?.items?.length === 0 && <div className="no-results">{intl.formatMessage(messages.no_results)}</div>}
+            {history?.result?.items?.length === 0 && (
+              <div className="no-results">
+                {intl.formatMessage(messages.no_results)}
+              </div>
+            )}
 
             <div className="contents-pagination">
               <Pagination
@@ -338,20 +413,32 @@ const SendHistoryPanel = ({ toastify, content }) => {
           </Segment>
         </Segment.Group>
         {showConfirmDelete && (
-          <Modal isDismissable isOpen={showConfirmDelete} onOpenChange={() => setShowConfirmDelete(showConfirmDelete)}>
+          <Modal
+            isDismissable
+            isOpen={showConfirmDelete}
+            onOpenChange={() => setShowConfirmDelete(showConfirmDelete)}
+          >
             <Dialog>
               <div className="modal-header">
-                <Heading>{intl.formatMessage(messages.confirm_delete_selected)}</Heading>
+                <Heading>
+                  {intl.formatMessage(messages.confirm_delete_selected)}
+                </Heading>
                 <div className="close">
                   <Button onPress={() => setShowConfirmDelete(false)}>X</Button>
                 </div>
               </div>
 
               <div className="form-action">
-                <Button onClick={resetSelectedSendHistory} className="react-aria-Button primary">
+                <Button
+                  onClick={resetSelectedSendHistory}
+                  className="react-aria-Button primary"
+                >
                   {intl.formatMessage(messages.confirm)}
                 </Button>
-                <Button className="react-aria-Button cancel" onClick={() => setShowConfirmDelete(false)}>
+                <Button
+                  className="react-aria-Button cancel"
+                  onClick={() => setShowConfirmDelete(false)}
+                >
                   {intl.formatMessage(messages.cancel)}
                 </Button>
               </div>
@@ -366,7 +453,12 @@ const SendHistoryPanel = ({ toastify, content }) => {
             hideDefaultViewButtons
             inner={
               <Link to={`${getBaseUrl(pathname)}`} className="item">
-                <IconNext name={backSVG} className="contents circled" size="30px" title={intl.formatMessage(messages.back)} />
+                <IconNext
+                  name={backSVG}
+                  className="contents circled"
+                  size="30px"
+                  title={intl.formatMessage(messages.back)}
+                />
               </Link>
             }
           />

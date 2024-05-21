@@ -2,7 +2,15 @@ import React, { useState } from 'react';
 import { defineMessages, useIntl } from 'react-intl';
 import { useSelector } from 'react-redux';
 import { Icon } from 'design-comuni-plone-theme/components/ItaliaTheme';
-import { Button, Dialog, Heading, Input, Label, Modal, TextField } from 'react-aria-components';
+import {
+  Button,
+  Dialog,
+  Heading,
+  Input,
+  Label,
+  Modal,
+  TextField,
+} from 'react-aria-components';
 
 import '@plone/components/src/styles/basic/Form.css';
 import '@plone/components/src/styles/basic/Button.css';
@@ -53,7 +61,12 @@ const ModalAddSubsription = ({ modalIsOpen, toggleModal, onSubmit }) => {
     setEmailAddress('');
   };
   return (
-    <Modal id="modal-add-subscription" isDismissable isOpen={modalIsOpen} onOpenChange={() => toggleModal(!modalIsOpen)}>
+    <Modal
+      id="modal-add-subscription"
+      isDismissable
+      isOpen={modalIsOpen}
+      onOpenChange={() => toggleModal(!modalIsOpen)}
+    >
       <Dialog>
         <div className="modal-header">
           <Heading>{intl.formatMessage(messages.modal_title)}</Heading>
@@ -61,19 +74,37 @@ const ModalAddSubsription = ({ modalIsOpen, toggleModal, onSubmit }) => {
             <Button onPress={() => toggleModal(!modalIsOpen)}>X</Button>
           </div>
         </div>
-        <p className="modal-description">{intl.formatMessage(messages.modal_description)}</p>
+        <p className="modal-description">
+          {intl.formatMessage(messages.modal_description)}
+        </p>
         <form onSubmit={onFormSubmit}>
           <div className="field">
-            <TextField required id="email" autoFocus value={emailAddress} onChange={setEmailAddress}>
+            <TextField
+              required
+              id="email"
+              autoFocus
+              value={emailAddress}
+              onChange={setEmailAddress}
+            >
               <Label>{intl.formatMessage(messages.email_label)}</Label>
               <Input />
             </TextField>
           </div>
           <div className="form-action">
             <Button type="submit" className="react-aria-Button primary">
-              {addSubscriptionStatus?.loading && <Icon icon="it-refresh" className="icon-sm load-status-icon" color="white" />} {intl.formatMessage(messages.modal_button_confirm)}
+              {addSubscriptionStatus?.loading && (
+                <Icon
+                  icon="it-refresh"
+                  className="icon-sm load-status-icon"
+                  color="white"
+                />
+              )}{' '}
+              {intl.formatMessage(messages.modal_button_confirm)}
             </Button>
-            <Button className="react-aria-Button cancel" onClick={() => toggleModal(!modalIsOpen)}>
+            <Button
+              className="react-aria-Button cancel"
+              onClick={() => toggleModal(!modalIsOpen)}
+            >
               {intl.formatMessage(messages.modal_button_cancel)}
             </Button>
           </div>

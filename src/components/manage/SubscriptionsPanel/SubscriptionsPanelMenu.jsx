@@ -6,7 +6,12 @@ import { defineMessages, useIntl } from 'react-intl';
 import { Icon, Toast } from '@plone/volto/components';
 import trashSVG from '@plone/volto/icons/delete.svg';
 import { injectLazyLibs } from '@plone/volto/helpers/Loadable/Loadable';
-import { deleteAllSubscriptions, addSubscription, exportSubscriptions, importSubscriptions } from '../../../actions';
+import {
+  deleteAllSubscriptions,
+  addSubscription,
+  exportSubscriptions,
+  importSubscriptions,
+} from '../../../actions';
 import { useLocation } from 'react-router-dom';
 import downloadSVG from '@plone/volto/icons/download.svg';
 import uploadSVG from '@plone/volto/icons/upload.svg';
@@ -93,30 +98,43 @@ const SubscriptionsPanelMenu = ({ toastify, doSearch }) => {
   const intl = useIntl();
   const dispatch = useDispatch();
 
-  const [addSubscriptionModalIsOpen, toggleAddSubscriptionModal] = useState(false);
-  const [importSubscriptionModalIsOpen, toggleImportSubscriptionsModal] = useState(false);
+  const [addSubscriptionModalIsOpen, toggleAddSubscriptionModal] =
+    useState(false);
+  const [importSubscriptionModalIsOpen, toggleImportSubscriptionsModal] =
+    useState(false);
 
   const pathname = location.pathname.replace('/subscriptions', '');
   const [openConfirm, setOpenConfirm] = useState(false);
 
   const content = useSelector((state) => state.content?.data);
-  const deleteAllSubscriptionsState = useSelector((state) => state.deleteAllSubscriptions);
+  const deleteAllSubscriptionsState = useSelector(
+    (state) => state.deleteAllSubscriptions,
+  );
 
   const addSubscriptionStatus = useSelector((state) => state.addSubscription);
-  const importSubscriptionsStatus = useSelector((state) => state.importSubscriptions);
+  const importSubscriptionsStatus = useSelector(
+    (state) => state.importSubscriptions,
+  );
 
   // add subscription handlers
   useEffect(() => {
     if (addSubscriptionStatus.error) {
       /* SEND FAIL */
       toggleAddSubscriptionModal(false);
-      const msg = addSubscriptionStatus.error?.response?.body?.message || intl.formatMessage(messages.subscribe_add_error);
+      const msg =
+        addSubscriptionStatus.error?.response?.body?.message ||
+        intl.formatMessage(messages.subscribe_add_error);
       toastify.toast.error(<Toast error content={msg} />);
     }
     if (addSubscriptionStatus.loaded) {
       /* CHANGE SUCCESS */
       toggleAddSubscriptionModal(false);
-      toastify.toast.success(<Toast success content={intl.formatMessage(messages.subscribe_add_success)} />);
+      toastify.toast.success(
+        <Toast
+          success
+          content={intl.formatMessage(messages.subscribe_add_success)}
+        />,
+      );
     }
   }, [addSubscriptionStatus]);
 
@@ -130,7 +148,13 @@ const SubscriptionsPanelMenu = ({ toastify, doSearch }) => {
     try {
       await dispatch(deleteAllSubscriptions(pathname));
       setOpenConfirm(false);
-      toastify.toast.success(<Toast success title={intl.formatMessage(messages.success_delete_all)} content={intl.formatMessage(messages.delete_all_success)} />);
+      toastify.toast.success(
+        <Toast
+          success
+          title={intl.formatMessage(messages.success_delete_all)}
+          content={intl.formatMessage(messages.delete_all_success)}
+        />,
+      );
       doSearch();
     } catch (e) {
       console.error(e);
@@ -151,13 +175,20 @@ const SubscriptionsPanelMenu = ({ toastify, doSearch }) => {
     if (importSubscriptionsStatus.error) {
       /* SEND FAIL */
       toggleImportSubscriptionsModal(false);
-      const msg = importSubscriptionsStatus.error?.response?.body?.message || intl.formatMessage(messages.subscribe_import_error);
+      const msg =
+        importSubscriptionsStatus.error?.response?.body?.message ||
+        intl.formatMessage(messages.subscribe_import_error);
       toastify.toast.error(<Toast error content={msg} />);
     }
     if (importSubscriptionsStatus.loaded) {
       /* CHANGE SUCCESS */
       toggleImportSubscriptionsModal(false);
-      toastify.toast.success(<Toast success content={intl.formatMessage(messages.subscribe_import_success)} />);
+      toastify.toast.success(
+        <Toast
+          success
+          content={intl.formatMessage(messages.subscribe_import_success)}
+        />,
+      );
     }
   }, [importSubscriptionsStatus]);
 
@@ -186,7 +217,8 @@ const SubscriptionsPanelMenu = ({ toastify, doSearch }) => {
               dispatch(exportSubscriptions(pathname, content?.id));
             }}
           >
-            {intl.formatMessage(messages.download_list)} <i className="icon">
+            {intl.formatMessage(messages.download_list)}{' '}
+            <i className="icon">
               <Icon name={downloadSVG} size="20px" />
             </i>
           </Button>
@@ -206,7 +238,12 @@ const SubscriptionsPanelMenu = ({ toastify, doSearch }) => {
         </Menu.Item>
         <Menu.Menu position="right">
           <Menu.Item>
-            <Button className="react-aria-Button cancel" icon labelPosition="right" onClick={() => setOpenConfirm(true)}>
+            <Button
+              className="react-aria-Button cancel"
+              icon
+              labelPosition="right"
+              onClick={() => setOpenConfirm(true)}
+            >
               {intl.formatMessage(messages.delete_all)}
               <i className="icon">
                 <Icon name={trashSVG} size="20px" />
@@ -214,7 +251,11 @@ const SubscriptionsPanelMenu = ({ toastify, doSearch }) => {
             </Button>
           </Menu.Item>
         </Menu.Menu>
-        <Modal isDismissable isOpen={openConfirm} onOpenChange={() => setOpenConfirm(!openConfirm)}>
+        <Modal
+          isDismissable
+          isOpen={openConfirm}
+          onOpenChange={() => setOpenConfirm(!openConfirm)}
+        >
           <Dialog>
             <div className="modal-header">
               <Heading>{intl.formatMessage(messages.delete_all)}</Heading>
@@ -224,28 +265,48 @@ const SubscriptionsPanelMenu = ({ toastify, doSearch }) => {
             </div>
 
             <div className="content ui ">
-              {!deleteAllSubscriptionsState.loaded && deleteAllSubscriptionsState.loading && (
-                <Dimmer active>
-                  <Loader inverted inline="centered" size="large">
-                    {intl.formatMessage(messages.loading)}
-                  </Loader>
-                </Dimmer>
-              )}
-              {!deleteAllSubscriptionsState.loading && intl.formatMessage(messages.confirm_delete_all)}
+              {!deleteAllSubscriptionsState.loaded &&
+                deleteAllSubscriptionsState.loading && (
+                  <Dimmer active>
+                    <Loader inverted inline="centered" size="large">
+                      {intl.formatMessage(messages.loading)}
+                    </Loader>
+                  </Dimmer>
+                )}
+              {!deleteAllSubscriptionsState.loading &&
+                intl.formatMessage(messages.confirm_delete_all)}
             </div>
             <div className="form-action">
               <Button onClick={deleteAll} className="react-aria-Button primary">
-                {addSubscriptionStatus?.loading && <Icon icon="it-refresh" className="icon-sm load-status-icon" color="white" />} {intl.formatMessage(messages.confirm)}
+                {addSubscriptionStatus?.loading && (
+                  <Icon
+                    icon="it-refresh"
+                    className="icon-sm load-status-icon"
+                    color="white"
+                  />
+                )}{' '}
+                {intl.formatMessage(messages.confirm)}
               </Button>
-              <Button className="react-aria-Button cancel" onClick={() => setOpenConfirm(false)}>
+              <Button
+                className="react-aria-Button cancel"
+                onClick={() => setOpenConfirm(false)}
+              >
                 {intl.formatMessage(messages.cancel)}
               </Button>
             </div>
           </Dialog>
         </Modal>
       </Menu>
-      <ModalAddSubscription modalIsOpen={addSubscriptionModalIsOpen} toggleModal={toggleAddSubscriptionModal} onSubmit={submitAddSubscription}></ModalAddSubscription>
-      <ModalImportSubscriptions modalIsOpen={importSubscriptionModalIsOpen} toggleModal={toggleImportSubscriptionsModal} onSubmit={submitImportSubscriptions}></ModalImportSubscriptions>
+      <ModalAddSubscription
+        modalIsOpen={addSubscriptionModalIsOpen}
+        toggleModal={toggleAddSubscriptionModal}
+        onSubmit={submitAddSubscription}
+      ></ModalAddSubscription>
+      <ModalImportSubscriptions
+        modalIsOpen={importSubscriptionModalIsOpen}
+        toggleModal={toggleImportSubscriptionsModal}
+        onSubmit={submitImportSubscriptions}
+      ></ModalImportSubscriptions>
     </>
   );
 };

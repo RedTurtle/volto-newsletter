@@ -10,7 +10,11 @@ const initialState = {
 function download(filename, text) {
   console.log(text);
   var element = document.createElement('a');
-  element.setAttribute('href', 'data:text/comma-separated-values;charset=utf-8,' + encodeURIComponent(text));
+  element.setAttribute(
+    'href',
+    'data:text/comma-separated-values;charset=utf-8,' +
+      encodeURIComponent(text),
+  );
   element.setAttribute('download', filename);
 
   element.style.display = 'none';

@@ -1,4 +1,9 @@
-import { DELETE_SUBSCRIPTIONS, GET_SUBSCRIPTIONS, RESET_DELETE_SUBSCRIPTIONS, DELETE_ALL_SUBSCRIPTIONS_DATA } from '../constants/ActionTypes';
+import {
+  DELETE_SUBSCRIPTIONS,
+  GET_SUBSCRIPTIONS,
+  RESET_DELETE_SUBSCRIPTIONS,
+  DELETE_ALL_SUBSCRIPTIONS_DATA,
+} from '../constants/ActionTypes';
 
 export function resetDeleteSubscriptions() {
   return { type: RESET_DELETE_SUBSCRIPTIONS };

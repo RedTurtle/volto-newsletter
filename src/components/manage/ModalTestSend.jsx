@@ -4,7 +4,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { notify } from 'design-react-kit';
 import { useLocation } from 'react-router-dom';
 import { messageTestSend, messageTestSendToggleModal } from '../../actions';
-import { Button, Dialog, Heading, Input, Label, Modal, TextField } from 'react-aria-components';
+import {
+  Button,
+  Dialog,
+  Heading,
+  Input,
+  Label,
+  Modal,
+  TextField,
+} from 'react-aria-components';
 
 import '@plone/components/src/styles/basic/Form.css';
 import '@plone/components/src/styles/basic/Button.css';
@@ -19,7 +27,8 @@ const messages = defineMessages({
   },
   modal_description: {
     id: 'modal_test_send_description',
-    defaultMessage: 'Try to send this message to an email address before actual send.',
+    defaultMessage:
+      'Try to send this message to an email address before actual send.',
   },
   email_label: {
     id: 'newsletter_modal_test_send_email_label',
@@ -59,12 +68,18 @@ const ModalTestSend = () => {
     if (messageSendStatus.error) {
       /* SEND FAIL */
       setEmailAddress('');
-      toastNotification(intl.formatMessage(messages.message_send_error), 'error');
+      toastNotification(
+        intl.formatMessage(messages.message_send_error),
+        'error',
+      );
     }
     if (messageSendStatus.loaded) {
       /* CHANGE SUCCESS */
       setEmailAddress('');
-      toastNotification(intl.formatMessage(messages.message_send_success), 'success');
+      toastNotification(
+        intl.formatMessage(messages.message_send_success),
+        'success',
+      );
     }
   }, [messageSendStatus]);
 
@@ -83,18 +98,35 @@ const ModalTestSend = () => {
   };
 
   return (
-    <Modal id="modal-test-send" isDismissable isOpen={modalIsOpen} onOpenChange={() => dispatch(messageTestSendToggleModal(!modalIsOpen))}>
+    <Modal
+      id="modal-test-send"
+      isDismissable
+      isOpen={modalIsOpen}
+      onOpenChange={() => dispatch(messageTestSendToggleModal(!modalIsOpen))}
+    >
       <Dialog>
         <div className="modal-header">
           <Heading>{intl.formatMessage(messages.modal_title)}</Heading>
           <div className="close">
-            <Button onPress={() => dispatch(messageTestSendToggleModal(!modalIsOpen))}>X</Button>
+            <Button
+              onPress={() => dispatch(messageTestSendToggleModal(!modalIsOpen))}
+            >
+              X
+            </Button>
           </div>
         </div>
-        <p className="modal-description">{intl.formatMessage(messages.modal_description)}</p>
+        <p className="modal-description">
+          {intl.formatMessage(messages.modal_description)}
+        </p>
         <form onSubmit={onFormSubmit}>
           <div className="field">
-            <TextField required id="email" autoFocus value={emailAddress} onChange={setEmailAddress}>
+            <TextField
+              required
+              id="email"
+              autoFocus
+              value={emailAddress}
+              onChange={setEmailAddress}
+            >
               <Label>{intl.formatMessage(messages.email_label)}</Label>
               <Input />
             </TextField>
@@ -103,7 +135,10 @@ const ModalTestSend = () => {
             <Button type="submit" className="react-aria-Button primary">
               {intl.formatMessage(messages.confirm)}
             </Button>
-            <Button className="react-aria-Button cancel" onClick={() => toggleModal(!modalIsOpen)}>
+            <Button
+              className="react-aria-Button cancel"
+              onClick={() => toggleModal(!modalIsOpen)}
+            >
               {intl.formatMessage(messages.cancel)}
             </Button>
           </div>

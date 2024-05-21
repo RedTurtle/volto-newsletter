@@ -24,7 +24,8 @@ export const NewsletterMessageToolbar = () => {
     return null;
   }
 
-  const { can_manage, can_send } = content?.['@components']?.['message-actions'] || {};
+  const { can_manage, can_send } =
+    content?.['@components']?.['message-actions'] || {};
   if (!can_manage && !can_send) {
     return null;
   }
@@ -33,8 +34,18 @@ export const NewsletterMessageToolbar = () => {
       {({ onClickHandler }) => {
         return (
           <>
-            <button className="newsletter-actions" aria-label={intl.formatMessage(messages.messageActions)} onClick={(e) => onClickHandler(e, 'messageActions')} tabIndex={0} id="toolbar-message-actions">
-              <Icon name={NewsletterSVG} size="30px" title={intl.formatMessage(messages.messageActions)} />
+            <button
+              className="newsletter-actions"
+              aria-label={intl.formatMessage(messages.messageActions)}
+              onClick={(e) => onClickHandler(e, 'messageActions')}
+              tabIndex={0}
+              id="toolbar-message-actions"
+            >
+              <Icon
+                name={NewsletterSVG}
+                size="30px"
+                title={intl.formatMessage(messages.messageActions)}
+              />
             </button>
           </>
         );

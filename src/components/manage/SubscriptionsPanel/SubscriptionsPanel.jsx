@@ -4,13 +4,33 @@ import { defineMessages, useIntl } from 'react-intl';
 import { useSelector, useDispatch } from 'react-redux';
 import { compose } from 'redux';
 import { useLocation, Link } from 'react-router-dom';
-import { Container, Segment, Checkbox, Table, Loader, Form, Input, Message, Dimmer } from 'semantic-ui-react';
+import {
+  Container,
+  Segment,
+  Checkbox,
+  Table,
+  Loader,
+  Form,
+  Input,
+  Message,
+  Dimmer,
+} from 'semantic-ui-react';
 import { Button, Dialog, Heading, Modal } from 'react-aria-components';
 import { injectLazyLibs } from '@plone/volto/helpers/Loadable/Loadable';
-import { Pagination, Unauthorized, Toast, Toolbar, Icon } from '@plone/volto/components';
+import {
+  Pagination,
+  Unauthorized,
+  Toast,
+  Toolbar,
+  Icon,
+} from '@plone/volto/components';
 import { getContent } from '@plone/volto/actions';
 import { asyncConnect, Helmet, getBaseUrl } from '@plone/volto/helpers';
-import { getSubscriptions, deleteSubscriptions, resetDeleteSubscriptions } from '../../../actions';
+import {
+  getSubscriptions,
+  deleteSubscriptions,
+  resetDeleteSubscriptions,
+} from '../../../actions';
 import SubscriptionsPanelMenu from './SubscriptionsPanelMenu';
 
 import backSVG from '@plone/volto/icons/back.svg';
@@ -47,7 +67,8 @@ const messages = defineMessages({
   },
   confirm_delete_selected: {
     id: 'newsletter_panel_confirm_delete_selected_subscriptions',
-    defaultMessage: 'Are you sure you want to delete the following subscriptions?',
+    defaultMessage:
+      'Are you sure you want to delete the following subscriptions?',
   },
   error: {
     id: 'newsletter_panel_error',
@@ -63,7 +84,8 @@ const messages = defineMessages({
   },
   delete_subscriptions_error: {
     id: 'newsletter_panel_delete_subscriptions_error',
-    defaultMessage: 'An error has occurred while trying to delete subscriptions',
+    defaultMessage:
+      'An error has occurred while trying to delete subscriptions',
   },
   cancel: {
     id: 'button_cancel',
@@ -122,7 +144,9 @@ const SubscriptionsPanel = ({ toastify }) => {
   const pathname = location.pathname.replace('/subscriptions', '');
   const subscriptions = useSelector((state) => state.getSubscriptions);
   const content = useSelector((state) => state.content);
-  const deleteSubscriptionsState = useSelector((state) => state?.deleteSubscriptions);
+  const deleteSubscriptionsState = useSelector(
+    (state) => state?.deleteSubscriptions,
+  );
 
   const [b_size, setB_size] = useState(50);
 
@@ -177,7 +201,13 @@ const SubscriptionsPanel = ({ toastify }) => {
     try {
       await dispatch(deleteSubscriptions(pathname, { email: itemsSelected }));
       setShowConfirmDelete(false);
-      toastify.toast.success(<Toast success title={intl.formatMessage(messages.success)} content={intl.formatMessage(messages.delete_subscriptions_success)} />);
+      toastify.toast.success(
+        <Toast
+          success
+          title={intl.formatMessage(messages.success)}
+          content={intl.formatMessage(messages.delete_subscriptions_success)}
+        />,
+      );
     } catch (e) {
       console.error(e);
       toastify.toast.error(
@@ -202,26 +232,45 @@ const SubscriptionsPanel = ({ toastify }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [deleteSubscriptionsEnd]);
 
-  const totResults = subscriptions.result?.items_total ? subscriptions.result?.items_total : 0;
+  const totResults = subscriptions.result?.items_total
+    ? subscriptions.result?.items_total
+    : 0;
 
   return (
     <>
       <Container id="page-subscriptions" className="controlpanel-subscriptions">
-        <Helmet title={intl.formatMessage(messages.subscriptions_controlpanel)} />
+        <Helmet
+          title={intl.formatMessage(messages.subscriptions_controlpanel)}
+        />
         <Segment.Group raised>
-          <Segment className="primary">{intl.formatMessage(messages.subscriptions_controlpanel)}</Segment>
+          <Segment className="primary">
+            {intl.formatMessage(messages.subscriptions_controlpanel)}
+          </Segment>
 
           <SubscriptionsPanelMenu doSearch={doSearch} />
 
           <Segment>
-            {subscriptions.result?.items ? <p>{searchableText.length ? intl.formatMessage(messages.tot_filtered, { totResults }) : intl.formatMessage(messages.tot_unfiltered, { totResults })}</p> : ''}
+            {subscriptions.result?.items ? (
+              <p>
+                {searchableText.length
+                  ? intl.formatMessage(messages.tot_filtered, { totResults })
+                  : intl.formatMessage(messages.tot_unfiltered, { totResults })}
+              </p>
+            ) : (
+              ''
+            )}
             {itemsSelected.length > 0 && (
               <Message className="selected-items" color="teal">
                 <div className="text">
-                  {itemsSelected?.length} {intl.formatMessage(messages.items_selected)}
+                  {itemsSelected?.length}{' '}
+                  {intl.formatMessage(messages.items_selected)}
                 </div>
                 <div className="actions">
-                  <Button type="button" className="react-aria-Button cancel" onClick={() => setShowConfirmDelete(true)}>
+                  <Button
+                    type="button"
+                    className="react-aria-Button cancel"
+                    onClick={() => setShowConfirmDelete(true)}
+                  >
                     {intl.formatMessage(messages.delete_subscriptions)}
                   </Button>
                 </div>
@@ -241,20 +290,32 @@ const SubscriptionsPanel = ({ toastify }) => {
             <Table selectable compact singleLine attached fixed striped>
               <Table.Header>
                 <Table.Row>
-                  <Table.HeaderCell width={1} textAlign="center" verticalAlign="middle">
+                  <Table.HeaderCell
+                    width={1}
+                    textAlign="center"
+                    verticalAlign="middle"
+                  >
                     <Checkbox
                       title={intl.formatMessage(messages.select_all)}
-                      checked={subscriptions?.result?.items?.length !== 0 && itemsSelected?.length === subscriptions?.result?.items?.length}
+                      checked={
+                        subscriptions?.result?.items?.length !== 0 &&
+                        itemsSelected?.length ===
+                          subscriptions?.result?.items?.length
+                      }
                       onChange={(e, o) => {
                         if (o.checked) {
-                          setItemsSelected(subscriptions?.result?.items.map((x) => x.email));
+                          setItemsSelected(
+                            subscriptions?.result?.items.map((x) => x.email),
+                          );
                         } else {
                           setItemsSelected([]);
                         }
                       }}
                     />
                   </Table.HeaderCell>
-                  <Table.HeaderCell width={4}>{intl.formatMessage(messages.email)}</Table.HeaderCell>
+                  <Table.HeaderCell width={4}>
+                    {intl.formatMessage(messages.email)}
+                  </Table.HeaderCell>
                   <Table.HeaderCell textAlign="center" width={3}>
                     {intl.formatMessage(messages.creation_date)}
                   </Table.HeaderCell>
@@ -270,27 +331,43 @@ const SubscriptionsPanel = ({ toastify }) => {
                       <Table.Cell textAlign="center">
                         <Checkbox
                           title={intl.formatMessage(messages.select_item)}
-                          checked={itemsSelected.some((is) => is === item.email)}
+                          checked={itemsSelected.some(
+                            (is) => is === item.email,
+                          )}
                           onChange={(e, o) => {
                             if (o.checked) {
                               let s = [...itemsSelected];
                               s.push(item.email);
                               setItemsSelected(s);
                             } else {
-                              setItemsSelected(itemsSelected.filter((i) => i !== item.email));
+                              setItemsSelected(
+                                itemsSelected.filter((i) => i !== item.email),
+                              );
                             }
                           }}
                         />
                       </Table.Cell>
                       <Table.Cell>{item.email}</Table.Cell>
                       <Table.Cell>{item.creation_date}</Table.Cell>
-                      <Table.Cell>{item.is_active ? intl.formatMessage(messages.subscription_state_active) : intl.formatMessage(messages.subscription_state_inactive)}</Table.Cell>
+                      <Table.Cell>
+                        {item.is_active
+                          ? intl.formatMessage(
+                              messages.subscription_state_active,
+                            )
+                          : intl.formatMessage(
+                              messages.subscription_state_inactive,
+                            )}
+                      </Table.Cell>
                     </tr>
                   ))}
               </Table.Body>
             </Table>
             {subscriptions?.loading && <Loader active inline="centered" />}
-            {subscriptions?.result?.items?.length === 0 && <div className="no-results">{intl.formatMessage(messages.no_results)}</div>}
+            {subscriptions?.result?.items?.length === 0 && (
+              <div className="no-results">
+                {intl.formatMessage(messages.no_results)}
+              </div>
+            )}
 
             <div className="contents-pagination">
               <Pagination
@@ -307,10 +384,16 @@ const SubscriptionsPanel = ({ toastify }) => {
           </Segment>
         </Segment.Group>
         {showConfirmDelete && (
-          <Modal isDismissable isOpen={showConfirmDelete} onOpenChange={() => setShowConfirmDelete(showConfirmDelete)}>
+          <Modal
+            isDismissable
+            isOpen={showConfirmDelete}
+            onOpenChange={() => setShowConfirmDelete(showConfirmDelete)}
+          >
             <Dialog>
               <div className="modal-header">
-                <Heading>{intl.formatMessage(messages.confirm_delete_selected)}</Heading>
+                <Heading>
+                  {intl.formatMessage(messages.confirm_delete_selected)}
+                </Heading>
                 <div className="close">
                   <Button onPress={() => setShowConfirmDelete(false)}>X</Button>
                 </div>
@@ -318,13 +401,14 @@ const SubscriptionsPanel = ({ toastify }) => {
 
               <div className="content ui ">
                 <div className="content ui ">
-                  {deleteSubscriptionsState?.loading && !deleteSubscriptionsEnd && (
-                    <Dimmer active>
-                      <Loader inverted inline="centered" size="large">
-                        {intl.formatMessage(messages.loading)}
-                      </Loader>
-                    </Dimmer>
-                  )}
+                  {deleteSubscriptionsState?.loading &&
+                    !deleteSubscriptionsEnd && (
+                      <Dimmer active>
+                        <Loader inverted inline="centered" size="large">
+                          {intl.formatMessage(messages.loading)}
+                        </Loader>
+                      </Dimmer>
+                    )}
                   {!deleteSubscriptionsState?.loading &&
                     itemsSelected?.map((item, i) => (
                       <div className="confirm-delete-item" key={item}>
@@ -334,10 +418,16 @@ const SubscriptionsPanel = ({ toastify }) => {
                 </div>
               </div>
               <div className="form-action">
-                <Button onClick={resetSelectedSubscriptions} className="react-aria-Button primary">
+                <Button
+                  onClick={resetSelectedSubscriptions}
+                  className="react-aria-Button primary"
+                >
                   {intl.formatMessage(messages.confirm)}
                 </Button>
-                <Button className="react-aria-Button cancel" onClick={() => setShowConfirmDelete(false)}>
+                <Button
+                  className="react-aria-Button cancel"
+                  onClick={() => setShowConfirmDelete(false)}
+                >
                   {intl.formatMessage(messages.cancel)}
                 </Button>
               </div>
@@ -352,7 +442,12 @@ const SubscriptionsPanel = ({ toastify }) => {
             hideDefaultViewButtons
             inner={
               <Link to={`${getBaseUrl(pathname)}`} className="item">
-                <Icon name={backSVG} className="contents circled" size="30px" title={intl.formatMessage(messages.back)} />
+                <Icon
+                  name={backSVG}
+                  className="contents circled"
+                  size="30px"
+                  title={intl.formatMessage(messages.back)}
+                />
               </Link>
             }
           />

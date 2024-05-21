@@ -1,4 +1,9 @@
-import { DELETE_SEND_HISTORY, GET_SEND_HISTORY, RESET_DELETE_SEND_HISTORY, DELETE_ALL_SEND_HISTORY_DATA } from '../constants/ActionTypes';
+import {
+  DELETE_SEND_HISTORY,
+  GET_SEND_HISTORY,
+  RESET_DELETE_SEND_HISTORY,
+  DELETE_ALL_SEND_HISTORY_DATA,
+} from '../constants/ActionTypes';
 
 export function resetDeleteSendHistory() {
   return { type: RESET_DELETE_SEND_HISTORY };

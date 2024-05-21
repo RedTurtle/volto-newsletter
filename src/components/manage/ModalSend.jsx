@@ -3,7 +3,11 @@ import { defineMessages, useIntl } from 'react-intl';
 import { useDispatch, useSelector } from 'react-redux';
 import { notify } from 'design-react-kit';
 import { useLocation } from 'react-router-dom';
-import { messageSend, messageSendToggleModal, messageSendGetToken } from '../../actions';
+import {
+  messageSend,
+  messageSendToggleModal,
+  messageSendGetToken,
+} from '../../actions';
 import { Button, Dialog, Heading, Input, Modal } from 'react-aria-components';
 
 import '@plone/components/src/styles/basic/Button.css';
@@ -22,7 +26,8 @@ const messages = defineMessages({
   },
   modal_text: {
     id: 'newsletter_modal_send_text',
-    defaultMessage: 'You are about to send this message to {subscribers} subscribers.',
+    defaultMessage:
+      'You are about to send this message to {subscribers} subscribers.',
   },
   cancel: {
     id: 'button_cancel',
@@ -38,7 +43,8 @@ const messages = defineMessages({
   },
   message_send_success: {
     id: 'newsletter_modal_send_success',
-    defaultMessage: "Message succesfully sent. Check channel's history to see his status.",
+    defaultMessage:
+      "Message succesfully sent. Check channel's history to see his status.",
   },
 });
 
@@ -48,20 +54,33 @@ const ModalSend = ({ content }) => {
   const dispatch = useDispatch();
 
   const path = location.pathname;
-  const messageSendStatus = useSelector((state) => state.messageSend?.send || {});
-  const messageTokenStatus = useSelector((state) => state.messageSend?.token || {});
-  const modalIsOpen = useSelector((state) => state.messageSend?.modalIsOpen || false);
+  const messageSendStatus = useSelector(
+    (state) => state.messageSend?.send || {},
+  );
+  const messageTokenStatus = useSelector(
+    (state) => state.messageSend?.token || {},
+  );
+  const modalIsOpen = useSelector(
+    (state) => state.messageSend?.modalIsOpen || false,
+  );
 
-  const { active_subscriptions } = content?.['@components']?.['message-actions'] || {};
+  const { active_subscriptions } =
+    content?.['@components']?.['message-actions'] || {};
 
   useEffect(() => {
     if (messageSendStatus.error) {
       /* SEND FAIL */
-      toastNotification(intl.formatMessage(messages.message_send_error), 'error');
+      toastNotification(
+        intl.formatMessage(messages.message_send_error),
+        'error',
+      );
     }
     if (messageSendStatus.loaded) {
       /* CHANGE SUCCESS */
-      toastNotification(intl.formatMessage(messages.message_send_success), 'success');
+      toastNotification(
+        intl.formatMessage(messages.message_send_success),
+        'success',
+      );
     }
   }, [messageSendStatus]);
 
@@ -91,22 +110,40 @@ const ModalSend = ({ content }) => {
   };
 
   return (
-    <Modal id="modal-send" isDismissable isOpen={modalIsOpen} onOpenChange={() => dispatch(messageSendToggleModal(!modalIsOpen))}>
+    <Modal
+      id="modal-send"
+      isDismissable
+      isOpen={modalIsOpen}
+      onOpenChange={() => dispatch(messageSendToggleModal(!modalIsOpen))}
+    >
       <Dialog>
         <div className="modal-header">
           <Heading>{intl.formatMessage(messages.modal_title)}</Heading>
           <div className="close">
-            <Button onPress={() => dispatch(messageSendToggleModal(!modalIsOpen))}>X</Button>
+            <Button
+              onPress={() => dispatch(messageSendToggleModal(!modalIsOpen))}
+            >
+              X
+            </Button>
           </div>
         </div>
-        <p className="modal-description">{intl.formatMessage(messages.modal_description)}</p>
-        <p>{intl.formatMessage(messages.modal_text, { subscribers: active_subscriptions })}</p>
+        <p className="modal-description">
+          {intl.formatMessage(messages.modal_description)}
+        </p>
+        <p>
+          {intl.formatMessage(messages.modal_text, {
+            subscribers: active_subscriptions,
+          })}
+        </p>
         <form onSubmit={onFormSubmit}>
           <div className="form-action">
             <Button type="submit" className="react-aria-Button primary">
               {intl.formatMessage(messages.confirm)}
             </Button>
-            <Button className="react-aria-Button cancel" onClick={() => toggleModal(!modalIsOpen)}>
+            <Button
+              className="react-aria-Button cancel"
+              onClick={() => toggleModal(!modalIsOpen)}
+            >
               {intl.formatMessage(messages.cancel)}
             </Button>
           </div>

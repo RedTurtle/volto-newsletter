@@ -1,4 +1,8 @@
-import { NEWSLETTER_MESSAGE_SEND, NEWSLETTER_MESSAGE_SEND_TOGGLE_MODAL, NEWSLETTER_MESSAGE_SEND_GET_TOKEN } from '../constants/ActionTypes';
+import {
+  NEWSLETTER_MESSAGE_SEND,
+  NEWSLETTER_MESSAGE_SEND_TOGGLE_MODAL,
+  NEWSLETTER_MESSAGE_SEND_GET_TOKEN,
+} from '../constants/ActionTypes';
 
 const initialState = {
   send: { loading: false, loaded: false, error: null, result: null },
@@ -16,7 +20,12 @@ export function messageSendReducer(state = initialState, action = {}) {
       };
     case `${NEWSLETTER_MESSAGE_SEND}_SUCCESS`:
       return {
-        send: { loading: false, loaded: true, error: null, result: action.result },
+        send: {
+          loading: false,
+          loaded: true,
+          error: null,
+          result: action.result,
+        },
         token: { loading: false, loaded: false, error: null, value: null },
         modalIsOpen: false,
       };
@@ -38,12 +47,22 @@ export function messageSendReducer(state = initialState, action = {}) {
     case `${NEWSLETTER_MESSAGE_SEND_GET_TOKEN}_SUCCESS`:
       return {
         ...state,
-        token: { loading: false, loaded: true, error: null, value: action.result },
+        token: {
+          loading: false,
+          loaded: true,
+          error: null,
+          value: action.result,
+        },
       };
     case `${NEWSLETTER_MESSAGE_SEND_GET_TOKEN}_FAIL`:
       return {
         ...state,
-        token: { loading: false, loaded: false, error: action.error, value: null },
+        token: {
+          loading: false,
+          loaded: false,
+          error: action.error,
+          value: null,
+        },
       };
     case `${NEWSLETTER_MESSAGE_SEND_GET_TOKEN}_RESET`:
       return {

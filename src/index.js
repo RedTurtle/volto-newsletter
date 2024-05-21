@@ -1,4 +1,11 @@
-export { subscribeNewsletter, resetSubscribeNewsletter, unsubscribeNewsletter, resetUnsubscribeNewsletter, confirmNewsletterSubscription, resetConfirmNewsletterSubscription } from './actions';
+export {
+  subscribeNewsletter,
+  resetSubscribeNewsletter,
+  unsubscribeNewsletter,
+  resetUnsubscribeNewsletter,
+  confirmNewsletterSubscription,
+  resetConfirmNewsletterSubscription,
+} from './actions';
 
 import { SendHistoryPanel, SubscriptionsPanel } from './components/manage';
 import { Message, Channel } from './views';
@@ -6,8 +13,28 @@ import NewsletterConfirmSubscribe from './views/NewsletterConfirmSubscribe';
 import NewsletterConfirmUnsubscribe from './views/NewsletterConfirmUnsubscribe';
 import NewsletterConfirmView from './views/NewsletterConfirmView';
 import MessageFilterBlocks from './config/MessageFilterBlocks';
-import { NewsletterMessageToolbar, MessageActionsMenu, NewsletterChannelToolbar, ChannelActionsMenu } from './components/manage';
-import { subscribeNewsletterReducer, unsubscribeNewsletterReducer, confirmNewsletterSubscriptionReducer, messageSendReducer, messageTestSendReducer, deleteAllSendHistoryReducer, getSendHistoryReducer, deleteSendHistoryReducer, deleteAllSubscriptionsReducer, getSubscriptionsReducer, deleteSubscriptionsReducer, addSubscriptionReducer, exportSubscriptionsReducer, importSubscriptionsReducer } from './reducers';
+import {
+  NewsletterMessageToolbar,
+  MessageActionsMenu,
+  NewsletterChannelToolbar,
+  ChannelActionsMenu,
+} from './components/manage';
+import {
+  subscribeNewsletterReducer,
+  unsubscribeNewsletterReducer,
+  confirmNewsletterSubscriptionReducer,
+  messageSendReducer,
+  messageTestSendReducer,
+  deleteAllSendHistoryReducer,
+  getSendHistoryReducer,
+  deleteSendHistoryReducer,
+  deleteAllSubscriptionsReducer,
+  getSubscriptionsReducer,
+  deleteSubscriptionsReducer,
+  addSubscriptionReducer,
+  exportSubscriptionsReducer,
+  importSubscriptionsReducer,
+} from './reducers';
 const applyConfig = (config) => {
   config.addonReducers = {
     ...config.addonReducers,
@@ -43,7 +70,12 @@ const applyConfig = (config) => {
     },
   ];
 
-  config.settings.nonContentRoutes = [...config.settings.nonContentRoutes, /\/send-history$/, /\/subscriptions$/, /\/messagepreview_view$/];
+  config.settings.nonContentRoutes = [
+    ...config.settings.nonContentRoutes,
+    /\/send-history$/,
+    /\/subscriptions$/,
+    /\/messagepreview_view$/,
+  ];
 
   config.views.contentTypesViews = {
     ...config.views.contentTypesViews,
@@ -76,4 +108,9 @@ const applyConfig = (config) => {
 
 export default applyConfig;
 
-export { Channel, NewsletterConfirmSubscribe, NewsletterConfirmUnsubscribe, NewsletterConfirmView };
+export {
+  Channel,
+  NewsletterConfirmSubscribe,
+  NewsletterConfirmUnsubscribe,
+  NewsletterConfirmView,
+};

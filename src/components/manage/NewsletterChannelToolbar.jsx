@@ -33,8 +33,18 @@ export const NewsletterChannelToolbar = () => {
       {({ onClickHandler }) => {
         return (
           <>
-            <button className="newsletter-actions" aria-label={intl.formatMessage(messages.channelActions)} onClick={(e) => onClickHandler(e, 'channelActions')} tabIndex={0} id="toolbar-channel-actions">
-              <Icon name={NewsletterSVG} size="30px" title={intl.formatMessage(messages.channelActions)} />
+            <button
+              className="newsletter-actions"
+              aria-label={intl.formatMessage(messages.channelActions)}
+              onClick={(e) => onClickHandler(e, 'channelActions')}
+              tabIndex={0}
+              id="toolbar-channel-actions"
+            >
+              <Icon
+                name={NewsletterSVG}
+                size="30px"
+                title={intl.formatMessage(messages.channelActions)}
+              />
             </button>
           </>
         );

@@ -1,5 +1,9 @@
 import React, { createRef, useState } from 'react';
-import { PageHeader, TextOrBlocks, SkipToMainContent } from 'design-comuni-plone-theme/components/ItaliaTheme/View';
+import {
+  PageHeader,
+  TextOrBlocks,
+  SkipToMainContent,
+} from 'design-comuni-plone-theme/components/ItaliaTheme/View';
 import { defineMessages, useIntl } from 'react-intl';
 import { NotificationManager } from 'design-react-kit';
 import { ModalTestSend, ModalSend } from '../components/manage';
@@ -23,9 +27,19 @@ const Message = ({ content, location }) => {
     <>
       <div className="container px-4 my-4 message-view">
         <SkipToMainContent />
-        <PageHeader content={content} readingtime={null} showreadingtime={false} showdates={false} showtassonomiaargomenti={false} />
+        <PageHeader
+          content={content}
+          readingtime={null}
+          showreadingtime={false}
+          showdates={false}
+          showtassonomiaargomenti={false}
+        />
         <div className="row border-top py-5">
-          <section ref={documentBody} id="main-content-section" className="it-page-sections-container">
+          <section
+            ref={documentBody}
+            id="main-content-section"
+            className="it-page-sections-container"
+          >
             <TextOrBlocks content={content} />
           </section>
         </div>

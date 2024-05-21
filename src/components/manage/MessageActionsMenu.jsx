@@ -6,7 +6,10 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BodyClass } from '@plone/volto/helpers';
 import { useIntl, defineMessages } from 'react-intl';
-import { messageTestSendToggleModal, messageSendToggleModal } from '../../actions';
+import {
+  messageTestSendToggleModal,
+  messageSendToggleModal,
+} from '../../actions';
 import { UniversalLink } from '@plone/volto/components';
 
 import { Button } from 'design-react-kit';
@@ -43,8 +46,11 @@ export const MessageActionsMenu = ({ theToolbar }) => {
   const content = useSelector((state) => {
     return state?.content?.data;
   });
-  const { can_send, already_sent } = content?.['@components']?.['message-actions'] || {};
-  const sendLabel = already_sent ? messages.message_resend : messages.message_send;
+  const { can_send, already_sent } =
+    content?.['@components']?.['message-actions'] || {};
+  const sendLabel = already_sent
+    ? messages.message_resend
+    : messages.message_send;
 
   return (
     <>
@@ -52,7 +58,9 @@ export const MessageActionsMenu = ({ theToolbar }) => {
       <div
         className="pastanaga-menu"
         style={{
-          flex: theToolbar.current ? `0 0 ${theToolbar.current.getBoundingClientRect().width}px` : null,
+          flex: theToolbar.current
+            ? `0 0 ${theToolbar.current.getBoundingClientRect().width}px`
+            : null,
           bottom: '0px',
         }}
       >
@@ -62,7 +70,10 @@ export const MessageActionsMenu = ({ theToolbar }) => {
         <div className="pastanaga-menu-list">
           <ul>
             <li>
-              <UniversalLink openLinkInNewTab={true} href={`${content['@id']}/messagepreview_view`}>
+              <UniversalLink
+                openLinkInNewTab={true}
+                href={`${content['@id']}/messagepreview_view`}
+              >
                 {intl.formatMessage(messages.message_preview)}
               </UniversalLink>
             </li>

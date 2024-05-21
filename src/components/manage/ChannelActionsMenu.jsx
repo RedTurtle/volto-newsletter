@@ -6,7 +6,10 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BodyClass } from '@plone/volto/helpers';
 import { useIntl, defineMessages } from 'react-intl';
-import { messageTestSendToggleModal, messageSendToggleModal } from '../../actions';
+import {
+  messageTestSendToggleModal,
+  messageSendToggleModal,
+} from '../../actions';
 import { UniversalLink } from '@plone/volto/components';
 
 import { Button } from 'design-react-kit';
@@ -40,7 +43,9 @@ export const ChannelActionsMenu = ({ theToolbar }) => {
       <div
         className="pastanaga-menu"
         style={{
-          flex: theToolbar.current ? `0 0 ${theToolbar.current.getBoundingClientRect().width}px` : null,
+          flex: theToolbar.current
+            ? `0 0 ${theToolbar.current.getBoundingClientRect().width}px`
+            : null,
           bottom: '0px',
         }}
       >
@@ -50,10 +55,14 @@ export const ChannelActionsMenu = ({ theToolbar }) => {
         <div className="pastanaga-menu-list">
           <ul>
             <li>
-              <UniversalLink href={`${content['@id']}/send-history`}>{intl.formatMessage(messages.sendHistory)}</UniversalLink>
+              <UniversalLink href={`${content['@id']}/send-history`}>
+                {intl.formatMessage(messages.sendHistory)}
+              </UniversalLink>
             </li>
             <li>
-              <UniversalLink href={`${content['@id']}/subscriptions`}>{intl.formatMessage(messages.manageSubscriptions)}</UniversalLink>
+              <UniversalLink href={`${content['@id']}/subscriptions`}>
+                {intl.formatMessage(messages.manageSubscriptions)}
+              </UniversalLink>
             </li>
           </ul>
         </div>

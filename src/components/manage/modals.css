@@ -1,62 +1,62 @@
 .react-aria-Modal {
-    max-width: fit-content;
+  max-width: fit-content;
 }
 
 .react-aria-Modal .form-action {
-    margin-top: 2em;
+  margin-top: 2em;
 }
 
 .react-aria-Modal .form-action button {
-    margin-right: 5px;
-    margin-left: 0;
+  margin-right: 5px;
+  margin-left: 0;
 }
 
-.react-aria-Modal .field{
-    margin: 1rem 0;
+.react-aria-Modal .field {
+  margin: 1rem 0;
 }
 
 .react-aria-Modal .field .react-aria-Text[slot='description'] {
-    color: #aaa;
-    font-size: 80%;
+  color: #aaa;
+  font-size: 80%;
 }
 
 .react-aria-Modal button.delete-file {
-    border: 0;
+  border: 0;
 }
 
 .react-aria-Modal .modal-header {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 .react-aria-Modal .modal-header .close button {
-    border: 0;
+  border: 0;
 }
 
 .react-aria-ModalOverlay .react-aria-Button,
 .cms-ui .react-aria-Button i.icon {
-    margin-left: 5px;
+  margin-left: 5px;
 }
 
 .react-aria-Button.cancel {
-    color: #fff;
-    background-color: #E40166;
+  color: #fff;
+  background-color: #e40166;
 }
 
 .react-aria-Button.cancel:hover,
 .react-aria-Button.cancel:focus {
-    background-color: #cc005b
+  background-color: #cc005b;
 }
 
 .react-aria-Button.primary {
-    color: #fff;
-    background-color: #007EB1;
+  color: #fff;
+  background-color: #007eb1;
 }
 
 .react-aria-Button.primary:hover,
 .react-aria-Button.primary:focus {
-    background-color: #006c98
+  background-color: #006c98;
 }
 
 .ui.secondary.menu .react-aria-Button {
-    margin-right: 10px;
+  margin-right: 10px;
 }
