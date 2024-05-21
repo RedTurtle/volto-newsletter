@@ -39,5 +39,6 @@
   },
   "dependencies": {
     "@plone/components": "2.0.0-alpha.7"
-  }
+  },
+  "packageManager": "yarn@3.2.3"
 }
