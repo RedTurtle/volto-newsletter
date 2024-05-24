@@ -3,13 +3,8 @@ export { unsubscribeNewsletterReducer } from './unsubscribe';
 export { confirmNewsletterSubscriptionReducer } from './confirmSubscription';
 export { messageSendReducer } from './messageSend';
 export { messageTestSendReducer } from './messageTestSend';
+export { getSendHistoryReducer, deleteSendHistoryReducer } from './sendHistory';
 export {
-  deleteAllSendHistoryReducer,
-  getSendHistoryReducer,
-  deleteSendHistoryReducer,
-} from './sendHistory';
-export {
-  deleteAllSubscriptionsReducer,
   getSubscriptionsReducer,
   deleteSubscriptionsReducer,
 } from './subscriptions';

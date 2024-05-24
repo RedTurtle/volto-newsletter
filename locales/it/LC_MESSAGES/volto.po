@@ -22,11 +22,6 @@ msgstr ""
 msgid "Back"
 msgstr "Torna indietro"
 
-#: views/Channel
-# defaultMessage: Iscriviti per riceverla
-msgid "Iscriviti per ricevere la newsletter"
-msgstr "Iscriviti per ricevere la newsletter"
-
 #: components/manage/SendHistoryPanel/SendHistoryPanel
 # defaultMessage: Send history
 msgid "Send history"
@@ -40,12 +35,11 @@ msgstr "Iscriviti"
 #: views/Channel
 # defaultMessage: Cancella iscrizione
 msgid "Unsubscribe"
-msgstr "Disiscriviti"
+msgstr "Cancella iscrizione"
 
 #: components/manage/ModalSend
 #: components/manage/ModalTestSend
 #: components/manage/SendHistoryPanel/SendHistoryPanel
-#: components/manage/SendHistoryPanel/SendHistoryPanelMenu
 #: components/manage/SubscriptionsPanel/ModalAddSubscription
 #: components/manage/SubscriptionsPanel/ModalImportSubscriptions
 #: components/manage/SubscriptionsPanel/SubscriptionsPanel
@@ -57,7 +51,6 @@ msgstr "Annulla"
 #: components/manage/ModalSend
 #: components/manage/ModalTestSend
 #: components/manage/SendHistoryPanel/SendHistoryPanel
-#: components/manage/SendHistoryPanel/SendHistoryPanelMenu
 #: components/manage/SubscriptionsPanel/ModalAddSubscription
 #: components/manage/SubscriptionsPanel/ModalImportSubscriptions
 #: components/manage/SubscriptionsPanel/SubscriptionsPanel
@@ -472,44 +465,24 @@ msgstr "Iscritti attivi"
 msgid "panel_error"
 msgstr "Errore"
 
-#: components/manage/SendHistoryPanel/SendHistoryPanelMenu
-# defaultMessage: Are you sure you want to delete all history?
-msgid "send_history_confirm_delete_all"
-msgstr "Sei sicuro di voler cancellare compleamente lo storico?"
-
-#: components/manage/SendHistoryPanel/SendHistoryPanelMenu
-# defaultMessage: Delete all history
-msgid "send_history_delete_all"
-msgstr "Cancella tutto lo storico"
-
-#: components/manage/SendHistoryPanel/SendHistoryPanelMenu
-# defaultMessage: An error has occurred while trying to delete all history
-msgid "send_history_delete_all_error"
-msgstr "Si è verificato un errore provando a cancellare l'intero storico."
-
-#: components/manage/SendHistoryPanel/SendHistoryPanelMenu
-# defaultMessage: All history deleted successfully!
-msgid "send_history_delete_all_success"
-msgstr "Storico cancellato con successo."
-
-#: components/manage/SendHistoryPanel/SendHistoryPanelMenu
-# defaultMessage: An error has occurred
-msgid "send_history_error_delete_all"
-msgstr "Si è verificato un errore"
-
 #: components/manage/ChannelActionsMenu
 # defaultMessage: Send history
 msgid "send_history_label"
 msgstr "Storico degli invii"
 
-#: components/manage/SendHistoryPanel/SendHistoryPanelMenu
-# defaultMessage: Loading...
-msgid "send_history_loading"
-msgstr "Caricamento..."
-
 #: views/NewsletterConfirmView
 # defaultMessage: Conferma richiesta
 msgid "subscribeNewsletterConfirmViewTitle"
+msgstr ""
+
+#: views/Channel
+# defaultMessage: Iscriviti per ricevere la newsletter
+msgid "subscribeNewsletterHeader"
+msgstr ""
+
+#: views/Channel
+# defaultMessage: Inserisci il tuo indirizzo email per iscriverti alla newsletter
+msgid "subscribeNewsletterLabel"
 msgstr ""
 
 #: components/manage/SubscriptionsPanel/SubscriptionsPanelMenu
@@ -547,30 +520,10 @@ msgstr "Inattivo"
 msgid "subscriptions_add_subscriber"
 msgstr "Aggiungi iscrizione"
 
-#: components/manage/SubscriptionsPanel/SubscriptionsPanelMenu
-# defaultMessage: Are you sure you want to delete all subscriptions?
-msgid "subscriptions_confirm_delete_all"
-msgstr "Sei sicuro di voler cancellare tutte le iscrizioni?"
-
 #: components/manage/SubscriptionsPanel/SubscriptionsPanel
 # defaultMessage: Creation date
 msgid "subscriptions_creation_date"
 msgstr "Data di creazione"
-
-#: components/manage/SubscriptionsPanel/SubscriptionsPanelMenu
-# defaultMessage: Delete all subscriptions
-msgid "subscriptions_delete_all"
-msgstr "Cancella tutte le iscrizioni"
-
-#: components/manage/SubscriptionsPanel/SubscriptionsPanelMenu
-# defaultMessage: An error has occurred while trying to delete all history
-msgid "subscriptions_delete_all_error"
-msgstr "Si è verificato un'errore cancellando tutte le iscrizioni."
-
-#: components/manage/SubscriptionsPanel/SubscriptionsPanelMenu
-# defaultMessage: All subscriptions deleted successfully!
-msgid "subscriptions_delete_all_success"
-msgstr "Tutte le iscrizioni sono state cancellate!"
 
 #: components/manage/SubscriptionsPanel/SubscriptionsPanelMenu
 # defaultMessage: Download
@@ -581,11 +534,6 @@ msgstr "Export"
 # defaultMessage: Email
 msgid "subscriptions_email"
 msgstr "Email"
-
-#: components/manage/SubscriptionsPanel/SubscriptionsPanelMenu
-# defaultMessage: An error has occurred
-msgid "subscriptions_error_delete_all"
-msgstr "Si è verificato un errore"
 
 #: components/manage/SubscriptionsPanel/SubscriptionsPanelMenu
 # defaultMessage: Loading...
@@ -608,9 +556,7 @@ msgid "subscriptions_upload_list"
 msgstr "Import"
 
 #: components/manage/SendHistoryPanel/SendHistoryPanel
-#: components/manage/SendHistoryPanel/SendHistoryPanelMenu
 #: components/manage/SubscriptionsPanel/SubscriptionsPanel
-#: components/manage/SubscriptionsPanel/SubscriptionsPanelMenu
 # defaultMessage: Success
 msgid "success_label"
 msgstr "Successo"
@@ -640,6 +586,11 @@ msgstr ""
 
 #: views/Channel
 # defaultMessage: Rimuovi la tua iscrizione alla newsletter
+msgid "unsubscribeNewsletterHeader"
+msgstr ""
+
+#: views/Channel
+# defaultMessage: Inserisci il tuo indirizzo email per cancellarti dalla newsletter
 msgid "unsubscribeNewsletterLabel"
 msgstr ""
 
@@ -667,11 +618,11 @@ msgid "user_secret_not_found"
 msgstr ""
 
 #: views/Channel
-# defaultMessage: Richiesta di iscrizione inviata
+# defaultMessage: Richiesta di iscrizione inviata. Controlla la tua casella di posta elettronica per verificare la tua iscrizione.
 msgid "user_subscribe_success"
 msgstr ""
 
 #: views/Channel
-# defaultMessage: Richiesta di cancellazione inviata
+# defaultMessage: Richiesta di cancellazione inviata. Controlla la tua casella di posta elettronica per verificare la tua iscrizione.
 msgid "user_unsubscribe_success"
 msgstr ""

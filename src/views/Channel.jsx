@@ -28,17 +28,27 @@ const messages = defineMessages({
     id: 'Unsubscribe',
     defaultMessage: 'Cancella iscrizione',
   },
+  subscribeNewsletterHeader: {
+    id: 'subscribeNewsletterHeader',
+    defaultMessage: 'Iscriviti per ricevere la newsletter',
+  },
   subscribeNewsletterLabel: {
-    id: 'Iscriviti per ricevere la newsletter',
-    defaultMessage: 'Iscriviti per riceverla',
+    id: 'subscribeNewsletterLabel',
+    defaultMessage:
+      'Inserisci il tuo indirizzo email per iscriverti alla newsletter',
   },
   newsletterPrivacyStatement: {
     id: 'newsletterPrivacyStatement',
     defaultMessage: 'Informativa sulla privacy',
   },
+  unsubscribeNewsletterHeader: {
+    id: 'unsubscribeNewsletterHeader',
+    defaultMessage: 'Rimuovi la tua iscrizione alla newsletter',
+  },
   unsubscribeNewsletterLabel: {
     id: 'unsubscribeNewsletterLabel',
-    defaultMessage: 'Rimuovi la tua iscrizione alla newsletter',
+    defaultMessage:
+      'Inserisci il tuo indirizzo email per cancellarti dalla newsletter',
   },
   newsletterSubscriptionThankyou: {
     id: 'newsletterSubscriptionThankyou',
@@ -57,7 +67,8 @@ const messages = defineMessages({
   },
   user_subscribe_success: {
     id: 'user_subscribe_success',
-    defaultMessage: 'Richiesta di iscrizione inviata',
+    defaultMessage:
+      'Richiesta di iscrizione inviata. Controlla la tua casella di posta elettronica per verificare la tua iscrizione.',
   },
   invalid_captcha: {
     id: 'invalid_captcha',
@@ -73,7 +84,8 @@ const messages = defineMessages({
   },
   user_unsubscribe_success: {
     id: 'user_unsubscribe_success',
-    defaultMessage: 'Richiesta di cancellazione inviata',
+    defaultMessage:
+      'Richiesta di cancellazione inviata. Controlla la tua casella di posta elettronica per verificare la tua iscrizione.',
   },
   unsubscribe_generic: {
     id: 'unsubscribe_generic',
@@ -217,7 +229,7 @@ const Channel = ({ content, location }) => {
             {content.is_subscribable && (
               <section id="subscribe-form" className="it-page-section mb-5">
                 <h2 id="header-subscribe-form" className="mb-3 h4">
-                  {intl.formatMessage(messages.subscribeNewsletterLabel)}
+                  {intl.formatMessage(messages.subscribeNewsletterHeader)}
                 </h2>
                 {subscribeLoaded && !subscribeError && (
                   <p>
@@ -290,7 +302,7 @@ const Channel = ({ content, location }) => {
             ></RichTextSection>
             <section id="unsubscribe-form" className="it-page-section mb-5">
               <h2 id="header-unsubscribe-form" className="mb-3 h4">
-                {intl.formatMessage(messages.unsubscribeNewsletterLabel)}
+                {intl.formatMessage(messages.subscribeNewsletterHeader)}
               </h2>
               {unsubscribeLoaded && !unsubscribeError && (
                 <p>

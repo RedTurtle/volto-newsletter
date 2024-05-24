@@ -17,13 +17,11 @@ export {
   resetDeleteSendHistory,
   getSendHistory,
   deleteSendHistory,
-  deleteAllSendHistory,
 } from './sendHistory';
 export {
   resetDeleteSubscriptions,
   getSubscriptions,
   deleteSubscriptions,
-  deleteAllSubscriptions,
 } from './subscriptions';
 export { addSubscription } from './addSubscription';
 export { exportSubscriptions } from './exportSubscriptions';

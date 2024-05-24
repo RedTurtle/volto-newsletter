@@ -7,7 +7,6 @@ import { Icon, Toast } from '@plone/volto/components';
 import trashSVG from '@plone/volto/icons/delete.svg';
 import { injectLazyLibs } from '@plone/volto/helpers/Loadable/Loadable';
 import {
-  deleteAllSubscriptions,
   addSubscription,
   exportSubscriptions,
   importSubscriptions,
@@ -24,14 +23,6 @@ import '@plone/components/src/styles/basic/Dialog.css';
 import '../modals.css';
 
 const messages = defineMessages({
-  delete_all: {
-    id: 'subscriptions_delete_all',
-    defaultMessage: 'Delete all subscriptions',
-  },
-  confirm_delete_all: {
-    id: 'subscriptions_confirm_delete_all',
-    defaultMessage: 'Are you sure you want to delete all subscriptions?',
-  },
   cancel: {
     id: 'button_cancel',
     defaultMessage: 'Cancel',
@@ -39,22 +30,6 @@ const messages = defineMessages({
   confirm: {
     id: 'button_confirm',
     defaultMessage: 'Confirm',
-  },
-  error_delete_all: {
-    id: 'subscriptions_error_delete_all',
-    defaultMessage: 'An error has occurred',
-  },
-  success_delete_all: {
-    id: 'success_label',
-    defaultMessage: 'Success',
-  },
-  delete_all_success: {
-    id: 'subscriptions_delete_all_success',
-    defaultMessage: 'All subscriptions deleted successfully!',
-  },
-  delete_all_error: {
-    id: 'subscriptions_delete_all_error',
-    defaultMessage: 'An error has occurred while trying to delete all history',
   },
   loading: {
     id: 'subscriptions_loading',
@@ -107,9 +82,6 @@ const SubscriptionsPanelMenu = ({ toastify, doSearch }) => {
   const [openConfirm, setOpenConfirm] = useState(false);
 
   const content = useSelector((state) => state.content?.data);
-  const deleteAllSubscriptionsState = useSelector(
-    (state) => state.deleteAllSubscriptions,
-  );
 
   const addSubscriptionStatus = useSelector((state) => state.addSubscription);
   const importSubscriptionsStatus = useSelector(
@@ -141,33 +113,6 @@ const SubscriptionsPanelMenu = ({ toastify, doSearch }) => {
   const submitAddSubscription = async (data) => {
     await dispatch(addSubscription(pathname, data));
     doSearch();
-  };
-
-  // delete all handlers
-  const deleteAll = async () => {
-    try {
-      await dispatch(deleteAllSubscriptions(pathname));
-      setOpenConfirm(false);
-      toastify.toast.success(
-        <Toast
-          success
-          title={intl.formatMessage(messages.success_delete_all)}
-          content={intl.formatMessage(messages.delete_all_success)}
-        />,
-      );
-      doSearch();
-    } catch (e) {
-      console.error(e);
-      toastify.toast.error(
-        <Toast
-          error
-          title={intl.formatMessage(messages.error_delete_all)}
-          content={intl.formatMessage(messages.delete_all_error, {
-            element: e?.item?.title ?? '',
-          })}
-        />,
-      );
-    }
   };
 
   // import subscriptions handlers
@@ -236,66 +181,6 @@ const SubscriptionsPanelMenu = ({ toastify, doSearch }) => {
             </i>
           </Button>
         </Menu.Item>
-        <Menu.Menu position="right">
-          <Menu.Item>
-            <Button
-              className="react-aria-Button cancel"
-              icon
-              labelPosition="right"
-              onClick={() => setOpenConfirm(true)}
-            >
-              {intl.formatMessage(messages.delete_all)}
-              <i className="icon">
-                <Icon name={trashSVG} size="20px" />
-              </i>
-            </Button>
-          </Menu.Item>
-        </Menu.Menu>
-        <Modal
-          isDismissable
-          isOpen={openConfirm}
-          onOpenChange={() => setOpenConfirm(!openConfirm)}
-        >
-          <Dialog>
-            <div className="modal-header">
-              <Heading>{intl.formatMessage(messages.delete_all)}</Heading>
-              <div className="close">
-                <Button onPress={() => setOpenConfirm(!openConfirm)}>X</Button>
-              </div>
-            </div>
-
-            <div className="content ui ">
-              {!deleteAllSubscriptionsState.loaded &&
-                deleteAllSubscriptionsState.loading && (
-                  <Dimmer active>
-                    <Loader inverted inline="centered" size="large">
-                      {intl.formatMessage(messages.loading)}
-                    </Loader>
-                  </Dimmer>
-                )}
-              {!deleteAllSubscriptionsState.loading &&
-                intl.formatMessage(messages.confirm_delete_all)}
-            </div>
-            <div className="form-action">
-              <Button onClick={deleteAll} className="react-aria-Button primary">
-                {addSubscriptionStatus?.loading && (
-                  <Icon
-                    icon="it-refresh"
-                    className="icon-sm load-status-icon"
-                    color="white"
-                  />
-                )}{' '}
-                {intl.formatMessage(messages.confirm)}
-              </Button>
-              <Button
-                className="react-aria-Button cancel"
-                onClick={() => setOpenConfirm(false)}
-              >
-                {intl.formatMessage(messages.cancel)}
-              </Button>
-            </div>
-          </Dialog>
-        </Modal>
       </Menu>
       <ModalAddSubscription
         modalIsOpen={addSubscriptionModalIsOpen}

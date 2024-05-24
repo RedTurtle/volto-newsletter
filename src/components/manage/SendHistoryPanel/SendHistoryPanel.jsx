@@ -33,7 +33,6 @@ import {
   deleteSendHistory,
   resetDeleteSendHistory,
 } from '../../../actions';
-import SendHistoryPanelMenu from './SendHistoryPanelMenu';
 import backSVG from '@plone/volto/icons/back.svg';
 
 import './send-history-panel.css';
@@ -275,8 +274,6 @@ const SendHistoryPanel = ({ toastify, content }) => {
             {intl.formatMessage(messages.send_history_controlpanel)}
           </Segment>
 
-          <SendHistoryPanelMenu doSearch={doSearch} />
-
           <Segment>
             {history.result?.items ? (
               <p>
@@ -343,7 +340,7 @@ const SendHistoryPanel = ({ toastify, content }) => {
                   <Table.HeaderCell width={4}>
                     {intl.formatMessage(messages.message)}
                   </Table.HeaderCell>
-                  <Table.HeaderCell textAlign="center">
+                  <Table.HeaderCell textAlign="center" width={3}>
                     {intl.formatMessage(messages.subscribers)}
                   </Table.HeaderCell>
                   <Table.HeaderCell textAlign="center" width={3}>

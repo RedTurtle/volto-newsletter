@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { defineMessages, useIntl } from 'react-intl';
 import { useDispatch, useSelector } from 'react-redux';
 import { notify } from 'design-react-kit';
@@ -8,7 +8,7 @@ import {
   messageSendToggleModal,
   messageSendGetToken,
 } from '../../actions';
-import { Button, Dialog, Heading, Input, Modal } from 'react-aria-components';
+import { Button, Dialog, Heading, Modal } from 'react-aria-components';
 
 import '@plone/components/src/styles/basic/Button.css';
 import '@plone/components/src/styles/basic/Modal.css';
@@ -142,7 +142,7 @@ const ModalSend = ({ content }) => {
             </Button>
             <Button
               className="react-aria-Button cancel"
-              onClick={() => toggleModal(!modalIsOpen)}
+              onClick={() => dispatch(messageSendToggleModal(!modalIsOpen))}
             >
               {intl.formatMessage(messages.cancel)}
             </Button>

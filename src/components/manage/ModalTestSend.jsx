@@ -137,7 +137,7 @@ const ModalTestSend = () => {
             </Button>
             <Button
               className="react-aria-Button cancel"
-              onClick={() => toggleModal(!modalIsOpen)}
+              onClick={() => dispatch(messageTestSendToggleModal(!modalIsOpen))}
             >
               {intl.formatMessage(messages.cancel)}
             </Button>
