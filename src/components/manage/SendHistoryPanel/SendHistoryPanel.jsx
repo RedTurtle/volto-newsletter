@@ -340,7 +340,7 @@ const SendHistoryPanel = ({ toastify, content }) => {
                   <Table.HeaderCell width={4}>
                     {intl.formatMessage(messages.message)}
                   </Table.HeaderCell>
-                  <Table.HeaderCell textAlign="center" width={3}>
+                  <Table.HeaderCell textAlign="center" width={2}>
                     {intl.formatMessage(messages.subscribers)}
                   </Table.HeaderCell>
                   <Table.HeaderCell textAlign="center" width={3}>
@@ -349,7 +349,7 @@ const SendHistoryPanel = ({ toastify, content }) => {
                   <Table.HeaderCell textAlign="center" width={3}>
                     {intl.formatMessage(messages.end_send)}
                   </Table.HeaderCell>
-                  <Table.HeaderCell textAlign="center" width={3}>
+                  <Table.HeaderCell textAlign="center" width={2}>
                     {intl.formatMessage(messages.status)}
                   </Table.HeaderCell>
                 </Table.Row>
