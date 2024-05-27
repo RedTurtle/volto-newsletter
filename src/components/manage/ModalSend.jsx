@@ -5,6 +5,7 @@ import { notify } from 'design-react-kit';
 import { useLocation } from 'react-router-dom';
 import {
   messageSend,
+  messageSendReset,
   messageSendToggleModal,
   messageSendGetToken,
 } from '../../actions';
@@ -67,6 +68,21 @@ const ModalSend = ({ content }) => {
   const { active_subscriptions } =
     content?.['@components']?.['message-actions'] || {};
 
+  /* SEND SUCCESS */
+  useEffect(() => {
+    if (messageSendStatus.loaded) {
+      /* CHANGE SUCCESS */
+      toastNotification(
+        intl.formatMessage(messages.message_send_success),
+        'success',
+      );
+      return () => {
+        dispatch(messageSendReset());
+      };
+    }
+  }, [dispatch, intl, messageSendStatus]);
+
+  /* SEND FAIL */
   useEffect(() => {
     if (messageSendStatus.error) {
       /* SEND FAIL */
@@ -74,15 +90,11 @@ const ModalSend = ({ content }) => {
         intl.formatMessage(messages.message_send_error),
         'error',
       );
+      return () => {
+        dispatch(messageSendReset());
+      };
     }
-    if (messageSendStatus.loaded) {
-      /* CHANGE SUCCESS */
-      toastNotification(
-        intl.formatMessage(messages.message_send_success),
-        'success',
-      );
-    }
-  }, [messageSendStatus]);
+  }, [dispatch, intl, messageSendStatus]);
 
   useEffect(() => {
     if (modalIsOpen) {

@@ -7,9 +7,14 @@ export {
   confirmNewsletterSubscription,
   resetConfirmNewsletterSubscription,
 } from './confirmSubscription';
-export { messageTestSend, messageTestSendToggleModal } from './messageTestSend';
+export {
+  messageTestSend,
+  messageTestSendToggleModal,
+  messageTestSendReset,
+} from './messageTestSend';
 export {
   messageSend,
+  messageSendReset,
   messageSendToggleModal,
   messageSendGetToken,
 } from './messageSend';

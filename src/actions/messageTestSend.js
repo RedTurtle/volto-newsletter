@@ -1,5 +1,6 @@
 import {
   NEWSLETTER_MESSAGE_TEST_SEND,
+  NEWSLETTER_MESSAGE_TEST_SEND_RESET,
   NEWSLETTER_MESSAGE_TEST_SEND_TOGGLE_MODAL,
 } from '../constants/ActionTypes';
 
@@ -18,5 +19,11 @@ export function messageTestSendToggleModal(isOpen) {
   return {
     type: NEWSLETTER_MESSAGE_TEST_SEND_TOGGLE_MODAL,
     isOpen,
+  };
+}
+
+export function messageTestSendReset() {
+  return {
+    type: NEWSLETTER_MESSAGE_TEST_SEND_RESET,
   };
 }

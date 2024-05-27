@@ -3,7 +3,11 @@ import { defineMessages, useIntl } from 'react-intl';
 import { useDispatch, useSelector } from 'react-redux';
 import { notify } from 'design-react-kit';
 import { useLocation } from 'react-router-dom';
-import { messageTestSend, messageTestSendToggleModal } from '../../actions';
+import {
+  messageTestSend,
+  messageTestSendReset,
+  messageTestSendToggleModal,
+} from '../../actions';
 import {
   Button,
   Dialog,
@@ -64,6 +68,22 @@ const ModalTestSend = () => {
 
   const { modalIsOpen } = messageSendStatus;
 
+  /* SEND SUCCESS */
+  useEffect(() => {
+    if (messageSendStatus.loaded) {
+      /* CHANGE SUCCESS */
+      setEmailAddress('');
+      toastNotification(
+        intl.formatMessage(messages.message_send_success),
+        'success',
+      );
+      return () => {
+        dispatch(messageTestSendReset());
+      };
+    }
+  }, [dispatch, intl, messageSendStatus]);
+
+  /* SEND FAIL */
   useEffect(() => {
     if (messageSendStatus.error) {
       /* SEND FAIL */
@@ -72,16 +92,11 @@ const ModalTestSend = () => {
         intl.formatMessage(messages.message_send_error),
         'error',
       );
+      return () => {
+        dispatch(messageTestSendReset());
+      };
     }
-    if (messageSendStatus.loaded) {
-      /* CHANGE SUCCESS */
-      setEmailAddress('');
-      toastNotification(
-        intl.formatMessage(messages.message_send_success),
-        'success',
-      );
-    }
-  }, [messageSendStatus]);
+  }, [dispatch, intl, messageSendStatus]);
 
   /* notify toast */
   const toastNotification = (message, color) => {
