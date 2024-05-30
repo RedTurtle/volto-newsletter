@@ -302,7 +302,7 @@ const Channel = ({ content, location }) => {
             ></RichTextSection>
             <section id="unsubscribe-form" className="it-page-section mb-5">
               <h2 id="header-unsubscribe-form" className="mb-3 h4">
-                {intl.formatMessage(messages.subscribeNewsletterHeader)}
+                {intl.formatMessage(messages.unsubscribeNewsletterHeader)}
               </h2>
               {unsubscribeLoaded && !unsubscribeError && (
                 <p>
