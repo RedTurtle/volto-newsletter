@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { defineMessages, useIntl } from 'react-intl';
 import { useDispatch, useSelector } from 'react-redux';
-import { notify } from 'design-react-kit';
+import { compose } from 'redux';
+import { injectLazyLibs } from '@plone/volto/helpers/Loadable/Loadable';
+import { Toast } from '@plone/volto/components';
 import { useLocation } from 'react-router-dom';
 import {
   messageTestSend,
@@ -54,9 +56,17 @@ const messages = defineMessages({
     id: 'newsletter_modal_test_send_success',
     defaultMessage: 'Test message sent',
   },
+  error: {
+    id: 'error_label',
+    defaultMessage: 'Error',
+  },
+  success: {
+    id: 'success_label',
+    defaultMessage: 'Success',
+  },
 });
 
-const ModalTestSend = () => {
+const ModalTestSend = ({ toastify }) => {
   const intl = useIntl();
   const location = useLocation();
   const dispatch = useDispatch();
@@ -73,10 +83,10 @@ const ModalTestSend = () => {
     if (messageSendStatus.loaded) {
       /* CHANGE SUCCESS */
       setEmailAddress('');
-      toastNotification(
-        intl.formatMessage(messages.message_send_success),
-        'success',
-      );
+      toastNotification({
+        message: intl.formatMessage(messages.message_send_success),
+        success: true,
+      });
       return () => {
         dispatch(messageTestSendReset());
       };
@@ -88,10 +98,10 @@ const ModalTestSend = () => {
     if (messageSendStatus.error) {
       /* SEND FAIL */
       setEmailAddress('');
-      toastNotification(
-        intl.formatMessage(messages.message_send_error),
-        'error',
-      );
+      toastNotification({
+        message: intl.formatMessage(messages.message_send_error),
+        success: false,
+      });
       return () => {
         dispatch(messageTestSendReset());
       };
@@ -99,11 +109,22 @@ const ModalTestSend = () => {
   }, [dispatch, intl, messageSendStatus]);
 
   /* notify toast */
-  const toastNotification = (message, color) => {
-    notify(message, {
-      state: color,
-      fix: 'bottom',
-    });
+  const toastNotification = ({ message, success }) => {
+    success === true
+      ? toastify.toast.success(
+          <Toast
+            success
+            title={intl.formatMessage(messages.success)}
+            content={message}
+          />,
+        )
+      : toastify.toast.error(
+          <Toast
+            error
+            title={intl.formatMessage(messages.error)}
+            content={message}
+          />,
+        );
   };
 
   const onFormSubmit = (e) => {
@@ -115,6 +136,7 @@ const ModalTestSend = () => {
   return (
     <Modal
       id="modal-test-send"
+      className="react-aria-Modal newsletter-modal"
       isDismissable
       isOpen={modalIsOpen}
       onOpenChange={() => dispatch(messageTestSendToggleModal(!modalIsOpen))}
@@ -163,4 +185,4 @@ const ModalTestSend = () => {
   );
 };
 
-export default ModalTestSend;
+export default compose(injectLazyLibs(['toastify']))(ModalTestSend);

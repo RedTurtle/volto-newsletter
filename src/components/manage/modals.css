@@ -1,62 +1,62 @@
-.react-aria-Modal {
+.react-aria-Modal.newsletter-modal {
   max-width: fit-content;
 }
 
-.react-aria-Modal .form-action {
+.react-aria-Modal.newsletter-modal .form-action {
   margin-top: 2em;
 }
 
-.react-aria-Modal .form-action button {
+.react-aria-Modal.newsletter-modal .form-action button {
   margin-right: 5px;
   margin-left: 0;
 }
 
-.react-aria-Modal .field {
+.react-aria-Modal.newsletter-modal .field {
   margin: 1rem 0;
 }
 
-.react-aria-Modal .field .react-aria-Text[slot='description'] {
+.react-aria-Modal.newsletter-modal .field .react-aria-Text[slot='description'] {
   color: #aaa;
   font-size: 80%;
 }
 
-.react-aria-Modal button.delete-file {
+.react-aria-Modal.newsletter-modal button.delete-file {
   border: 0;
 }
 
-.react-aria-Modal .modal-header {
+.react-aria-Modal.newsletter-modal .modal-header {
   display: flex;
   justify-content: space-between;
 }
-.react-aria-Modal .modal-header .close button {
+.react-aria-Modal.newsletter-modal .modal-header .close button {
   border: 0;
 }
 
-.react-aria-ModalOverlay .react-aria-Button,
-.cms-ui .react-aria-Button i.icon {
+.react-aria-ModalOverlay .newsletter-modal .react-aria-Button,
+.cms-ui.newsletter-management .react-aria-Button i.icon {
   margin-left: 5px;
 }
 
-.react-aria-Button.cancel {
+.newsletter-management .react-aria-Button.cancel {
   color: #fff;
   background-color: #e40166;
 }
 
-.react-aria-Button.cancel:hover,
-.react-aria-Button.cancel:focus {
+.newsletter-management .react-aria-Button.cancel:hover,
+.newsletter-management .react-aria-Button.cancel:focus {
   background-color: #cc005b;
 }
 
-.react-aria-Button.primary {
+.newsletter-management .react-aria-Button.primary {
   color: #fff;
   background-color: #007eb1;
 }
 
-.react-aria-Button.primary:hover,
-.react-aria-Button.primary:focus {
+.newsletter-management .react-aria-Button.primary:hover,
+.newsletter-management .react-aria-Button.primary:focus {
   background-color: #006c98;
 }
 
-.ui.secondary.menu .react-aria-Button {
+.newsletter-management .ui.secondary.menu .react-aria-Button {
   margin-right: 10px;
 }

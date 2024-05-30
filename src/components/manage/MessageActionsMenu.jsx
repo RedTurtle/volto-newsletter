@@ -11,8 +11,7 @@ import {
   messageSendToggleModal,
 } from '../../actions';
 import { UniversalLink } from '@plone/volto/components';
-
-import { Button } from 'design-react-kit';
+import { Button } from 'react-aria-components';
 
 import './toolbar.css';
 
@@ -79,7 +78,6 @@ export const MessageActionsMenu = ({ theToolbar }) => {
             </li>
             <li>
               <Button
-                color="primary"
                 className="ms-3 send-message"
                 onClick={() => {
                   dispatch(messageTestSendToggleModal(true));
@@ -92,7 +90,6 @@ export const MessageActionsMenu = ({ theToolbar }) => {
             {can_send && (
               <li>
                 <Button
-                  color="primary"
                   className="ms-3 send-message"
                   onClick={() => {
                     dispatch(messageSendToggleModal(true));

@@ -111,6 +111,7 @@ const ModalImportSubscriptions = ({ modalIsOpen, toggleModal, onSubmit }) => {
   return (
     <Modal
       id="modal-import-subscriptions"
+      className="react-aria-Modal newsletter-modal"
       isDismissable
       isOpen={modalIsOpen}
       onOpenChange={() => toggleModal(!modalIsOpen)}

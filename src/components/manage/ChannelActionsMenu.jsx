@@ -3,16 +3,10 @@
  * @module components/manage/Toolbar/PersonalTools
  */
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { BodyClass } from '@plone/volto/helpers';
 import { useIntl, defineMessages } from 'react-intl';
-import {
-  messageTestSendToggleModal,
-  messageSendToggleModal,
-} from '../../actions';
 import { UniversalLink } from '@plone/volto/components';
-
-import { Button } from 'design-react-kit';
 
 import './toolbar.css';
 

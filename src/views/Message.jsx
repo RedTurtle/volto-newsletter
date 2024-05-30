@@ -4,27 +4,15 @@ import {
   TextOrBlocks,
   SkipToMainContent,
 } from 'design-comuni-plone-theme/components/ItaliaTheme/View';
-import { defineMessages, useIntl } from 'react-intl';
-import { NotificationManager } from 'design-react-kit';
 import { ModalTestSend, ModalSend } from '../components/manage';
+import { BodyClass } from '@plone/volto/helpers';
 
-const messages = defineMessages({
-  message_preview: {
-    id: 'message_preview_label',
-    defaultMessage: 'Anteprima del messaggio',
-  },
-  message_test_send: {
-    id: 'message_test_send_label',
-    defaultMessage: 'Test di invio',
-  },
-});
-
-const Message = ({ content, location }) => {
-  const intl = useIntl();
+const Message = ({ content }) => {
   let documentBody = createRef();
 
   return (
     <>
+      <BodyClass className="newsletter-management" />
       <div className="container px-4 my-4 message-view">
         <SkipToMainContent />
         <PageHeader
@@ -46,8 +34,6 @@ const Message = ({ content, location }) => {
         <ModalSend content={content} />
         <ModalTestSend content={content} />
       </div>
-      {/* NOTIFICATION MANAGER */}
-      <NotificationManager />
     </>
   );
 };

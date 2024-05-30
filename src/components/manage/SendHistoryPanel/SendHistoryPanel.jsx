@@ -1,12 +1,12 @@
-import React, { useState, useEffect, useMemo } from 'react';
-import { Portal } from 'react-portal';
+import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { defineMessages, useIntl } from 'react-intl';
-import { useSelector, useDispatch, connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { compose } from 'redux';
 import { useLocation, Link } from 'react-router-dom';
+import { BodyClass } from '@plone/volto/helpers';
 import {
   Container,
-  Confirm,
   Segment,
   Checkbox,
   Table,
@@ -14,8 +14,6 @@ import {
   Form,
   Input,
   Message,
-  Dimmer,
-  Icon as SIcon,
 } from 'semantic-ui-react';
 import { Button, Dialog, Heading, Modal } from 'react-aria-components';
 import { injectLazyLibs } from '@plone/volto/helpers/Loadable/Loadable';
@@ -91,8 +89,8 @@ const messages = defineMessages({
     defaultMessage: 'Are you sure you want to reset the following history?',
   },
   error: {
-    id: 'newsletter_panel_error',
-    defaultMessage: 'An error has occurred',
+    id: 'error_label',
+    defaultMessage: 'Error',
   },
   success: {
     id: 'success_label',
@@ -170,29 +168,13 @@ const SendHistoryPanel = ({ toastify, content }) => {
   useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
       setText(searchableText);
-      // Send Axios request here
     }, 1200);
 
     return () => clearTimeout(delayDebounceFn);
   }, [searchableText]);
 
-  useEffect(() => {
-    // CARICARE IL CONTENT SE NON C'E'
-    // con getContent
-    // if (!content.data) {
-    //   dispatch(getContent(flattenToAppURL(pathname)));
-    // }
-  }, []);
+  const isUnauthorized = history?.error?.status === 401;
 
-  const isUnauthorized = useMemo(
-    () => history?.error && history?.error?.status === 401,
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [history?.error],
-  );
-
-  // if (content?.['@type'] !== 'Channel') {
-  //   return <NotFound />;
-  // }
   if (isUnauthorized) {
     return <Unauthorized />;
   }
@@ -259,12 +241,11 @@ const SendHistoryPanel = ({ toastify, content }) => {
       : intl.formatMessage(messages.statusError);
   };
 
-  const totResults = history.result?.items_total
-    ? history.result?.items_total
-    : 0;
+  const totResults = history.result?.items_total || 0;
 
   return (
     <>
+      <BodyClass className="newsletter-management" />
       <Container id="page-send-history" className="controlpanel-send-history">
         <Helmet
           title={intl.formatMessage(messages.send_history_controlpanel)}
@@ -411,6 +392,7 @@ const SendHistoryPanel = ({ toastify, content }) => {
         </Segment.Group>
         {showConfirmDelete && (
           <Modal
+            className="react-aria-Modal newsletter-modal"
             isDismissable
             isOpen={showConfirmDelete}
             onOpenChange={() => setShowConfirmDelete(showConfirmDelete)}
@@ -443,8 +425,8 @@ const SendHistoryPanel = ({ toastify, content }) => {
           </Modal>
         )}
       </Container>
-      {__CLIENT__ && (
-        <Portal node={document.getElementById('toolbar')}>
+      {__CLIENT__ &&
+        createPortal(
           <Toolbar
             pathname={pathname}
             hideDefaultViewButtons
@@ -458,9 +440,9 @@ const SendHistoryPanel = ({ toastify, content }) => {
                 />
               </Link>
             }
-          />
-        </Portal>
-      )}
+          />,
+          document.getElementById('toolbar'),
+        )}
     </>
   );
 };

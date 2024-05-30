@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
 import { defineMessages, useIntl } from 'react-intl';
 import { useDispatch, useSelector } from 'react-redux';
-import { notify } from 'design-react-kit';
+import { compose } from 'redux';
+import { injectLazyLibs } from '@plone/volto/helpers/Loadable/Loadable';
+import { Toast } from '@plone/volto/components';
 import { useLocation } from 'react-router-dom';
 import {
   messageSend,
@@ -47,9 +49,17 @@ const messages = defineMessages({
     defaultMessage:
       "Message succesfully sent. Check channel's history to see his status.",
   },
+  error: {
+    id: 'error_label',
+    defaultMessage: 'Error',
+  },
+  success: {
+    id: 'success_label',
+    defaultMessage: 'Success',
+  },
 });
 
-const ModalSend = ({ content }) => {
+const ModalSend = ({ content, toastify }) => {
   const intl = useIntl();
   const location = useLocation();
   const dispatch = useDispatch();
@@ -72,10 +82,10 @@ const ModalSend = ({ content }) => {
   useEffect(() => {
     if (messageSendStatus.loaded) {
       /* CHANGE SUCCESS */
-      toastNotification(
-        intl.formatMessage(messages.message_send_success),
-        'success',
-      );
+      toastNotification({
+        message: intl.formatMessage(messages.message_send_success),
+        success: true,
+      });
       return () => {
         dispatch(messageSendReset());
       };
@@ -86,10 +96,10 @@ const ModalSend = ({ content }) => {
   useEffect(() => {
     if (messageSendStatus.error) {
       /* SEND FAIL */
-      toastNotification(
-        intl.formatMessage(messages.message_send_error),
-        'error',
-      );
+      toastNotification({
+        message: intl.formatMessage(messages.message_send_error),
+        success: false,
+      });
       return () => {
         dispatch(messageSendReset());
       };
@@ -103,16 +113,30 @@ const ModalSend = ({ content }) => {
       }
       if (messageSendGetToken.error) {
         /* SEND FAIL */
-        toastNotification(messageSendGetToken.error);
+        toastNotification({
+          message: messageSendGetToken.error,
+          success: false,
+        });
       }
     }
   }, [messageTokenStatus, modalIsOpen]);
   /* notify toast */
-  const toastNotification = (message, color) => {
-    notify(message, {
-      state: color,
-      fix: 'bottom',
-    });
+  const toastNotification = ({ message, success }) => {
+    success === true
+      ? toastify.toast.success(
+          <Toast
+            success
+            title={intl.formatMessage(messages.success)}
+            content={message}
+          />,
+        )
+      : toastify.toast.error(
+          <Toast
+            error
+            title={intl.formatMessage(messages.error)}
+            content={message}
+          />,
+        );
   };
 
   /* function to change booking state */
@@ -124,6 +148,7 @@ const ModalSend = ({ content }) => {
   return (
     <Modal
       id="modal-send"
+      className="react-aria-Modal newsletter-modal"
       isDismissable
       isOpen={modalIsOpen}
       onOpenChange={() => dispatch(messageSendToggleModal(!modalIsOpen))}
@@ -165,4 +190,4 @@ const ModalSend = ({ content }) => {
   );
 };
 
-export default ModalSend;
+export default compose(injectLazyLibs(['toastify']))(ModalSend);

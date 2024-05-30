@@ -8,7 +8,6 @@ const initialState = {
 };
 
 function download(filename, text) {
-  console.log(text);
   var element = document.createElement('a');
   element.setAttribute(
     'href',

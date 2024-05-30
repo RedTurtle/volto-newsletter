@@ -63,6 +63,7 @@ const ModalAddSubsription = ({ modalIsOpen, toggleModal, onSubmit }) => {
   return (
     <Modal
       id="modal-add-subscription"
+      className="react-aria-Modal newsletter-modal"
       isDismissable
       isOpen={modalIsOpen}
       onOpenChange={() => toggleModal(!modalIsOpen)}

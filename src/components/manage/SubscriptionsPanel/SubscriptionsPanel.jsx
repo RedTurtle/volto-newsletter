@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { Portal } from 'react-portal';
+import { createPortal } from 'react-dom';
 import { defineMessages, useIntl } from 'react-intl';
 import { useSelector, useDispatch } from 'react-redux';
 import { compose } from 'redux';
 import { useLocation, Link } from 'react-router-dom';
+import { BodyClass } from '@plone/volto/helpers';
 import {
   Container,
   Segment,
@@ -22,7 +23,7 @@ import {
   Unauthorized,
   Toast,
   Toolbar,
-  Icon,
+  Icon as IconNext,
 } from '@plone/volto/components';
 import { getContent } from '@plone/volto/actions';
 import { asyncConnect, Helmet, getBaseUrl } from '@plone/volto/helpers';
@@ -238,6 +239,7 @@ const SubscriptionsPanel = ({ toastify }) => {
 
   return (
     <>
+      <BodyClass className="newsletter-management" />
       <Container id="page-subscriptions" className="controlpanel-subscriptions">
         <Helmet
           title={intl.formatMessage(messages.subscriptions_controlpanel)}
@@ -385,6 +387,7 @@ const SubscriptionsPanel = ({ toastify }) => {
         </Segment.Group>
         {showConfirmDelete && (
           <Modal
+            className="react-aria-Modal newsletter-modal"
             isDismissable
             isOpen={showConfirmDelete}
             onOpenChange={() => setShowConfirmDelete(showConfirmDelete)}
@@ -435,14 +438,14 @@ const SubscriptionsPanel = ({ toastify }) => {
           </Modal>
         )}
       </Container>
-      {__CLIENT__ && (
-        <Portal node={document.getElementById('toolbar')}>
+      {__CLIENT__ &&
+        createPortal(
           <Toolbar
             pathname={pathname}
             hideDefaultViewButtons
             inner={
               <Link to={`${getBaseUrl(pathname)}`} className="item">
-                <Icon
+                <IconNext
                   name={backSVG}
                   className="contents circled"
                   size="30px"
@@ -450,9 +453,9 @@ const SubscriptionsPanel = ({ toastify }) => {
                 />
               </Link>
             }
-          />
-        </Portal>
-      )}
+          />,
+          document.getElementById('toolbar'),
+        )}
     </>
   );
 };
