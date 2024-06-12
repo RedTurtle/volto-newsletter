@@ -245,7 +245,7 @@ msgstr "Invio di prova"
 #: views/NewsletterConfirmSubscribe
 # defaultMessage: Conferma
 msgid "newsletterConfirmSubscribe"
-msgstr "Conferma"
+msgstr "Conferma iscrizione"
 
 #: views/NewsletterConfirmSubscribe
 # defaultMessage: Errore durante la conferma della tua iscrizione. Si prega di riprovare più tardi.
@@ -258,14 +258,14 @@ msgid "newsletterConfirmSubscribeSuccess"
 msgstr "La tua iscrizione è stata confermata"
 
 #: views/NewsletterConfirmSubscribe
-# defaultMessage: Conferma l'iscrizione alla newsletter
+# defaultMessage: Per confermare l’iscrizione a questa newsletter premi il pulsante sotto
 msgid "newsletterConfirmSubscribeText"
-msgstr "Conferma l'iscrizione alla newsletter"
+msgstr "Per confermare l’iscrizione a questa newsletter premi il pulsante sotto"
 
 #: views/NewsletterConfirmUnsubscribe
-# defaultMessage: Conferma
+# defaultMessage: Conferma cancellazione
 msgid "newsletterConfirmUnsubscribe"
-msgstr "Conferma"
+msgstr "Conferma cancellazione"
 
 #: views/NewsletterConfirmUnsubscribe
 # defaultMessage: Errore durante la cancellazione della tua iscrizione. Si prega di riprovare più tardi.
@@ -278,9 +278,9 @@ msgid "newsletterConfirmUnsubscribeSuccess"
 msgstr "La cancellazione è stata confermata"
 
 #: views/NewsletterConfirmUnsubscribe
-# defaultMessage: Conferma la cancellazione dell'iscrizione alla newsletter
+# defaultMessage: Per confermare la cancellazione da questa newsletter premi il pulsante sotto
 msgid "newsletterConfirmUnsubscribeText"
-msgstr "Conferma la cancellazione dell'iscrizione alla newsletter"
+msgstr "Per confermare la cancellazione da questa newsletter premi il pulsante sotto"
 
 #: views/Channel
 # defaultMessage: Informativa sulla privacy

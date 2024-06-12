@@ -255,12 +255,12 @@ msgid "newsletterConfirmSubscribeSuccess"
 msgstr ""
 
 #: views/NewsletterConfirmSubscribe
-# defaultMessage: Conferma l'iscrizione alla newsletter
+# defaultMessage: Per confermare l'iscrizione a questa newsletter premi il pulsante sotto
 msgid "newsletterConfirmSubscribeText"
 msgstr ""
 
 #: views/NewsletterConfirmUnsubscribe
-# defaultMessage: Conferma
+# defaultMessage: Conferma cancellazione
 msgid "newsletterConfirmUnsubscribe"
 msgstr ""
 
@@ -275,7 +275,7 @@ msgid "newsletterConfirmUnsubscribeSuccess"
 msgstr ""
 
 #: views/NewsletterConfirmUnsubscribe
-# defaultMessage: Conferma la cancellazione dell'iscrizione alla newsletter
+# defaultMessage: Per confermare la cancellazione da questa newsletter premi il pulsante sotto
 msgid "newsletterConfirmUnsubscribeText"
 msgstr ""
 

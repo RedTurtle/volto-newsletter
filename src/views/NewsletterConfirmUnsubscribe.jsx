@@ -10,11 +10,12 @@ import { getParentUrl } from '@plone/volto/helpers';
 const messages = defineMessages({
   newsletterConfirmUnsubscribe: {
     id: 'newsletterConfirmUnsubscribe',
-    defaultMessage: 'Conferma',
+    defaultMessage: 'Conferma cancellazione',
   },
   newsletterConfirmUnsubscribeText: {
     id: 'newsletterConfirmUnsubscribeText',
-    defaultMessage: "Conferma la cancellazione dell'iscrizione alla newsletter",
+    defaultMessage:
+      'Per confermare la cancellazione da questa newsletter premi il pulsante sotto',
   },
   newsletterConfirmUnsubscribeSuccess: {
     id: 'newsletterConfirmUnsubscribeSuccess',

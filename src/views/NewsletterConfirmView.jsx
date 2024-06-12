@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { defineMessages, useIntl } from 'react-intl';
 import NewsletterConfirmSubscribe from './NewsletterConfirmSubscribe';
 import NewsletterConfirmUnsubscribe from './NewsletterConfirmUnsubscribe';
-
+import { getContent } from '@plone/volto/actions';
+import { useDispatch, useSelector } from 'react-redux';
+import { useLocation } from 'react-router-dom';
 const messages = defineMessages({
   subscribeNewsletterConfirmViewTitle: {
     id: 'subscribeNewsletterConfirmViewTitle',
@@ -16,7 +18,19 @@ const messages = defineMessages({
 
 const NewsletterConfirmView = ({ location }) => {
   const intl = useIntl();
+  const dispatch = useDispatch();
+  const content = useSelector((state) => state.content.data);
 
+  useEffect(() => {
+    if (!content) {
+      const pathname = location.pathname
+        .replace('/confirm-subscription', '')
+        .replace('/confirm-unsubscription', '');
+      dispatch(getContent(pathname));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [content]);
+  console.log(content);
   const { secret, action } = Object.fromEntries(
     new URLSearchParams(location.search),
   );
@@ -25,11 +39,7 @@ const NewsletterConfirmView = ({ location }) => {
     <div id="page-document" className="ui container newsletter-confirm px-4">
       <div className="mb-4">
         <div className="px-0 py-lg-2 col-lg-8">
-          <h1>
-            {intl.formatMessage(
-              messages[`${action}NewsletterConfirmViewTitle`],
-            )}
-          </h1>
+          <h1>{content?.title}</h1>
         </div>
         {action === 'subscribe' ? (
           <NewsletterConfirmSubscribe
