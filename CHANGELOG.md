@@ -1,3 +1,15 @@
+## [1.2.0](https://github.com/RedTurtle/volto-newsletter/compare/v1.1.1...v1.2.0) (2024-06-13)
+
+
+### Features
+
+* Add missing pieces for a full volto integration ([#3](https://github.com/RedTurtle/volto-newsletter/issues/3)) ([f45b897](https://github.com/RedTurtle/volto-newsletter/commit/f45b89753186f7c877eed0a2703938e6c46a3d20))
+
+
+### Maintenance
+
+* fix editorconfig ([a249fae](https://github.com/RedTurtle/volto-newsletter/commit/a249faec2c8ec1e380890ca77c4aa8768e240604))
+
 ### [1.1.1](https://github.com/RedTurtle/volto-newsletter/compare/v1.1.0...v1.1.1) (2024-02-23)
 
 
