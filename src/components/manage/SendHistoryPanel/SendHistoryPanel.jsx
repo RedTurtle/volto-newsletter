@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useCallback, useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { defineMessages, useIntl } from 'react-intl';
 import { useSelector, useDispatch } from 'react-redux';
@@ -181,7 +181,7 @@ const SendHistoryPanel = ({ toastify, content }) => {
 
   const deleteSendHistoryEnd = deleteSendHistoryState?.loaded;
 
-  const doSearch = () => {
+  const doSearch = useCallback(() => {
     return dispatch(
       getSendHistory(pathname, {
         b_size: isNaN(b_size) ? 10000000 : b_size,
@@ -189,12 +189,11 @@ const SendHistoryPanel = ({ toastify, content }) => {
         text: text && text.length > 0 ? text : null,
       }),
     );
-  };
+  }, [dispatch, pathname, b_size, currentPage, text]);
 
   useEffect(() => {
     doSearch();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [b_size, currentPage, text]);
+  }, [doSearch]);
 
   const resetSelectedSendHistory = async () => {
     // eslint-disable-next-line no-unused-expressions
