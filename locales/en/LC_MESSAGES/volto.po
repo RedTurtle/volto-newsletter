@@ -1,13 +1,16 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Plone\n"
-"POT-Creation-Date: 2024-05-24T08:45:35.933Z\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-05-14T08:49:31.414Z\n"
+"PO-Revision-Date: \n"
 "Last-Translator: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
+"Language: \n"
 "Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
-"MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
 "Language-Code: en\n"
 "Language-Name: English\n"
 "Preferred-Encodings: utf-8\n"
@@ -242,7 +245,7 @@ msgstr ""
 #: views/NewsletterConfirmSubscribe
 # defaultMessage: Conferma
 msgid "newsletterConfirmSubscribe"
-msgstr ""
+msgstr "Confirm subscription"
 
 #: views/NewsletterConfirmSubscribe
 # defaultMessage: Errore durante la conferma della tua iscrizione. Si prega di riprovare più tardi.
@@ -255,14 +258,14 @@ msgid "newsletterConfirmSubscribeSuccess"
 msgstr ""
 
 #: views/NewsletterConfirmSubscribe
-# defaultMessage: Per confermare l'iscrizione a questa newsletter premi il pulsante sotto
+# defaultMessage: Per confermare l’iscrizione a questa newsletter premi il pulsante sotto
 msgid "newsletterConfirmSubscribeText"
-msgstr ""
+msgstr "To confirm your subscription to this newsletter click the button below"
 
 #: views/NewsletterConfirmUnsubscribe
 # defaultMessage: Conferma cancellazione
 msgid "newsletterConfirmUnsubscribe"
-msgstr ""
+msgstr "Confirm delete"
 
 #: views/NewsletterConfirmUnsubscribe
 # defaultMessage: Errore durante la cancellazione della tua iscrizione. Si prega di riprovare più tardi.
@@ -277,7 +280,7 @@ msgstr ""
 #: views/NewsletterConfirmUnsubscribe
 # defaultMessage: Per confermare la cancellazione da questa newsletter premi il pulsante sotto
 msgid "newsletterConfirmUnsubscribeText"
-msgstr ""
+msgstr "To confirm your unsubscription from this newsletter click the button below"
 
 #: views/Channel
 # defaultMessage: Informativa sulla privacy

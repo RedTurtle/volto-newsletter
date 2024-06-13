@@ -28,17 +28,27 @@ const messages = defineMessages({
     id: 'Unsubscribe',
     defaultMessage: 'Cancella iscrizione',
   },
+  subscribeNewsletterHeader: {
+    id: 'subscribeNewsletterHeader',
+    defaultMessage: 'Iscriviti per ricevere la newsletter',
+  },
   subscribeNewsletterLabel: {
-    id: 'Iscriviti per ricevere la newsletter',
-    defaultMessage: 'Iscriviti per riceverla',
+    id: 'subscribeNewsletterLabel',
+    defaultMessage:
+      'Inserisci il tuo indirizzo email per iscriverti alla newsletter',
   },
   newsletterPrivacyStatement: {
     id: 'newsletterPrivacyStatement',
     defaultMessage: 'Informativa sulla privacy',
   },
+  unsubscribeNewsletterHeader: {
+    id: 'unsubscribeNewsletterHeader',
+    defaultMessage: 'Rimuovi la tua iscrizione alla newsletter',
+  },
   unsubscribeNewsletterLabel: {
     id: 'unsubscribeNewsletterLabel',
-    defaultMessage: 'Rimuovi la tua iscrizione alla newsletter',
+    defaultMessage:
+      'Inserisci il tuo indirizzo email per cancellarti dalla newsletter',
   },
   newsletterSubscriptionThankyou: {
     id: 'newsletterSubscriptionThankyou',
@@ -57,7 +67,8 @@ const messages = defineMessages({
   },
   user_subscribe_success: {
     id: 'user_subscribe_success',
-    defaultMessage: 'Richiesta di iscrizione inviata',
+    defaultMessage:
+      'Richiesta di iscrizione inviata. Controlla la tua casella di posta elettronica per verificare la tua iscrizione.',
   },
   invalid_captcha: {
     id: 'invalid_captcha',
@@ -73,7 +84,8 @@ const messages = defineMessages({
   },
   user_unsubscribe_success: {
     id: 'user_unsubscribe_success',
-    defaultMessage: 'Richiesta di cancellazione inviata',
+    defaultMessage:
+      'Richiesta di cancellazione inviata. Controlla la tua casella di posta elettronica per verificare la tua iscrizione.',
   },
   unsubscribe_generic: {
     id: 'unsubscribe_generic',
@@ -90,19 +102,12 @@ const Channel = ({ content, location }) => {
     loading: subscribeLoading,
     loaded: subscribeLoaded,
     error: subscribeError,
-    result: subscribeResult,
   } = useSelector((state) => state.subscribeNewsletter);
-  const { status: subscribeStatus, errors: subscribeErrors = [] } =
-    subscribeResult ?? {};
-
   const {
     loading: unsubscribeLoading,
     loaded: unsubscribeLoaded,
     error: unsubscribeError,
-    result: unsubscribeResult,
   } = useSelector((state) => state.unsubscribeNewsletter);
-  const { status: unsubscribeStatus, errors: unsubscribeErrors = [] } =
-    unsubscribeResult ?? {};
 
   const [email, setEmail] = useState('');
   const [unsubEmail, setUnsubEmail] = useState('');
@@ -154,41 +159,36 @@ const Channel = ({ content, location }) => {
 
   // Subscribe success
   useEffect(() => {
-    if (subscribeLoaded && subscribeStatus !== 'error') {
+    if (subscribeLoaded && !subscribeError) {
       setEmail('');
       setSubHoney('');
-      if (messages[subscribeStatus]) {
-        toast.success(intl.formatMessage(messages[subscribeStatus]));
-      } else {
-        toast.success(subscribeStatus);
-      }
+      toast.success(intl.formatMessage(messages.user_subscribe_success));
       return () => {
         dispatch(resetSubscribeNewsletter());
       };
     }
-  }, [dispatch, intl, subscribeLoaded, subscribeStatus]);
+  }, [dispatch, intl, subscribeLoaded, subscribeError]);
 
   // Unsubscribe success
   useEffect(() => {
-    if (unsubscribeLoaded && unsubscribeStatus !== 'error') {
+    if (unsubscribeLoaded && !unsubscribeError) {
       setUnsubEmail('');
       setUnsubHoney('');
-      if (messages[unsubscribeStatus]) {
-        toast.success(intl.formatMessage(messages[unsubscribeStatus]));
-      } else {
-        toast.success(unsubscribeStatus);
-      }
+      toast.success(intl.formatMessage(messages.user_unsubscribe_success));
       return () => {
         dispatch(resetUnsubscribeNewsletter());
       };
     }
-  }, [dispatch, intl, unsubscribeLoaded, unsubscribeStatus]);
+  }, [dispatch, intl, unsubscribeLoaded, unsubscribeError]);
 
   // Subscribe generic error
   // TODO TEST
   useEffect(() => {
     if (subscribeError) {
-      toast.error(intl.formatMessage(messages.newsletterSubscriptionError));
+      const message =
+        subscribeError?.response?.body?.message ||
+        intl.formatMessage(messages.newsletterSubscriptionError);
+      toast.error(message);
     }
   }, [subscribeError, intl]);
 
@@ -196,43 +196,12 @@ const Channel = ({ content, location }) => {
   // TODO TEST
   useEffect(() => {
     if (unsubscribeError) {
-      toast.error(intl.formatMessage(messages.newsletterSubscriptionError));
+      const message =
+        unsubscribeError?.response?.body?.message ||
+        intl.formatMessage(messages.newsletterSubscriptionError);
+      toast.error(message);
     }
   }, [unsubscribeError, intl]);
-
-  // Subscribe form error
-  // TODO TEST
-  const subErrorsString = JSON.stringify(subscribeErrors);
-
-  useEffect(() => {
-    if (subscribeStatus === 'error' && subscribeErrors?.length > 0) {
-      subscribeErrors.forEach((error) => {
-        if (messages[error]) {
-          toast.error(intl.formatMessage(messages[error]));
-        } else {
-          toast.error(intl.formatMessage(messages.newsletterSubscriptionError));
-        }
-      });
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [intl, subErrorsString, subscribeStatus]);
-
-  // Unsubscribe form error
-  // TODO TEST
-  const unsubErrorsString = JSON.stringify(unsubscribeErrors);
-
-  useEffect(() => {
-    if (unsubscribeStatus === 'error' && unsubscribeErrors?.length > 0) {
-      unsubscribeErrors.forEach((error) => {
-        if (messages[error]) {
-          toast.error(intl.formatMessage(messages[error]));
-        } else {
-          toast.error(intl.formatMessage(messages.newsletterSubscriptionError));
-        }
-      });
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [intl, unsubErrorsString, unsubscribeStatus]);
 
   return (
     <>
@@ -260,9 +229,9 @@ const Channel = ({ content, location }) => {
             {content.is_subscribable && (
               <section id="subscribe-form" className="it-page-section mb-5">
                 <h2 id="header-subscribe-form" className="mb-3 h4">
-                  {intl.formatMessage(messages.subscribeNewsletterLabel)}
+                  {intl.formatMessage(messages.subscribeNewsletterHeader)}
                 </h2>
-                {subscribeLoaded && subscribeStatus !== 'error' && (
+                {subscribeLoaded && !subscribeError && (
                   <p>
                     {intl.formatMessage(
                       messages.newsletterSubscriptionThankyou,
@@ -277,12 +246,12 @@ const Channel = ({ content, location }) => {
                   tag="form"
                   onSubmit={(e) => {
                     e.preventDefault();
-                    if (!(subscribeLoaded && subscribeStatus !== 'error')) {
+                    if (!(subscribeLoaded && !subscribeError)) {
                       sendSubscribeForm();
                     }
                   }}
                 >
-                  {!(subscribeLoaded && subscribeStatus !== 'error') && (
+                  {!(subscribeLoaded && !subscribeError) && (
                     <>
                       <Input
                         type="email"
@@ -294,7 +263,9 @@ const Channel = ({ content, location }) => {
                         onChange={(e) => {
                           setEmail(e.target.value);
                         }}
-                        label={intl.formatMessage(messages.subscribeNewsletterLabel)}
+                        label={intl.formatMessage(
+                          messages.subscribeNewsletterLabel,
+                        )}
                       />
                       <HoneypotWidget
                         updateFormData={(_, value) => {
@@ -331,9 +302,9 @@ const Channel = ({ content, location }) => {
             ></RichTextSection>
             <section id="unsubscribe-form" className="it-page-section mb-5">
               <h2 id="header-unsubscribe-form" className="mb-3 h4">
-                {intl.formatMessage(messages.unsubscribeNewsletterLabel)}
+                {intl.formatMessage(messages.unsubscribeNewsletterHeader)}
               </h2>
-              {unsubscribeLoaded && unsubscribeStatus !== 'error' && (
+              {unsubscribeLoaded && !unsubscribeError && (
                 <p>
                   {intl.formatMessage(
                     messages.newsletterUnsubscriptionConfirmation,
@@ -347,12 +318,12 @@ const Channel = ({ content, location }) => {
                 tag="form"
                 onSubmit={(e) => {
                   e.preventDefault();
-                  if (!(unsubscribeLoaded && unsubscribeStatus !== 'error')) {
+                  if (!(unsubscribeLoaded && !unsubscribeError)) {
                     sendUnsubscribeForm();
                   }
                 }}
               >
-                {!(unsubscribeLoaded && unsubscribeStatus !== 'error') && (
+                {!(unsubscribeLoaded && !unsubscribeError) && (
                   <>
                     <Input
                       type="email"
@@ -364,7 +335,9 @@ const Channel = ({ content, location }) => {
                       onChange={(e) => {
                         setUnsubEmail(e.target.value);
                       }}
-                      label={intl.formatMessage(messages.unsubscribeNewsletterLabel)}
+                      label={intl.formatMessage(
+                        messages.unsubscribeNewsletterLabel,
+                      )}
                     />
                     <HoneypotWidget
                       updateFormData={(_, value) => {

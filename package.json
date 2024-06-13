@@ -36,5 +36,9 @@
     "@release-it/conventional-changelog": "^2.0.1",
     "husky": "^6.0.0",
     "release-it": "^14.10.1"
-  }
+  },
+  "dependencies": {
+    "@plone/components": "2.0.0-alpha.7"
+  },
+  "packageManager": "yarn@3.2.3"
 }

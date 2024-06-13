@@ -1,20 +1,21 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { defineMessages, useIntl } from 'react-intl';
+import { toast } from 'react-toastify';
 import { Form, Icon, Button } from 'design-react-kit';
+import { getParentUrl } from '@plone/volto/helpers';
 import { confirmNewsletterSubscription } from '../actions';
 import { useDispatch, useSelector } from 'react-redux';
-import PropTypes from 'prop-types';
-import { toast } from 'react-toastify';
-import { getParentUrl } from '@plone/volto/helpers';
 
 const messages = defineMessages({
   newsletterConfirmSubscribe: {
     id: 'newsletterConfirmSubscribe',
-    defaultMessage: 'Conferma',
+    defaultMessage: 'Conferma iscrizione',
   },
   newsletterConfirmSubscribeText: {
     id: 'newsletterConfirmSubscribeText',
-    defaultMessage: "Conferma l'iscrizione alla newsletter",
+    defaultMessage:
+      'Per confermare l’iscrizione a questa newsletter premi il pulsante sotto',
   },
   newsletterConfirmSubscribeSuccess: {
     id: 'newsletterConfirmSubscribeSuccess',
@@ -65,6 +66,7 @@ const NewsletterConfirmSubscribe = ({ location, secret, action }) => {
   const { loading, loaded, error, result } = useSelector(
     (state) => state.confirmNewsletterSubscription,
   );
+
   const { status, errors = [] } = result ?? {};
 
   useEffect(() => {
@@ -82,6 +84,21 @@ const NewsletterConfirmSubscribe = ({ location, secret, action }) => {
   }, [error, intl]);
 
   const errorsString = JSON.stringify(errors);
+
+  useEffect(() => {
+    if (status === 'error' && errors?.length > 0) {
+      errors.forEach((error) => {
+        if (messages[error]) {
+          toast.error(intl.formatMessage(messages[error]));
+        } else {
+          toast.error(
+            intl.formatMessage(messages.newsletterConfirmSubscribeError),
+          );
+        }
+      });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [intl, errorsString, status]);
 
   useEffect(() => {
     if (status === 'error' && errors?.length > 0) {

@@ -1,0 +1,18 @@
+#toolbar-message-actions,
+#toolbar-channel-actions {
+  order: 5;
+}
+
+.public-ui #toolbar button.send-message.ms-3 {
+  margin-left: 0 !important;
+}
+
+.has-toolbar-newsletter-actions-open #toolbar .toolbar-content.show,
+.has-toolbar-channel-actions-open #toolbar .toolbar-content.show {
+  bottom: 0px;
+  top: inherit !important;
+}
+
+#toolbar button.newsletter-actions svg {
+  height: 22px !important;
+}

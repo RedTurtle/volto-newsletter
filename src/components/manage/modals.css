@@ -1,0 +1,62 @@
+.react-aria-Modal.newsletter-modal {
+  max-width: fit-content;
+}
+
+.react-aria-Modal.newsletter-modal .form-action {
+  margin-top: 2em;
+}
+
+.react-aria-Modal.newsletter-modal .form-action button {
+  margin-right: 5px;
+  margin-left: 0;
+}
+
+.react-aria-Modal.newsletter-modal .field {
+  margin: 1rem 0;
+}
+
+.react-aria-Modal.newsletter-modal .field .react-aria-Text[slot='description'] {
+  color: #aaa;
+  font-size: 80%;
+}
+
+.react-aria-Modal.newsletter-modal button.delete-file {
+  border: 0;
+}
+
+.react-aria-Modal.newsletter-modal .modal-header {
+  display: flex;
+  justify-content: space-between;
+}
+.react-aria-Modal.newsletter-modal .modal-header .close button {
+  border: 0;
+}
+
+.react-aria-ModalOverlay .newsletter-modal .react-aria-Button,
+.cms-ui.newsletter-management .react-aria-Button i.icon {
+  margin-left: 5px;
+}
+
+.newsletter-management .react-aria-Button.cancel {
+  color: #fff;
+  background-color: #e40166;
+}
+
+.newsletter-management .react-aria-Button.cancel:hover,
+.newsletter-management .react-aria-Button.cancel:focus {
+  background-color: #cc005b;
+}
+
+.newsletter-management .react-aria-Button.primary {
+  color: #fff;
+  background-color: #007eb1;
+}
+
+.newsletter-management .react-aria-Button.primary:hover,
+.newsletter-management .react-aria-Button.primary:focus {
+  background-color: #006c98;
+}
+
+.newsletter-management .ui.secondary.menu .react-aria-Button {
+  margin-right: 10px;
+}
