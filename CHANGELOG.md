@@ -1,3 +1,10 @@
+### [1.2.1](https://github.com/RedTurtle/volto-newsletter/compare/v1.2.0...v1.2.1) (2024-06-20)
+
+
+### Bug Fixes
+
+* prevent double submit on send popup and fix error handling ([#4](https://github.com/RedTurtle/volto-newsletter/issues/4)) ([3fbde02](https://github.com/RedTurtle/volto-newsletter/commit/3fbde02a6f09adf976117550c9f8c836a8110a89))
+
 ## [1.2.0](https://github.com/RedTurtle/volto-newsletter/compare/v1.1.1...v1.2.0) (2024-06-13)
 
 
