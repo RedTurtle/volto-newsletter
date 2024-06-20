@@ -57,7 +57,7 @@ const messages = defineMessages({
     defaultMessage: 'Test message sent',
   },
   error: {
-    id: 'error_label',
+    id: 'panel_error',
     defaultMessage: 'Error',
   },
   success: {
@@ -99,7 +99,9 @@ const ModalTestSend = ({ toastify }) => {
       /* SEND FAIL */
       setEmailAddress('');
       toastNotification({
-        message: intl.formatMessage(messages.message_send_error),
+        message:
+          messageSendStatus.error?.response?.body.message ||
+          intl.formatMessage(messages.message_send_error),
         success: false,
       });
       return () => {

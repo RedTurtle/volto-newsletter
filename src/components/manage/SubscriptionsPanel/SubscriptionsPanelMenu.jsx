@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Menu, Loader, Dimmer } from 'semantic-ui-react';
-import { Button, Dialog, Heading, Modal } from 'react-aria-components';
+import { Menu } from 'semantic-ui-react';
+import { Button } from 'react-aria-components';
 import { defineMessages, useIntl } from 'react-intl';
 import { Icon, Toast } from '@plone/volto/components';
-import trashSVG from '@plone/volto/icons/delete.svg';
 import { injectLazyLibs } from '@plone/volto/helpers/Loadable/Loadable';
 import {
   addSubscription,

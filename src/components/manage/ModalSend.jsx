@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { defineMessages, useIntl } from 'react-intl';
 import { useDispatch, useSelector } from 'react-redux';
 import { compose } from 'redux';
@@ -78,6 +78,14 @@ const ModalSend = ({ content, toastify }) => {
   const { active_subscriptions } =
     content?.['@components']?.['message-actions'] || {};
 
+  const [formSubmitted, setFormSubmitted] = useState(false);
+
+  useEffect(() => {
+    if (modalIsOpen) {
+      setFormSubmitted(false);
+    }
+  }, [modalIsOpen]);
+
   /* SEND SUCCESS */
   useEffect(() => {
     if (messageSendStatus.loaded) {
@@ -142,6 +150,7 @@ const ModalSend = ({ content, toastify }) => {
   /* function to change booking state */
   const onFormSubmit = (e) => {
     e.preventDefault();
+    setFormSubmitted(true);
     dispatch(messageSend(path, { ...messageTokenStatus.value }));
   };
 
@@ -174,7 +183,11 @@ const ModalSend = ({ content, toastify }) => {
         </p>
         <form onSubmit={onFormSubmit}>
           <div className="form-action">
-            <Button type="submit" className="react-aria-Button primary">
+            <Button
+              type="submit"
+              className="react-aria-Button primary"
+              isDisabled={formSubmitted}
+            >
               {intl.formatMessage(messages.confirm)}
             </Button>
             <Button
