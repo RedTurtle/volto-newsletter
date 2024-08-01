@@ -53,7 +53,7 @@ const messages = defineMessages({
   newsletterSubscriptionThankyou: {
     id: 'newsletterSubscriptionThankyou',
     defaultMessage:
-      'Grazie per esserti iscritto alla newsletter. Controlla la tua casella di posta elettronica per verificare la tua iscrizione.',
+      "Grazie per esserti iscritto alla newsletter. Controlla la tua casella di posta elettronica per confermare l'iscrizione.",
   },
   newsletterUnsubscriptionConfirmation: {
     id: 'newsletterUnsubscriptionConfirmation',
@@ -68,7 +68,7 @@ const messages = defineMessages({
   user_subscribe_success: {
     id: 'user_subscribe_success',
     defaultMessage:
-      'Richiesta di iscrizione inviata. Controlla la tua casella di posta elettronica per verificare la tua iscrizione.',
+      "Richiesta di iscrizione inviata. Controlla la tua casella di posta elettronica per confermare l'iscrizione.",
   },
   invalid_captcha: {
     id: 'invalid_captcha',
@@ -85,7 +85,7 @@ const messages = defineMessages({
   user_unsubscribe_success: {
     id: 'user_unsubscribe_success',
     defaultMessage:
-      'Richiesta di cancellazione inviata. Controlla la tua casella di posta elettronica per verificare la tua iscrizione.',
+      'Richiesta di cancellazione inviata. Controlla la tua casella di posta elettronica per confermare la cancellazione.',
   },
   unsubscribe_generic: {
     id: 'unsubscribe_generic',

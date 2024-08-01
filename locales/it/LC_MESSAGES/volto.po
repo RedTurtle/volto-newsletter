@@ -293,9 +293,9 @@ msgid "newsletterSubscriptionError"
 msgstr "Si è verificato un errore durante l'invio della richiesta. Si prega di riprovare più tardi."
 
 #: views/Channel
-# defaultMessage: Grazie per esserti iscritto alla newsletter. Controlla la tua casella di posta elettronica per verificare la tua iscrizione.
+# defaultMessage: Grazie per esserti iscritto alla newsletter. Controlla la tua casella di posta elettronica per confermare l'iscrizione.
 msgid "newsletterSubscriptionThankyou"
-msgstr "Grazie per esserti iscritto alla newsletter. Controlla la tua casella di posta elettronica per verificare la tua iscrizione."
+msgstr "Grazie per esserti iscritto alla newsletter. Controlla la tua casella di posta elettronica per confermare l'iscrizione."
 
 #: views/Channel
 # defaultMessage: La tua richiesta di cancellazione dell'iscrizione alla newsletter è stata inviata. Controlla la tua casella di posta elettronica per verificare l'operazione.
@@ -618,11 +618,11 @@ msgid "user_secret_not_found"
 msgstr ""
 
 #: views/Channel
-# defaultMessage: Richiesta di iscrizione inviata. Controlla la tua casella di posta elettronica per verificare la tua iscrizione.
+# defaultMessage: Richiesta di iscrizione inviata. Controlla la tua casella di posta elettronica per confermare l'iscrizione.
 msgid "user_subscribe_success"
 msgstr ""
 
 #: views/Channel
-# defaultMessage: Richiesta di cancellazione inviata. Controlla la tua casella di posta elettronica per verificare la tua iscrizione.
+# defaultMessage: Richiesta di cancellazione inviata. Controlla la tua casella di posta elettronica per confermare la cancellazione.
 msgid "user_unsubscribe_success"
 msgstr ""
