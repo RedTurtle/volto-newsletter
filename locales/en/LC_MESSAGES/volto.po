@@ -293,7 +293,7 @@ msgid "newsletterSubscriptionError"
 msgstr ""
 
 #: views/Channel
-# defaultMessage: Grazie per esserti iscritto alla newsletter. Controlla la tua casella di posta elettronica per verificare la tua iscrizione.
+# defaultMessage: Grazie per esserti iscritto alla newsletter. Controlla la tua casella di posta elettronica per confermare l'iscrizione.
 msgid "newsletterSubscriptionThankyou"
 msgstr ""
 
@@ -618,11 +618,11 @@ msgid "user_secret_not_found"
 msgstr ""
 
 #: views/Channel
-# defaultMessage: Richiesta di iscrizione inviata. Controlla la tua casella di posta elettronica per verificare la tua iscrizione.
+# defaultMessage: Richiesta di iscrizione inviata. Controlla la tua casella di posta elettronica per confermare l'iscrizione.
 msgid "user_subscribe_success"
 msgstr ""
 
 #: views/Channel
-# defaultMessage: Richiesta di cancellazione inviata. Controlla la tua casella di posta elettronica per verificare la tua iscrizione.
+# defaultMessage: Richiesta di cancellazione inviata. Controlla la tua casella di posta elettronica per confermare la cancellazione.
 msgid "user_unsubscribe_success"
 msgstr ""
