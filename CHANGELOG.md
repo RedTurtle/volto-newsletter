@@ -1,3 +1,10 @@
+### [1.2.2](https://github.com/RedTurtle/volto-newsletter/compare/v1.2.1...v1.2.2) (2024-08-02)
+
+
+### Bug Fixes
+
+* improve subcribe/unsubscribe labels ([#5](https://github.com/RedTurtle/volto-newsletter/issues/5)) ([2efbd30](https://github.com/RedTurtle/volto-newsletter/commit/2efbd30a8fa6db618491a8f6d7b0862004af9f80))
+
 ### [1.2.1](https://github.com/RedTurtle/volto-newsletter/compare/v1.2.0...v1.2.1) (2024-06-20)
 
 
