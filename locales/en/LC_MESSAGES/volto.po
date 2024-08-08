@@ -298,7 +298,7 @@ msgid "newsletterSubscriptionThankyou"
 msgstr ""
 
 #: views/Channel
-# defaultMessage: La tua richiesta di cancellazione dell'iscrizione alla newsletter è stata inviata. Controlla la tua casella di posta elettronica per verificare l'operazione.
+# defaultMessage: La tua richiesta di cancellazione dell'iscrizione alla newsletter è stata inviata. Controlla la tua casella di posta elettronica per confermare la cancellazione.
 msgid "newsletterUnsubscriptionConfirmation"
 msgstr ""
 
