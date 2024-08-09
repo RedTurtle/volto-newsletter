@@ -298,9 +298,9 @@ msgid "newsletterSubscriptionThankyou"
 msgstr "Grazie per esserti iscritto alla newsletter. Controlla la tua casella di posta elettronica per confermare l'iscrizione."
 
 #: views/Channel
-# defaultMessage: La tua richiesta di cancellazione dell'iscrizione alla newsletter è stata inviata. Controlla la tua casella di posta elettronica per verificare l'operazione.
+# defaultMessage: La tua richiesta di cancellazione dell'iscrizione alla newsletter è stata inviata. Controlla la tua casella di posta elettronica per confermare la cancellazione.
 msgid "newsletterUnsubscriptionConfirmation"
-msgstr "La tua richiesta di cancellazione dell'iscrizione alla newsletter è stata inviata. Controlla la tua casella di posta elettronica per verificare l'operazione."
+msgstr "La tua richiesta di cancellazione dell'iscrizione alla newsletter è stata inviata. Controlla la tua casella di posta elettronica per confermare la cancellazione."
 
 #: components/manage/ModalSend
 # defaultMessage: Error sending the message

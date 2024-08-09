@@ -58,7 +58,7 @@ const messages = defineMessages({
   newsletterUnsubscriptionConfirmation: {
     id: 'newsletterUnsubscriptionConfirmation',
     defaultMessage:
-      "La tua richiesta di cancellazione dell'iscrizione alla newsletter è stata inviata. Controlla la tua casella di posta elettronica per verificare l'operazione.",
+      "La tua richiesta di cancellazione dell'iscrizione alla newsletter è stata inviata. Controlla la tua casella di posta elettronica per confermare la cancellazione.",
   },
   newsletterSubscriptionError: {
     id: 'newsletterSubscriptionError',
