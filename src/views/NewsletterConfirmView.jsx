@@ -30,7 +30,6 @@ const NewsletterConfirmView = ({ location }) => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [content]);
-  console.log(content);
   const { secret, action } = Object.fromEntries(
     new URLSearchParams(location.search),
   );
