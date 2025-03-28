@@ -1,3 +1,10 @@
+### [1.2.4](https://github.com/RedTurtle/volto-newsletter/compare/v1.2.3...v1.2.4) (2025-03-28)
+
+
+### Maintenance
+
+* removed console.log ([2627736](https://github.com/RedTurtle/volto-newsletter/commit/2627736b3ba7344aef82c6c7dcc627c28bb290af))
+
 ### [1.2.3](https://github.com/RedTurtle/volto-newsletter/compare/v1.2.2...v1.2.3) (2024-09-19)
 
 
