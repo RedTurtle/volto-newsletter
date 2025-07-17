@@ -11,6 +11,7 @@ const MessageFilterBlocks = () => {
     if (blockConfig.restricted === true) {
       newBlocksConfig[blockId] = blockConfig;
     } else {
+      const defaultRestricted = blockConfig.restricted;
       newBlocksConfig[blockId] = {
         ...blockConfig,
         restricted: ({ block, properties }) => {
@@ -21,9 +22,8 @@ const MessageFilterBlocks = () => {
               // filter allowed blocks
               return !allowedMessageBlocks.includes(block.id);
             }
-            return false;
           }
-          return false;
+          return defaultRestricted({ block, properties });
         },
       };
     }
