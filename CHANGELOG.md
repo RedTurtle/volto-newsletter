@@ -1,3 +1,11 @@
+### [1.2.5](https://github.com/RedTurtle/volto-newsletter/compare/v1.2.4...v1.2.5) (2025-07-21)
+
+
+### Bug Fixes
+
+* better handle blocks restricted customizations ([#7](https://github.com/RedTurtle/volto-newsletter/issues/7)) ([699e856](https://github.com/RedTurtle/volto-newsletter/commit/699e8562114a4faacfc1a16bd6d75514f8e91dd9))
+* blocks restrictions ([#8](https://github.com/RedTurtle/volto-newsletter/issues/8)) ([d91b809](https://github.com/RedTurtle/volto-newsletter/commit/d91b8092af63cf542d735120235f128778faca95))
+
 ### [1.2.4](https://github.com/RedTurtle/volto-newsletter/compare/v1.2.3...v1.2.4) (2025-03-28)
 
 
