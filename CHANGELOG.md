@@ -1,3 +1,10 @@
+### [1.2.6](https://github.com/RedTurtle/volto-newsletter/compare/v1.2.5...v1.2.6) (2025-08-11)
+
+
+### Bug Fixes
+
+* restricted blocks in Message ([523e29e](https://github.com/RedTurtle/volto-newsletter/commit/523e29e82713b8a62473e84ef2b3b43e38718e39))
+
 ### [1.2.5](https://github.com/RedTurtle/volto-newsletter/compare/v1.2.4...v1.2.5) (2025-07-21)
 
 
