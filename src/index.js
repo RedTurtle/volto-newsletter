@@ -12,7 +12,7 @@ import { Message, Channel } from './views';
 import NewsletterConfirmSubscribe from './views/NewsletterConfirmSubscribe';
 import NewsletterConfirmUnsubscribe from './views/NewsletterConfirmUnsubscribe';
 import NewsletterConfirmView from './views/NewsletterConfirmView';
-import MessageFilterBlocks from './config/MessageFilterBlocks';
+import { setRestricted } from './config/Blocks/handleRestricted';
 import {
   NewsletterMessageToolbar,
   MessageActionsMenu,
@@ -81,8 +81,6 @@ const applyConfig = (config) => {
 
   config.settings.appExtras = [
     ...config.settings.appExtras,
-    { match: '/**/add', component: MessageFilterBlocks, props: {} },
-    { match: '/**/edit', component: MessageFilterBlocks, props: {} },
     {
       match: '',
       component: NewsletterMessageToolbar,
@@ -98,6 +96,8 @@ const applyConfig = (config) => {
     messageActions: { component: MessageActionsMenu, wrapper: null },
     channelActions: { component: ChannelActionsMenu, wrapper: null },
   };
+
+  setRestricted(config);
 
   return config;
 };
