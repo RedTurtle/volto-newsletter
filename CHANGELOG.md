@@ -1,3 +1,10 @@
+### [1.2.7](https://github.com/RedTurtle/volto-newsletter/compare/v1.2.6...v1.2.7) (2026-02-17)
+
+
+### Bug Fixes
+
+* Align table cell text to center for SendHistoryPanel ([0bab013](https://github.com/RedTurtle/volto-newsletter/commit/0bab01393cb73358ddf2b7a1dde051bbc3d92312))
+
 ### [1.2.6](https://github.com/RedTurtle/volto-newsletter/compare/v1.2.5...v1.2.6) (2025-08-11)
 
 
