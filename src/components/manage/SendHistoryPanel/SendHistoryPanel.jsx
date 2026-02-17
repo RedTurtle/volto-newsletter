@@ -356,14 +356,14 @@ const SendHistoryPanel = ({ toastify, content }) => {
                         />
                       </Table.Cell>
                       <Table.Cell>{item.message}</Table.Cell>
-                      <Table.Cell>{item.subscribers}</Table.Cell>
+                      <Table.Cell textAlign="center">{item.subscribers}</Table.Cell>
                       <Table.Cell textAlign="center">
                         {item.send_date_start}
                       </Table.Cell>
                       <Table.Cell textAlign="center">
                         {item.send_date_end}
                       </Table.Cell>
-                      <Table.Cell>{getItemStatus(item)}</Table.Cell>
+                      <Table.Cell textAlign="center">{getItemStatus(item)}</Table.Cell>
                     </tr>
                   ))}
               </Table.Body>
